@@ -1,488 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description" content="Business Growth - practical business tools, insights and resources for entrepreneurs.">
-  <meta name="keywords" content="business growth, business tools, entrepreneur, startup, business ideas">
-  <meta name="author" content="Business Growth">
-
-  <title>Business Growth | Grow Smarter</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f9fc;
-      color: #172033;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    /* HEADER */
-
-    header {
-      width: 100%;
-      background: #ffffff;
-      border-bottom: 1px solid #e7ebf0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      min-height: 72px;
-      padding: 0 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      color: #126b46;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #ed7418;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .nav-links a {
-      color: #374151;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #126b46;
-    }
-
-    .nav-button {
-      background: #126b46;
-      color: white !important;
-      padding: 10px 18px;
-      border-radius: 25px;
-    }
-
-    /* HERO */
-
-    .hero {
-      background: linear-gradient(135deg, #eefbf4, #fff8ee);
-      padding: 90px 22px 85px;
-    }
-
-    .hero-container {
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 7px 14px;
-      background: white;
-      border: 1px solid #dce8df;
-      border-radius: 30px;
-      color: #126b46;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 54px;
-      line-height: 1.12;
-      max-width: 850px;
-      margin: auto;
-      color: #111827;
-    }
-
-    .hero h1 span {
-      color: #ed7418;
-    }
-
-    .hero-text {
-      max-width: 720px;
-      margin: 22px auto 0;
-      color: #667085;
-      font-size: 18px;
-    }
-
-    .hero-buttons {
-      margin-top: 30px;
-    }
-
-    .primary-button,
-    .secondary-button {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 28px;
-      font-weight: 700;
-      margin: 5px;
-    }
-
-    .primary-button {
-      background: #126b46;
-      color: white;
-    }
-
-    .secondary-button {
-      background: white;
-      color: #126b46;
-      border: 1px solid #cfdad3;
-    }
-
-    /* GENERAL */
-
-    .section {
-      padding: 75px 22px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      font-size: 35px;
-      margin-bottom: 10px;
-      color: #111827;
-    }
-
-    .section-heading p {
-      color: #697386;
-    }
-
-    /* STATS */
-
-    .stats {
-      margin-top: -30px;
-      position: relative;
-    }
-
-    .stats-grid {
-      max-width: 1000px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stat-card {
-      background: white;
-      padding: 25px;
-      border-radius: 18px;
-      text-align: center;
-      border: 1px solid #e5e9ef;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-    }
-
-    .stat-card h3 {
-      font-size: 28px;
-      color: #126b46;
-    }
-
-    .stat-card p {
-      color: #697386;
-      margin-top: 4px;
-    }
-
-    /* TOOLS */
-
-    .tools-section {
-      background: white;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 26px;
-      border-radius: 20px;
-      border: 1px solid #e5e9ef;
-      box-shadow: 0 7px 24px rgba(0,0,0,0.045);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-    }
-
-    .icon {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: #eef8f2;
-      font-size: 27px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: #697386;
-      font-size: 15px;
-    }
-
-    .card-link {
-      display: inline-block;
-      margin-top: 16px;
-      color: #126b46;
-      font-weight: 700;
-    }
-
-    /* INSIGHTS */
-
-    .insight-card {
-      padding: 0;
-      overflow: hidden;
-    }
-
-    .insight-image {
-      height: 165px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 25px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #126b46, #ed7418);
-    }
-
-    .insight-content {
-      padding: 23px;
-    }
-
-    .category {
-      color: #ed7418;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .5px;
-    }
-
-    /* ABOUT */
-
-    .about {
-      background: #0f172a;
-      color: white;
-    }
-
-    .about .section-heading h2 {
-      color: white;
-    }
-
-    .about .section-heading p {
-      color: #c6ceda;
-    }
-
-    .about-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .about-card {
-      padding: 28px;
-      border: 1px solid #263248;
-      border-radius: 20px;
-      background: #141e30;
-    }
-
-    .about-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .about-card p {
-      color: #c6ceda;
-    }
-
-    /* FAQ */
-
-    .faq {
-      max-width: 850px;
-    }
-
-    .faq-item {
-      background: white;
-      border: 1px solid #e5e9ef;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 12px;
-    }
-
-    .faq-item h3 {
-      font-size: 17px;
-      margin-bottom: 7px;
-    }
-
-    .faq-item p {
-      color: #697386;
-    }
-
-    /* CONTACT */
-
-    .contact-box {
-      background: white;
-      border: 1px solid #e5e9ef;
-      border-radius: 22px;
-      padding: 35px;
-      text-align: center;
-    }
-
-    .contact-box p {
-      color: #697386;
-      margin-top: 8px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #020617;
-      color: white;
-      padding: 50px 22px 25px;
-    }
-
-    .footer-grid {
-      max-width: 1150px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-    }
-
-    .footer-logo {
-      font-size: 23px;
-      font-weight: 800;
-    }
-
-    .footer-grid h3 {
-      margin-bottom: 12px;
-    }
-
-    .footer-grid p,
-    .footer-grid a {
-      color: #9aa5b5;
-      font-size: 14px;
-    }
-
-    .footer-links a {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .copyright {
-      max-width: 1150px;
-      margin: 35px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid #1f2937;
-      color: #7e8999;
-      font-size: 13px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-box {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-
-      .hero {
-        padding: 65px 18px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero-text {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 55px 18px;
-      }
-
-      .section-heading h2 {
-        font-size: 29px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Business Growth - practical business tools, calculators, learning resources and growth planning.">
+<meta name="keywords" content="business growth, business calculator, profit calculator, growth planner, business ideas, entrepreneurship">
+<meta name="author" content="Business Growth">
+
+<title>Business Growth | Build Better. Grow Smarter.</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f9fc;
+  color:#172033;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid #e5eaf0;
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  min-height:70px;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:23px;
+  font-weight:800;
+  color:#126b46;
+}
+
+.logo span{
+  color:#ed7418;
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+
+.navlinks a{
+  font-size:14px;
+  font-weight:600;
+  color:#374151;
+}
+
+.navlinks a:hover{
+  color:#126b46;
+}
+
+.contact-btn{
+  background:#126b46!important;
+  color:white!important;
+  padding:10px 17px;
+  border-radius:25px;
+}
+
+.menu{
+  display:none;
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero{
+  padding:75px 20px 65px;
+  text-align:center;
+  background:linear-gradient(135deg,#f0fbf5,#fffaf0);
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  border:1px solid #dce9e2;
+  border-radius:25px;
+  background:white;
+  color:#126b46;
+  font-size:13px;
+  font-weight:600;
+}
+
+.hero h1{
+  max-width:850px;
+  margin:20px auto 12px;
+  font-size:clamp(40px,7vw,68px);
+  line-height:1.05;
+}
+
+.hero h1 span{
+  color:#e96e20;
+}
+
+.hero p{
+  max-width:760px;
+  margin:0 auto 28px;
+  color:#667085;
+  font-size:17px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:13px 22px;
+  border-radius:28px;
+  font-weight:700;
+  cursor:pointer;
+  border:none;
+}
+
+.btn-primary{
+  background:#126b46;
+  color:white;
+}
+
+.btn-secondary{
+  background:white;
+  border:1px solid #dce2e8;
+  color:#172033;
+}
+
+/* STATS */
+.stats{
+  max-width:1100px;
+  margin:-30px auto 0;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  position:relative;
+}
+
+.stat{
+  background:white;
+  padding:25px;
+  text-align:center;
+  border-radius:16px;
+  box-shadow:0 8px 30px rgba(20,30,50,.08);
+}
+
+.stat strong{
+  display:block;
+  color:#126b46;
+  font-size:27px;
+}
+
+.stat span{
+  color:#7b8492;
+  font-size:13px;
+}
+
+/* SECTIONS */
+section{
+  padding:70px 20px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.section-title{
+  margin-bottom:35px;
+}
+
+.section-title h2{
+  font-size:32px;
+  margin-bottom:7px;
+}
+
+.section-title p{
+  color:#6b7280;
+}
+
+/* TOOLS */
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.tool-card{
+  background:white;
+  border:1px solid #e8edf2;
+  border-radius:18px;
+  padding:25px;
+  transition:.2s;
+}
+
+.tool-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(20,30,50,.08);
+}
+
+.icon{
+  width:45px;
+  height:45px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eef8f2;
+  font-size:22px;
+  margin-bottom:17px;
+}
+
+.tool-card h3{
+  margin-bottom:7px;
+}
+
+.tool-card p{
+  color:#707887;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.explore{
+  color:#126b46;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* CALCULATOR */
+.calculator-section{
+  background:#eef6f1;
+}
+
+.calculator{
+  max-width:700px;
+  background:white;
+  margin:auto;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 35px rgba(20,30,50,.08);
+}
+
+.calculator h3{
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.form-group{
+  margin-bottom:16px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.form-group input{
+  width:100%;
+  padding:13px;
+  border:1px solid #d8dee6;
+  border-radius:10px;
+  font-size:16px;
+  outline:none;
+}
+
+.form-group input:focus{
+  border-color:#126b46;
+}
+
+.result{
+  margin-top:20px;
+  padding:20px;
+  background:#f2faf5;
+  border-radius:12px;
+  display:none;
+}
+
+.result strong{
+  color:#126b46;
+  font-size:24px;
+}
+
+/* INSIGHTS */
+.insights{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.article{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #e8edf2;
+}
+
+.article-top{
+  height:130px;
+  background:linear-gradient(135deg,#126b46,#ed7418);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:42px;
+}
+
+.article-content{
+  padding:20px;
+}
+
+.article-content h3{
+  margin-bottom:8px;
+}
+
+.article-content p{
+  color:#6b7280;
+  font-size:14px;
+}
+
+/* ABOUT */
+.about-box{
+  background:white;
+  padding:35px;
+  border-radius:20px;
+  border:1px solid #e7ebef;
+}
+
+.about-box p{
+  color:#606a78;
+  margin-top:10px;
+}
+
+/* CONTACT */
+.contact{
+  background:#f0f5f9;
+}
+
+.contact-box{
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+  background:white;
+  padding:35px;
+  border-radius:20px;
+}
+
+.contact-box p{
+  color:#687180;
+  margin:10px 0 20px;
+}
+
+/* FOOTER */
+footer{
+  background:#101a2d;
+  color:white;
+  padding:45px 20px 25px;
+}
+
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer-grid h3{
+  margin-bottom:12px;
+}
+
+.footer-grid p,
+.footer-grid a{
+  color:#b9c1cf;
+  font-size:14px;
+}
+
+.footer-grid a{
+  display:block;
+  margin:7px 0;
+}
+
+.copyright{
+  border-top:1px solid #293348;
+  margin-top:30px;
+  padding-top:20px;
+  text-align:center;
+  color:#929bad;
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .navlinks{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:white;
+    padding:20px;
+    flex-direction:column;
+    border-bottom:1px solid #e5eaf0;
+  }
+
+  .navlinks.show{
+    display:flex;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .tools-grid,
+  .insights{
+    grid-template-columns:1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:55px;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+}
+</style>
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
   <div class="navbar">
@@ -491,12 +476,14 @@
       📈 Business <span>Growth</span>
     </a>
 
-    <nav class="nav-links">
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <nav class="navlinks" id="navlinks">
       <a href="#home">Home</a>
       <a href="#tools">Tools</a>
       <a href="#insights">Insights</a>
       <a href="#about">About</a>
-      <a href="#contact" class="nav-button">Contact</a>
+      <a href="#contact" class="contact-btn">Contact</a>
     </nav>
 
   </div>
@@ -504,62 +491,107 @@
 
 
 <!-- HERO -->
-
 <section class="hero" id="home">
 
-  <div class="hero-container">
+  <div class="badge">🚀 A Digital Business Growth Platform</div>
 
-    <div class="hero-badge">
-      🚀 A Digital Business Growth Platform
-    </div>
+  <h1>
+    Build Better.
+    <span>Grow Smarter.</span>
+  </h1>
 
-    <h1>
-      Build Better.
-      <span>Grow Smarter.</span>
-    </h1>
+  <p>
+    Business Growth is an independent digital project providing
+    practical business tools, educational resources and useful
+    insights for entrepreneurs and growing businesses.
+  </p>
 
-    <p class="hero-text">
-      Business Growth is an independent digital project providing
-      practical business tools, educational resources and useful
-      insights for entrepreneurs and growing businesses.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#tools" class="primary-button">
-        Explore Tools →
-      </a>
-
-      <a href="#about" class="secondary-button">
-        Learn More
-      </a>
-
-    </div>
-
+  <div class="buttons">
+    <a href="#tools" class="btn btn-primary">Explore Tools →</a>
+    <a href="#about" class="btn btn-secondary">Learn More</a>
   </div>
 
 </section>
 
 
 <!-- STATS -->
+<div class="stats">
 
-<section class="section stats">
+  <div class="stat">
+    <strong>6+</strong>
+    <span>Business Resources</span>
+  </div>
 
-  <div class="stats-grid">
+  <div class="stat">
+    <strong>100%</strong>
+    <span>Educational Focus</span>
+  </div>
 
-    <div class="stat-card">
-      <h3>6+</h3>
-      <p>Business Resources</p>
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>Digital Access</span>
+  </div>
+
+</div>
+
+
+<!-- TOOLS -->
+<section id="tools">
+
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Business Growth Tools</h2>
+      <p>
+        Simple resources designed to help entrepreneurs understand
+        important areas of business.
+      </p>
     </div>
 
-    <div class="stat-card">
-      <h3>100%</h3>
-      <p>Educational Focus</p>
-    </div>
+    <div class="tools-grid">
 
-    <div class="stat-card">
-      <h3>24/7</h3>
-      <p>Digital Access</p>
+      <div class="tool-card">
+        <div class="icon">📊</div>
+        <h3>Business Calculator</h3>
+        <p>Calculate basic business figures and understand important numbers.</p>
+        <a href="#calculator" class="explore">Open Tool →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="icon">💰</div>
+        <h3>Profit Calculator</h3>
+        <p>Calculate estimated revenue, expenses and business profit.</p>
+        <a href="#calculator" class="explore">Open Tool →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="icon">📈</div>
+        <h3>Growth Planner</h3>
+        <p>Set business goals and plan your next growth steps.</p>
+        <a href="#about" class="explore">Explore →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="icon">💡</div>
+        <h3>Business Ideas</h3>
+        <p>Explore educational information about different business ideas.</p>
+        <a href="#insights" class="explore">Explore →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="icon">🎯</div>
+        <h3>Goal Planning</h3>
+        <p>Create clear objectives and organize your priorities.</p>
+        <a href="#about" class="explore">Explore →</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="icon">📚</div>
+        <h3>Business Learning</h3>
+        <p>Learn basic concepts related to entrepreneurship and management.</p>
+        <a href="#insights" class="explore">Explore →</a>
+      </div>
+
     </div>
 
   </div>
@@ -567,131 +599,38 @@
 </section>
 
 
-<!-- TOOLS -->
-
-<section class="section tools-section" id="tools">
+<!-- PROFIT CALCULATOR -->
+<section class="calculator-section" id="calculator">
 
   <div class="container">
 
-    <div class="section-heading">
-
-      <h2>Business Growth Tools</h2>
-
-      <p>
-        Explore simple resources designed to help entrepreneurs
-        understand important areas of business.
-      </p>
-
+    <div class="section-title">
+      <h2>Profit Calculator</h2>
+      <p>Use this simple calculator for educational business planning.</p>
     </div>
 
+    <div class="calculator">
 
-    <div class="cards">
+      <h3>Calculate Estimated Profit</h3>
 
-      <div class="card">
-
-        <div class="icon">📊</div>
-
-        <h3>Business Calculator</h3>
-
-        <p>
-          Calculate basic business figures and understand
-          important numbers.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
+      <div class="form-group">
+        <label>Revenue (₹)</label>
+        <input type="number" id="revenue" placeholder="Example: 50000">
       </div>
 
-
-      <div class="card">
-
-        <div class="icon">💰</div>
-
-        <h3>Profit Calculator</h3>
-
-        <p>
-          Understand revenue, expenses and estimated profit
-          using simple calculations.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
+      <div class="form-group">
+        <label>Total Expenses (₹)</label>
+        <input type="number" id="expenses" placeholder="Example: 30000">
       </div>
 
+      <button class="btn btn-primary" onclick="calculateProfit()">
+        Calculate Profit
+      </button>
 
-      <div class="card">
-
-        <div class="icon">📈</div>
-
-        <h3>Growth Planner</h3>
-
-        <p>
-          Organize business goals and track important growth
-          areas.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">💡</div>
-
-        <h3>Business Ideas</h3>
-
-        <p>
-          Discover educational information about different
-          business ideas and models.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">🎯</div>
-
-        <h3>Goal Planning</h3>
-
-        <p>
-          Create clear business objectives and organize
-          your priorities.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="icon">🧠</div>
-
-        <h3>Business Learning</h3>
-
-        <p>
-          Learn basic concepts related to entrepreneurship,
-          marketing and business management.
-        </p>
-
-        <a href="#" class="card-link">
-          Explore →
-        </a>
-
+      <div class="result" id="profitResult">
+        Estimated Profit:
+        <br>
+        <strong id="profitAmount">₹0</strong>
       </div>
 
     </div>
@@ -702,114 +641,49 @@
 
 
 <!-- INSIGHTS -->
-
-<section class="section" id="insights">
+<section id="insights">
 
   <div class="container">
 
-    <div class="section-heading">
-
+    <div class="section-title">
       <h2>Business Insights</h2>
-
-      <p>
-        Educational articles and ideas for entrepreneurs.
-      </p>
-
+      <p>Educational articles and ideas for entrepreneurs.</p>
     </div>
 
+    <div class="insights">
 
-    <div class="cards">
-
-
-      <article class="card insight-card">
-
-        <div class="insight-image">
-          BUSINESS
-        </div>
-
-        <div class="insight-content">
-
-          <div class="category">
-            BUSINESS
-          </div>
-
-          <h3>
-            Building a Strong Business Foundation
-          </h3>
-
+      <article class="article">
+        <div class="article-top">📈</div>
+        <div class="article-content">
+          <h3>How Businesses Grow</h3>
           <p>
-            Understand some of the basic areas involved
-            in starting and organizing a business.
+            Understand basic factors that can influence business growth,
+            customers and revenue.
           </p>
-
-          <a href="#" class="card-link">
-            Read More →
-          </a>
-
         </div>
-
       </article>
 
-
-      <article class="card insight-card">
-
-        <div class="insight-image">
-          STARTUP
-        </div>
-
-        <div class="insight-content">
-
-          <div class="category">
-            STARTUP
-          </div>
-
-          <h3>
-            Understanding Business Opportunities
-          </h3>
-
+      <article class="article">
+        <div class="article-top">💡</div>
+        <div class="article-content">
+          <h3>Starting a Small Business</h3>
           <p>
-            Learn how entrepreneurs can research markets,
-            customers and business opportunities.
+            Learn about planning, customers, costs and other basic
+            considerations before starting.
           </p>
-
-          <a href="#" class="card-link">
-            Read More →
-          </a>
-
         </div>
-
       </article>
 
-
-      <article class="card insight-card">
-
-        <div class="insight-image">
-          DIGITAL
-        </div>
-
-        <div class="insight-content">
-
-          <div class="category">
-            DIGITAL BUSINESS
-          </div>
-
-          <h3>
-            Using Digital Tools in Business
-          </h3>
-
+      <article class="article">
+        <div class="article-top">🎯</div>
+        <div class="article-content">
+          <h3>Set Better Goals</h3>
           <p>
-            Learn about the role of websites, apps and
-            digital tools in modern businesses.
+            Break large business objectives into smaller and measurable
+            steps.
           </p>
-
-          <a href="#" class="card-link">
-            Read More →
-          </a>
-
         </div>
-
       </article>
-
 
     </div>
 
@@ -819,112 +693,34 @@
 
 
 <!-- ABOUT -->
-
-<section class="section about" id="about">
+<section id="about">
 
   <div class="container">
 
-    <div class="section-heading">
-
+    <div class="section-title">
       <h2>About Business Growth</h2>
-
-      <p>
-        Business Growth is an independent digital project.
-        The platform is designed to make practical business
-        information and educational resources easier to access.
-      </p>
-
     </div>
-
 
     <div class="about-box">
 
-      <div class="about-card">
-
-        <h3>Our Purpose</h3>
-
-        <p>
-          To create a simple digital platform where entrepreneurs
-          and learners can explore useful business concepts,
-          tools and resources.
-        </p>
-
-      </div>
-
-
-      <div class="about-card">
-
-        <h3>Our Approach</h3>
-
-        <p>
-          We focus on clear information, simple tools and
-          an easy-to-use digital experience.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- FAQ -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Frequently Asked Questions</h2>
+      <h3>An Independent Digital Project</h3>
 
       <p>
-        Some basic information about Business Growth.
+        Business Growth is an independent educational project created
+        to provide simple business tools, learning resources and
+        practical information for people interested in entrepreneurship.
       </p>
 
-    </div>
+      <p>
+        The website is not affiliated with or sponsored by any other
+        company unless explicitly stated.
+      </p>
 
-
-    <div class="faq">
-
-      <div class="faq-item">
-
-        <h3>What is Business Growth?</h3>
-
-        <p>
-          Business Growth is an independent digital project
-          focused on business education, tools and resources.
-        </p>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <h3>Is Business Growth a company?</h3>
-
-        <p>
-          This website currently represents an independent
-          project and should not be understood as a registered
-          company unless that status is separately established.
-        </p>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <h3>Are the tools free?</h3>
-
-        <p>
-          The website can provide free educational tools and
-          resources. Any future paid service will be clearly
-          identified before use.
-        </p>
-
-      </div>
+      <p>
+        Information and calculators on this website are provided for
+        general educational purposes and should not be considered
+        professional financial, legal or investment advice.
+      </p>
 
     </div>
 
@@ -934,24 +730,22 @@
 
 
 <!-- CONTACT -->
-
-<section class="section" id="contact">
+<section class="contact" id="contact">
 
   <div class="container">
 
     <div class="contact-box">
 
-      <h2>Let's Connect</h2>
+      <h2>Contact Business Growth</h2>
 
       <p>
-        Have a question or suggestion about the Business Growth project?
+        Have a question, suggestion or idea for this project?
       </p>
 
       <a
-        href="mailto:contact@example.com"
-        class="primary-button"
-      >
-        Contact Us
+        class="btn btn-primary"
+        href="mailto:businessgrowth.project@gmail.com">
+        Email Us
       </a>
 
     </div>
@@ -962,65 +756,80 @@
 
 
 <!-- FOOTER -->
-
 <footer>
 
-  <div class="footer-grid">
+  <div class="footer-inner">
 
-    <div>
+    <div class="footer-grid">
 
-      <div class="footer-logo">
-        📈 Business Growth
+      <div>
+        <h3>📈 Business Growth</h3>
+        <p>
+          Practical business tools, educational resources and
+          growth-focused information.
+        </p>
       </div>
 
-      <p>
-        Practical business information, tools and
-        educational resources.
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>Quick Links</h3>
-
-      <div class="footer-links">
-
+      <div>
+        <h3>Quick Links</h3>
         <a href="#home">Home</a>
         <a href="#tools">Tools</a>
         <a href="#insights">Insights</a>
         <a href="#about">About</a>
-
       </div>
 
-    </div>
-
-
-    <div>
-
-      <h3>Legal</h3>
-
-      <div class="footer-links">
-
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
+      <div>
+        <h3>Project</h3>
+        <a href="#calculator">Calculator</a>
         <a href="#contact">Contact</a>
-
       </div>
 
     </div>
 
-  </div>
-
-
-  <div class="copyright">
-
-    © 2026 Business Growth. All rights reserved.
+    <div class="copyright">
+      © 2026 Business Growth. Independent digital project.
+    </div>
 
   </div>
 
 </footer>
 
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("navlinks").classList.toggle("show");
+}
+
+
+function calculateProfit(){
+
+  const revenue =
+    parseFloat(document.getElementById("revenue").value) || 0;
+
+  const expenses =
+    parseFloat(document.getElementById("expenses").value) || 0;
+
+  const profit = revenue - expenses;
+
+  document.getElementById("profitAmount").textContent =
+    "₹" + profit.toLocaleString("en-IN");
+
+  document.getElementById("profitResult").style.display = "block";
+}
+
+
+document.querySelectorAll(".navlinks a").forEach(function(link){
+
+  link.addEventListener("click",function(){
+
+    document.getElementById("navlinks").classList.remove("show");
+
+  });
+
+});
+
+</script>
+
 </body>
-</html>
+  </html>
