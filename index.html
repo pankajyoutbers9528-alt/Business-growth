@@ -4,987 +4,997 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Business Growth - practical business tools, learning resources, calculators and insights for entrepreneurs and growing businesses.">
-<meta name="keywords" content="business growth, business calculator, profit calculator, business ideas, entrepreneurship, business learning">
+<meta name="description" content="Business Growth - simple business tools, calculators, planning and educational resources.">
+<meta name="keywords" content="business growth, business calculator, profit calculator, growth planner, business ideas, marketing">
 <meta name="author" content="Business Growth">
 
 <title>Business Growth | Grow Smarter</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:#172033;
-    background:#f7f9fc;
-    line-height:1.6;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f7f9fc;
+  color:#172033;
+  line-height:1.6;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
+  text-decoration:none;
+  color:inherit;
 }
 
-.container{
-    width:92%;
-    max-width:1200px;
-    margin:auto;
-}
-
-/* HEADER */
 header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:white;
-    border-bottom:1px solid #e5eaf0;
+  background:white;
+  border-bottom:1px solid #e5eaf0;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .navbar{
-    min-height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+  max-width:1200px;
+  margin:auto;
+  min-height:72px;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:800;
-    color:#126b4d;
+  font-size:22px;
+  font-weight:800;
+  color:#126b46;
 }
 
 .logo span{
-    color:#ed7418;
+  color:#ed7418;
 }
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    gap:24px;
+  display:flex;
+  align-items:center;
+  gap:22px;
 }
 
 .nav-links a{
-    font-size:14px;
-    font-weight:600;
-    color:#374151;
+  font-size:14px;
+  font-weight:600;
+  color:#374151;
 }
 
 .nav-links a:hover{
-    color:#126b4d;
+  color:#126b46;
 }
 
 .contact-btn{
-    background:#126b4d;
-    color:white!important;
-    padding:10px 18px;
-    border-radius:25px;
+  background:#126b46 !important;
+  color:white !important;
+  padding:10px 18px;
+  border-radius:25px;
 }
 
-/* HERO */
 .hero{
-    padding:80px 20px 70px;
-    text-align:center;
-    background:linear-gradient(135deg,#eefaf3,#fff9ed);
+  padding:80px 20px 70px;
+  text-align:center;
+  background:linear-gradient(120deg,#effbf5,#fffdf4);
 }
 
 .badge{
-    display:inline-block;
-    background:white;
-    border:1px solid #dcebe2;
-    padding:7px 15px;
-    border-radius:30px;
-    font-size:13px;
-    color:#126b4d;
-    margin-bottom:20px;
+  display:inline-block;
+  background:white;
+  border:1px solid #e5ebe7;
+  padding:7px 14px;
+  border-radius:30px;
+  font-size:13px;
+  color:#39715a;
+  margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(40px,7vw,72px);
-    line-height:1.05;
-    margin-bottom:22px;
+  font-size:58px;
+  line-height:1.1;
+  margin-bottom:20px;
 }
 
 .hero h1 span{
-    color:#ed7418;
+  color:#ed7418;
 }
 
 .hero p{
-    max-width:760px;
-    margin:auto;
-    color:#64748b;
-    font-size:17px;
+  max-width:800px;
+  margin:auto;
+  color:#697386;
+  font-size:16px;
 }
 
-.hero-buttons{
-    margin-top:30px;
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap;
+.buttons{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:13px 23px;
-    border-radius:30px;
-    font-weight:700;
-    border:1px solid #dfe6e1;
-    background:white;
+  display:inline-block;
+  padding:13px 22px;
+  border-radius:28px;
+  font-weight:bold;
+  font-size:14px;
+  border:none;
+  cursor:pointer;
 }
 
 .btn-primary{
-    background:#126b4d;
-    color:white;
-    border-color:#126b4d;
+  background:#126b46;
+  color:white;
 }
 
-.btn:hover{
-    transform:translateY(-2px);
+.btn-primary:hover{
+  background:#0d5638;
 }
 
-/* STATS */
+.btn-light{
+  background:white;
+  border:1px solid #e2e6eb;
+  color:#263044;
+}
+
 .stats{
-    padding:28px 0;
-    background:#f3f6fa;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+  max-width:1150px;
+  margin:-35px auto 60px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  position:relative;
 }
 
 .stat{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(20,40,60,.06);
+  background:white;
+  border-radius:16px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(20,30,50,.07);
 }
 
 .stat strong{
-    display:block;
-    font-size:27px;
-    color:#126b4d;
+  display:block;
+  font-size:25px;
+  color:#126b46;
 }
 
-/* SECTIONS */
+.stat span{
+  color:#707887;
+  font-size:13px;
+}
+
 section{
-    padding:70px 0;
+  padding:65px 20px;
+}
+
+.container{
+  max-width:1150px;
+  margin:auto;
 }
 
 .section-title{
-    font-size:34px;
-    margin-bottom:10px;
+  font-size:30px;
+  margin-bottom:8px;
 }
 
-.section-subtitle{
-    color:#64748b;
-    margin-bottom:30px;
+.section-text{
+  color:#78818f;
+  margin-bottom:30px;
 }
 
-/* TOOLS */
 .tools-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    border:1px solid #e7ebef;
-    box-shadow:0 7px 22px rgba(20,40,60,.05);
+  background:white;
+  border:1px solid #edf0f3;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 5px 18px rgba(20,30,50,.04);
+  transition:.2s;
 }
 
 .card:hover{
-    transform:translateY(-4px);
-    transition:.2s;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(20,30,50,.08);
 }
 
 .icon{
-    width:45px;
-    height:45px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#eef8f2;
-    border-radius:12px;
-    font-size:23px;
-    margin-bottom:15px;
+  width:42px;
+  height:42px;
+  background:#edf9f3;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  margin-bottom:15px;
 }
 
 .card h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 .card p{
-    color:#64748b;
-    font-size:14px;
-    margin-bottom:15px;
+  color:#78818f;
+  font-size:14px;
 }
 
-.card-link{
-    color:#126b4d;
-    font-weight:700;
-    font-size:14px;
+.card button{
+  margin-top:15px;
+  border:0;
+  background:none;
+  color:#126b46;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* CALCULATOR */
 .calculator-section{
-    background:#eef8f3;
+  background:#edf9f3;
 }
 
-.calculator-box{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 10px 35px rgba(20,40,60,.08);
+.calculator{
+  max-width:650px;
+  margin:25px auto 0;
+  background:white;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 8px 25px rgba(20,30,50,.07);
 }
 
-.form-group{
-    margin-bottom:18px;
+.input-group{
+  margin-bottom:18px;
 }
 
-label{
-    display:block;
-    font-weight:700;
-    margin-bottom:7px;
+.input-group label{
+  display:block;
+  font-weight:bold;
+  font-size:14px;
+  margin-bottom:7px;
 }
 
-input,textarea,select{
-    width:100%;
-    padding:13px;
-    border:1px solid #d9e0e7;
-    border-radius:10px;
-    font-size:15px;
-    outline:none;
+.input-group input,
+.input-group textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #dfe5eb;
+  border-radius:10px;
+  font-size:15px;
+  outline:none;
 }
 
-input:focus,textarea:focus,select:focus{
-    border-color:#126b4d;
-}
-
-.calculate-btn{
-    width:100%;
-    border:0;
-    padding:14px;
-    border-radius:10px;
-    background:#126b4d;
-    color:white;
-    font-weight:700;
-    font-size:15px;
-    cursor:pointer;
+.input-group input:focus,
+.input-group textarea:focus{
+  border-color:#126b46;
 }
 
 .result{
-    display:none;
-    margin-top:20px;
-    padding:18px;
-    background:#eef8f3;
-    border-radius:12px;
-    color:#126b4d;
-    font-weight:700;
+  margin-top:20px;
+  padding:18px;
+  background:#effaf4;
+  border-radius:12px;
+  display:none;
+  color:#126b46;
+  font-weight:bold;
 }
 
-/* INSIGHTS */
+.planner{
+  background:#f7f9fc;
+}
+
+.planner-box{
+  background:white;
+  border-radius:18px;
+  padding:30px;
+  max-width:700px;
+  margin:auto;
+  box-shadow:0 8px 25px rgba(20,30,50,.06);
+}
+
+.plan-list{
+  margin-top:25px;
+}
+
+.plan-item{
+  padding:15px;
+  border:1px solid #e5e9ee;
+  border-radius:10px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.plan-item button{
+  border:0;
+  background:#ffe8e8;
+  color:#c62828;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
 .insights{
-    background:white;
+  background:white;
 }
 
-.article-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.insight-card{
+  overflow:hidden;
+  padding:0;
 }
 
-.article{
-    overflow:hidden;
-    background:#fff;
-    border:1px solid #e5eaf0;
-    border-radius:18px;
+.insight-top{
+  height:100px;
+  background:linear-gradient(135deg,#126b46,#2e9c70);
+  display:flex;
+  align-items:center;
+  padding:20px;
+  font-size:30px;
 }
 
-.article-top{
-    padding:28px;
-    background:linear-gradient(135deg,#126b4d,#36a77b);
-    color:white;
-    font-size:38px;
+.insight-body{
+  padding:22px;
 }
 
-.article-content{
-    padding:22px;
+.category{
+  color:#ed7418;
+  font-size:12px;
+  font-weight:bold;
 }
 
-.article-content small{
-    color:#ed7418;
-    font-weight:700;
-}
-
-.article-content h3{
-    margin:8px 0;
-}
-
-.article-content p{
-    color:#64748b;
-    font-size:14px;
-}
-
-/* LEARNING */
 .learning{
-    background:#f3f6fa;
+  background:#f3f6fb;
 }
 
-.learning-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.about{
+  background:#f7f9fc;
 }
 
-/* ABOUT */
 .about-box{
-    max-width:850px;
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    border:1px solid #e5eaf0;
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  border:1px solid #e7ebef;
 }
 
-/* CONTACT */
 .contact{
-    background:#eef8f3;
+  background:#edf9f3;
 }
 
 .contact-box{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 8px 25px rgba(20,30,50,.06);
 }
 
-/* FOOTER */
 footer{
-    background:#111a2e;
-    color:#dce3ed;
-    padding:50px 0 25px;
+  background:#10251d;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
 }
 
-.footer-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:35px;
+footer p{
+  color:#c8d4cf;
+  font-size:13px;
 }
 
-footer h3{
-    color:white;
-    margin-bottom:12px;
-}
-
-footer p,footer a{
-    color:#aeb9c8;
-    font-size:14px;
-}
-
-.footer-links{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.copyright{
-    border-top:1px solid #293449;
-    margin-top:35px;
-    padding-top:20px;
-    text-align:center;
-    font-size:13px;
-    color:#94a3b8;
-}
-
-/* MOBILE */
 @media(max-width:800px){
+  .hero h1{
+    font-size:42px;
+  }
 
-    .navbar{
-        padding:12px 0;
-    }
+  .tools-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-    .nav-links{
-        gap:10px;
-    }
+  .stats{
+    grid-template-columns:1fr;
+    margin-top:25px;
+  }
 
-    .nav-links a{
-        font-size:12px;
-    }
+  .nav-links{
+    gap:10px;
+  }
 
-    .contact-btn{
-        padding:8px 12px;
-    }
-
-    .stats-grid,
-    .tools-grid,
-    .article-grid,
-    .learning-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding:60px 15px;
-    }
-
-    section{
-        padding:55px 0;
-    }
-
-    .section-title{
-        font-size:29px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
+  .nav-links a{
+    font-size:12px;
+  }
 }
 
-@media(max-width:500px){
+@media(max-width:560px){
+  .navbar{
+    min-height:60px;
+  }
 
-    .logo{
-        font-size:18px;
-    }
+  .logo{
+    font-size:17px;
+  }
 
-    .nav-links{
-        gap:7px;
-    }
+  .nav-links a:not(.contact-btn){
+    display:none;
+  }
 
-    .nav-links a:nth-child(2),
-    .nav-links a:nth-child(3){
-        display:none;
-    }
+  .hero{
+    padding:60px 18px;
+  }
 
-    .hero h1{
-        font-size:40px;
-    }
+  .hero h1{
+    font-size:36px;
+  }
 
-    .hero p{
-        font-size:15px;
-    }
+  .hero p{
+    font-size:14px;
+  }
 
-    .calculator-box,
-    .contact-box,
-    .about-box{
-        padding:22px;
-    }
+  section{
+    padding:50px 16px;
+  }
+
+  .tools-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+    font-size:27px;
+  }
+
+  .calculator,
+  .planner-box,
+  .contact-box{
+    padding:22px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-<div class="container navbar">
+  <div class="navbar">
+    <a href="#home" class="logo">📈 Business <span>Growth</span></a>
 
-<a href="#home" class="logo">📈 Business <span>Growth</span></a>
-
-<nav class="nav-links">
-<a href="#home">Home</a>
-<a href="#tools">Tools</a>
-<a href="#insights">Insights</a>
-<a href="#about">About</a>
-<a href="#contact" class="contact-btn">Contact</a>
-</nav>
-
-</div>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#insights">Insights</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="contact-btn">Contact</a>
+    </nav>
+  </div>
 </header>
-
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="badge">🚀 A Digital Business Growth Platform</div>
 
-<div class="container">
+  <h1>Build Better. <span>Grow Smarter.</span></h1>
 
-<div class="badge">🚀 A Digital Business Growth Platform</div>
+  <p>
+    Business Growth is an independent digital platform providing
+    practical business tools, educational resources and useful insights
+    for entrepreneurs, students and growing businesses.
+  </p>
 
-<h1>
-Build Better. <span>Grow Smarter.</span>
-</h1>
-
-<p>
-Business Growth is an independent digital project providing practical
-business tools, educational resources and useful insights for
-entrepreneurs, students and growing businesses.
-</p>
-
-<div class="hero-buttons">
-<a href="#tools" class="btn btn-primary">Explore Tools →</a>
-<a href="#about" class="btn">Learn More</a>
-</div>
-
-</div>
+  <div class="buttons">
+    <a href="#tools" class="btn btn-primary">Explore Tools →</a>
+    <a href="#about" class="btn btn-light">Learn More</a>
+  </div>
 </section>
-
 
 <!-- STATS -->
-<section class="stats">
+<div class="stats">
+  <div class="stat">
+    <strong>6+</strong>
+    <span>Business Resources</span>
+  </div>
 
-<div class="container stats-grid">
+  <div class="stat">
+    <strong>100%</strong>
+    <span>Educational Focus</span>
+  </div>
 
-<div class="stat">
-<strong>6+</strong>
-<span>Business Resources</span>
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>Digital Access</span>
+  </div>
 </div>
-
-<div class="stat">
-<strong>100%</strong>
-<span>Educational Focus</span>
-</div>
-
-<div class="stat">
-<strong>24/7</strong>
-<span>Digital Access</span>
-</div>
-
-</div>
-</section>
-
 
 <!-- TOOLS -->
 <section id="tools">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">Business Growth Tools</h2>
+    <p class="section-text">
+      Simple resources designed to help entrepreneurs understand important areas of business.
+    </p>
 
-<h2 class="section-title">Business Growth Tools</h2>
+    <div class="tools-grid">
 
-<p class="section-subtitle">
-Simple resources designed to help entrepreneurs understand important
-areas of business.
-</p>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Business Calculator</h3>
+        <p>Calculate basic business figures and understand important numbers.</p>
+        <button onclick="scrollToSection('business-calculator')">Open Tool →</button>
+      </div>
 
-<div class="tools-grid">
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Profit Calculator</h3>
+        <p>Calculate estimated revenue, expenses and business profit.</p>
+        <button onclick="scrollToSection('profit-calculator')">Open Tool →</button>
+      </div>
 
-<div class="card">
-<div class="icon">📊</div>
-<h3>Business Calculator</h3>
-<p>Calculate basic business figures and understand important numbers.</p>
-<a href="#profit" class="card-link">Open Tool →</a>
-</div>
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Growth Planner</h3>
+        <p>Set business goals and plan your next growth steps.</p>
+        <button onclick="scrollToSection('growth-planner')">Explore →</button>
+      </div>
 
-<div class="card">
-<div class="icon">💰</div>
-<h3>Profit Calculator</h3>
-<p>Calculate estimated revenue, expenses and business profit.</p>
-<a href="#profit" class="card-link">Open Tool →</a>
-</div>
+      <div class="card">
+        <div class="icon">💡</div>
+        <h3>Business Ideas</h3>
+        <p>Explore educational information about different business ideas.</p>
+        <button onclick="showMessage('Business ideas can include online services, local services, digital products and educational businesses.')">Explore →</button>
+      </div>
 
-<div class="card">
-<div class="icon">📈</div>
-<h3>Growth Planner</h3>
-<p>Set business goals and plan your next growth steps.</p>
-<a href="#planning" class="card-link">Explore →</a>
-</div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Goal Planning</h3>
+        <p>Create clear objectives and organize your priorities.</p>
+        <button onclick="scrollToSection('growth-planner')">Explore →</button>
+      </div>
 
-<div class="card">
-<div class="icon">💡</div>
-<h3>Business Ideas</h3>
-<p>Explore educational information about different business ideas.</p>
-<a href="#learning" class="card-link">Explore →</a>
-</div>
+      <div class="card">
+        <div class="icon">📚</div>
+        <h3>Business Learning</h3>
+        <p>Learn basic concepts related to entrepreneurship and management.</p>
+        <button onclick="scrollToSection('learning')">Explore →</button>
+      </div>
 
-<div class="card">
-<div class="icon">🎯</div>
-<h3>Goal Planning</h3>
-<p>Create clear objectives and organize your priorities.</p>
-<a href="#planning" class="card-link">Explore →</a>
-</div>
-
-<div class="card">
-<div class="icon">📚</div>
-<h3>Business Learning</h3>
-<p>Learn basic concepts related to entrepreneurship and management.</p>
-<a href="#learning" class="card-link">Explore →</a>
-</div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
+<!-- BUSINESS CALCULATOR -->
+<section class="calculator-section" id="business-calculator">
+  <div class="container">
+
+    <h2 class="section-title">Business Calculator</h2>
+
+    <p class="section-text">
+      Calculate total sales from price and quantity.
+    </p>
+
+    <div class="calculator">
+
+      <h3>Calculate Total Sales</h3>
+
+      <br>
+
+      <div class="input-group">
+        <label>Product Price (₹)</label>
+        <input type="number" id="productPrice" placeholder="Example: 500">
+      </div>
+
+      <div class="input-group">
+        <label>Quantity Sold</label>
+        <input type="number" id="quantity" placeholder="Example: 10">
+      </div>
+
+      <button class="btn btn-primary" onclick="calculateSales()">
+        Calculate Sales
+      </button>
+
+      <div class="result" id="salesResult"></div>
+
+    </div>
+  </div>
+</section>
 
 <!-- PROFIT CALCULATOR -->
-<section class="calculator-section" id="profit">
+<section id="profit-calculator">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">Profit Calculator</h2>
 
-<h2 class="section-title">Profit Calculator</h2>
+    <p class="section-text">
+      Use this simple calculator for educational business planning.
+    </p>
 
-<p class="section-subtitle">
-Use this simple calculator for educational business planning.
-</p>
+    <div class="calculator">
 
-<div class="calculator-box">
+      <h3>Calculate Estimated Profit</h3>
 
-<h3>Calculate Estimated Profit</h3>
+      <br>
 
-<br>
+      <div class="input-group">
+        <label>Revenue (₹)</label>
+        <input type="number" id="revenue" placeholder="Example: 50000">
+      </div>
 
-<div class="form-group">
-<label for="revenue">Revenue (₹)</label>
-<input type="number" id="revenue" placeholder="Example: 50000">
-</div>
+      <div class="input-group">
+        <label>Total Expenses (₹)</label>
+        <input type="number" id="expenses" placeholder="Example: 30000">
+      </div>
 
-<div class="form-group">
-<label for="expenses">Total Expenses (₹)</label>
-<input type="number" id="expenses" placeholder="Example: 30000">
-</div>
+      <button class="btn btn-primary" onclick="calculateProfit()">
+        Calculate Profit
+      </button>
 
-<button class="calculate-btn" onclick="calculateProfit()">
-Calculate Profit
-</button>
+      <div class="result" id="profitResult"></div>
 
-<div class="result" id="profitResult"></div>
-
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
+<!-- GROWTH PLANNER -->
+<section class="planner" id="growth-planner">
 
-<!-- PLANNING -->
-<section id="planning">
+  <div class="container">
 
-<div class="container">
+    <h2 class="section-title">Growth Planning</h2>
 
-<h2 class="section-title">Growth Planning</h2>
+    <p class="section-text">
+      Add your business goals and organize your next steps.
+    </p>
 
-<p class="section-subtitle">
-Simple planning ideas to help organize your business goals.
-</p>
+    <div class="planner-box">
 
-<div class="learning-grid">
+      <h3>Add a Business Goal</h3>
 
-<div class="card">
-<div class="icon">🎯</div>
-<h3>Set a Goal</h3>
-<p>Define a clear and measurable business objective.</p>
-</div>
+      <br>
 
-<div class="card">
-<div class="icon">📝</div>
-<h3>Create a Plan</h3>
-<p>Break your goal into smaller practical steps.</p>
-</div>
+      <div class="input-group">
+        <label>Your Goal</label>
+        <input type="text" id="goalInput" placeholder="Example: Increase monthly sales">
+      </div>
 
-<div class="card">
-<div class="icon">📊</div>
-<h3>Track Progress</h3>
-<p>Review your progress regularly and update your plan.</p>
-</div>
+      <button class="btn btn-primary" onclick="addGoal()">
+        Add Goal
+      </button>
 
-</div>
-</div>
+      <div class="plan-list" id="goalList"></div>
+
+    </div>
+
+  </div>
 </section>
-
 
 <!-- INSIGHTS -->
 <section class="insights" id="insights">
 
-<div class="container">
+  <div class="container">
 
-<h2 class="section-title">Business Insights</h2>
+    <h2 class="section-title">Business Insights</h2>
 
-<p class="section-subtitle">
-Educational articles and ideas for entrepreneurs and growing businesses.
-</p>
+    <p class="section-text">
+      Educational articles and ideas for entrepreneurs and growing businesses.
+    </p>
 
-<div class="article-grid">
+    <div class="tools-grid">
 
-<article class="article">
-<div class="article-top">📈</div>
-<div class="article-content">
-<small>BUSINESS BASICS</small>
-<h3>How to Understand Business Growth</h3>
-<p>
-Learn the basic factors that can affect business growth,
-including customers, costs and planning.
-</p>
-</div>
-</article>
+      <div class="card insight-card">
+        <div class="insight-top">📈</div>
+        <div class="insight-body">
+          <div class="category">BUSINESS BASICS</div>
+          <h3>How to Understand Business Growth</h3>
+          <p>
+            Learn the basic factors that can affect business growth,
+            including customers, costs and planning.
+          </p>
+        </div>
+      </div>
 
-<article class="article">
-<div class="article-top">💰</div>
-<div class="article-content">
-<small>FINANCE</small>
-<h3>Understanding Revenue and Profit</h3>
-<p>
-Understand the difference between revenue, expenses and estimated profit.
-</p>
-</div>
-</article>
+      <div class="card insight-card">
+        <div class="insight-top">💰</div>
+        <div class="insight-body">
+          <div class="category">FINANCE</div>
+          <h3>Understanding Revenue and Profit</h3>
+          <p>
+            Understand the difference between revenue, expenses and
+            estimated profit.
+          </p>
+        </div>
+      </div>
 
-<article class="article">
-<div class="article-top">💡</div>
-<div class="article-content">
-<small>IDEAS</small>
-<h3>Starting a Small Business</h3>
-<p>
-Important educational points to consider before starting a small business.
-</p>
-</div>
-</article>
+      <div class="card insight-card">
+        <div class="insight-top">💡</div>
+        <div class="insight-body">
+          <div class="category">IDEAS</div>
+          <h3>Starting a Small Business</h3>
+          <p>
+            Important educational points to consider before starting
+            a small business.
+          </p>
+        </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
-
 
 <!-- LEARNING -->
 <section class="learning" id="learning">
 
-<div class="container">
+  <div class="container">
 
-<h2 class="section-title">Business Learning</h2>
+    <h2 class="section-title">Business Learning</h2>
 
-<p class="section-subtitle">
-Build your understanding of entrepreneurship and basic business concepts.
-</p>
+    <p class="section-text">
+      Build your understanding of entrepreneurship and basic business concepts.
+    </p>
 
-<div class="learning-grid">
+    <div class="tools-grid">
 
-<div class="card">
-<div class="icon">🏪</div>
-<h3>Business Model</h3>
-<p>
-Learn how a business creates value for customers and generates revenue.
-</p>
-</div>
+      <div class="card">
+        <div class="icon">🏢</div>
+        <h3>Business Model</h3>
+        <p>
+          Learn how a business creates value for customers
+          and generates revenue.
+        </p>
+      </div>
 
-<div class="card">
-<div class="icon">👥</div>
-<h3>Customers</h3>
-<p>
-Understand why customer needs and feedback matter to businesses.
-</p>
-</div>
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>Customers</h3>
+        <p>
+          Understand why customer needs and feedback matter
+          to businesses.
+        </p>
+      </div>
 
-<div class="card">
-<div class="icon">📣</div>
-<h3>Marketing</h3>
-<p>
-Learn basic concepts of communicating products and services to customers.
-</p>
-</div>
+      <div class="card">
+        <div class="icon">📣</div>
+        <h3>Marketing</h3>
+        <p>
+          Learn basic concepts of communicating products
+          and services to customers.
+        </p>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
-
 
 <!-- ABOUT -->
-<section id="about">
+<section class="about" id="about">
 
-<div class="container">
+  <div class="container">
 
-<h2 class="section-title">About Business Growth</h2>
+    <h2 class="section-title">About Business Growth</h2>
 
-<div class="about-box">
+    <div class="about-box">
 
-<p>
-<strong>Business Growth</strong> is an independent digital project
-created to provide simple business education, planning resources,
-calculators and general informational content.
-</p>
+      <p>
+        <strong>Business Growth</strong> is an independent digital project
+        created to provide simple business education, planning resources,
+        calculators and general informational content.
+      </p>
 
-<br>
+      <br>
 
-<p>
-The platform is designed for educational and informational purposes.
-Information on this website should be independently verified before
-making financial, business or investment decisions.
-</p>
+      <p>
+        The platform is designed for educational and informational purposes.
+        Information on this website should not be considered professional
+        financial, legal or business advice.
+      </p>
 
-<br>
+    </div>
 
-<p>
-Business Growth is not a bank, government department, investment
-company or financial institution.
-</p>
-
-</div>
-
-</div>
+  </div>
 </section>
-
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
 
-<div class="container">
+  <div class="container">
 
-<h2 class="section-title">Contact Us</h2>
+    <h2 class="section-title">Contact Business Growth</h2>
 
-<p class="section-subtitle">
-Have a question or suggestion? Send us a message.
-</p>
+    <p class="section-text">
+      Have a question or suggestion? Send a message.
+    </p>
 
-<div class="contact-box">
+    <div class="contact-box">
 
-<form onsubmit="sendMessage(event)">
+      <div class="input-group">
+        <label>Your Name</label>
+        <input type="text" id="contactName" placeholder="Enter your name">
+      </div>
 
-<div class="form-group">
-<label>Your Name</label>
-<input type="text" id="name" required placeholder="Enter your name">
-</div>
+      <div class="input-group">
+        <label>Your Email</label>
+        <input type="email" id="contactEmail" placeholder="Enter your email">
+      </div>
 
-<div class="form-group">
-<label>Your Email</label>
-<input type="email" id="email" required placeholder="Enter your email">
-</div>
+      <div class="input-group">
+        <label>Message</label>
+        <textarea id="contactMessage" rows="5" placeholder="Write your message"></textarea>
+      </div>
 
-<div class="form-group">
-<label>Message</label>
-<textarea id="message" rows="5" required placeholder="Write your message"></textarea>
-</div>
+      <button class="btn btn-primary" onclick="sendMessage()">
+        Send Message
+      </button>
 
-<button class="calculate-btn" type="submit">
-Send Message
-</button>
+      <div class="result" id="contactResult"></div>
 
-</form>
+    </div>
 
-<div class="result" id="contactResult"></div>
-
-</div>
-</div>
+  </div>
 </section>
-
 
 <!-- FOOTER -->
 <footer>
 
-<div class="container">
+  <h3>📈 Business Growth</h3>
 
-<div class="footer-grid">
+  <p>
+    Build Better. Grow Smarter.
+  </p>
 
-<div>
-<h3>📈 Business Growth</h3>
-<p>
-An independent digital project providing practical business tools,
-educational resources and useful insights.
-</p>
-</div>
+  <p>
+    © <span id="year"></span> Business Growth. All rights reserved.
+  </p>
 
-<div>
-<h3>Quick Links</h3>
-
-<div class="footer-links">
-<a href="#home">Home</a>
-<a href="#tools">Tools</a>
-<a href="#insights">Insights</a>
-<a href="#about">About</a>
-</div>
-
-</div>
-
-<div>
-<h3>Resources</h3>
-
-<div class="footer-links">
-<a href="#profit">Profit Calculator</a>
-<a href="#planning">Growth Planning</a>
-<a href="#learning">Business Learning</a>
-<a href="#contact">Contact</a>
-</div>
-
-</div>
-
-</div>
-
-<div class="copyright">
-© 2026 Business Growth. All rights reserved.
-</div>
-
-</div>
 </footer>
-
 
 <script>
 
-/* PROFIT CALCULATOR */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+function calculateSales(){
+
+  const price = parseFloat(document.getElementById("productPrice").value);
+  const quantity = parseFloat(document.getElementById("quantity").value);
+
+  const result = document.getElementById("salesResult");
+
+  if(isNaN(price) || isNaN(quantity) || price < 0 || quantity < 0){
+    result.style.display="block";
+    result.innerHTML="Please enter valid numbers.";
+    return;
+  }
+
+  const sales = price * quantity;
+
+  result.style.display="block";
+  result.innerHTML =
+    "Estimated Total Sales: ₹" +
+    sales.toLocaleString("en-IN");
+}
 
 function calculateProfit(){
 
-    const revenue =
-        parseFloat(document.getElementById("revenue").value);
+  const revenue = parseFloat(document.getElementById("revenue").value);
+  const expenses = parseFloat(document.getElementById("expenses").value);
 
-    const expenses =
-        parseFloat(document.getElementById("expenses").value);
+  const result = document.getElementById("profitResult");
 
-    const result =
-        document.getElementById("profitResult");
+  if(isNaN(revenue) || isNaN(expenses) || revenue < 0 || expenses < 0){
+    result.style.display="block";
+    result.innerHTML="Please enter valid numbers.";
+    return;
+  }
 
-    if(isNaN(revenue) || isNaN(expenses)){
-        result.style.display = "block";
-        result.innerHTML =
-        "Please enter both revenue and expenses.";
-        return;
-    }
+  const profit = revenue - expenses;
 
-    const profit = revenue - expenses;
+  result.style.display="block";
 
-    result.style.display = "block";
-
-    if(profit >= 0){
-
-        result.innerHTML =
-        "Estimated Profit: ₹" +
-        profit.toLocaleString("en-IN");
-
-    }else{
-
-        result.innerHTML =
-        "Estimated Loss: ₹" +
-        Math.abs(profit).toLocaleString("en-IN");
-
-    }
-}
-
-
-/* CONTACT FORM */
-
-function sendMessage(event){
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("name").value;
-
-    const result =
-        document.getElementById("contactResult");
-
-    result.style.display = "block";
-
+  if(profit >= 0){
     result.innerHTML =
-    "Thank you, " + name +
-    ". Your message form has been submitted locally. To receive real emails, an email service or backend will need to be connected.";
-
+      "Estimated Profit: ₹" +
+      profit.toLocaleString("en-IN");
+  }else{
+    result.innerHTML =
+      "Estimated Loss: ₹" +
+      Math.abs(profit).toLocaleString("en-IN");
+  }
 }
 
+function addGoal(){
 
-/* CURRENT YEAR */
+  const input = document.getElementById("goalInput");
+  const goal = input.value.trim();
 
-document.querySelector(".copyright").innerHTML =
-"© " + new Date().getFullYear() +
-" Business Growth. All rights reserved.";
+  if(goal === ""){
+    alert("Please enter a goal.");
+    return;
+  }
+
+  const list = document.getElementById("goalList");
+
+  const item = document.createElement("div");
+  item.className="plan-item";
+
+  const text = document.createElement("span");
+  text.textContent="🎯 " + goal;
+
+  const button = document.createElement("button");
+  button.textContent="Delete";
+
+  button.onclick=function(){
+    item.remove();
+  };
+
+  item.appendChild(text);
+  item.appendChild(button);
+
+  list.appendChild(item);
+
+  input.value="";
+}
+
+function showMessage(message){
+  alert(message);
+}
+
+function sendMessage(){
+
+  const name = document.getElementById("contactName").value.trim();
+  const email = document.getElementById("contactEmail").value.trim();
+  const message = document.getElementById("contactMessage").value.trim();
+
+  const result = document.getElementById("contactResult");
+
+  if(name === "" || email === "" || message === ""){
+    result.style.display="block";
+    result.innerHTML="Please fill in all fields.";
+    return;
+  }
+
+  const subject =
+    encodeURIComponent("Business Growth Website Message");
+
+  const body =
+    encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\nMessage:\n" + message
+    );
+
+  result.style.display="block";
+
+  result.innerHTML =
+    "Your email app will open. Please send the prepared message.";
+
+  window.location.href =
+    "mailto:?subject=" + subject + "&body=" + body;
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
 </script>
 
 </body>
-  </html>
+    </html>
