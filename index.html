@@ -3,34 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Business Growth | Grow Smarter</title>
+
+<meta name="description" content="Business Growth - simple tools, calculators and learning resources to help you plan and grow.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+<rect width='100' height='100' rx='22' fill='%230f766e'/>
+<text x='50' y='68' text-anchor='middle' font-size='58' fill='white'>↗</text>
+</svg>">
 
 <style>
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
-  scroll-behavior:smooth;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 :root{
-  --bg:#f4f7fb;
+  --bg:#f5f7fb;
   --card:#ffffff;
   --text:#172033;
-  --muted:#64748b;
-  --primary:#2563eb;
-  --header:#0f172a;
-  --border:#e2e8f0;
+  --muted:#667085;
+  --primary:#0f766e;
+  --primary2:#14b8a6;
+  --border:#e5e7eb;
+  --shadow:0 8px 25px rgba(0,0,0,.07);
 }
 
 body.dark{
-  --bg:#0b1120;
-  --card:#111827;
-  --text:#f1f5f9;
-  --muted:#94a3b8;
-  --border:#334155;
-  --header:#020617;
+  --bg:#0b1220;
+  --card:#121c2e;
+  --text:#f5f7ff;
+  --muted:#aab4c5;
+  --border:#26344a;
+  --shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -41,363 +55,425 @@ body{
 }
 
 header{
-  background:var(--header);
-  color:white;
-  padding:15px 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
   position:sticky;
   top:0;
   z-index:1000;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-  font-size:22px;
-  font-weight:bold;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
+  font-weight:800;
+}
+
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  box-shadow:0 5px 15px rgba(15,118,110,.25);
 }
 
 .logo span{
-  color:#38bdf8;
+  color:var(--primary);
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
 
 nav a{
-  color:white;
   text-decoration:none;
-  margin-left:16px;
+  color:var(--text);
   font-size:14px;
+  font-weight:600;
 }
 
 nav a:hover{
-  color:#38bdf8;
-}
-
-.header-buttons{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-
-.theme-btn,
-.menu-btn{
-  border:0;
-  background:#1e293b;
-  color:white;
-  padding:9px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:16px;
-}
-
-.menu-btn{
-  display:none;
-}
-
-.hero{
-  background:linear-gradient(135deg,#0f172a,#1d4ed8);
-  color:white;
-  text-align:center;
-  padding:80px 6%;
-}
-
-.hero h1{
-  font-size:48px;
-  margin-bottom:15px;
-}
-
-.hero p{
-  max-width:700px;
-  margin:auto;
-  color:#dbeafe;
-  font-size:18px;
+  color:var(--primary);
 }
 
 .btn{
-  display:inline-block;
   border:0;
-  background:#38bdf8;
-  color:#082f49;
-  padding:12px 22px;
-  border-radius:8px;
-  font-weight:bold;
+  border-radius:10px;
+  padding:10px 15px;
   cursor:pointer;
-  margin-top:18px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+
+.menu{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.hero{
+  max-width:1150px;
+  margin:auto;
+  padding:80px 20px 60px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#dff8f4;
+  color:#08766e;
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+body.dark .badge{
+  background:#123d3a;
+  color:#6ee7d8;
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.hero h1 span{
+  color:var(--primary);
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:620px;
+  font-size:17px;
+  margin-bottom:25px;
+}
+
+.hero-card{
+  background:linear-gradient(145deg,var(--primary),var(--primary2));
+  color:white;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:var(--shadow);
+}
+
+.hero-card .growth-icon{
+  font-size:65px;
+  margin-bottom:10px;
+}
+
+.hero-card h2{
+  font-size:28px;
 }
 
 .stats{
-  max-width:1100px;
-  margin:-35px auto 0;
+  max-width:1150px;
+  margin:0 auto 50px;
   padding:0 20px;
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .stat{
   background:var(--card);
   padding:22px;
-  text-align:center;
-  border-radius:14px;
-  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
-.stat h2{
+.stat h3{
   color:var(--primary);
   font-size:28px;
 }
 
-section{
-  padding:65px 6%;
+.stat p{
+  color:var(--muted);
+  font-size:14px;
 }
 
-.title{
+section{
+  max-width:1150px;
+  margin:auto;
+  padding:65px 20px;
+}
+
+.section-title{
   text-align:center;
   margin-bottom:35px;
 }
 
-.title h2{
+.section-title h2{
   font-size:32px;
+  margin-bottom:8px;
 }
 
-.title p{
+.section-title p{
   color:var(--muted);
 }
 
-.dashboard{
-  max-width:1100px;
-  margin:auto;
+.grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 
-.card,
-.calculator,
-.goal-box,
-.chart-box,
-.about-box,
-.contact-box{
+.card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:16px;
-  box-shadow:0 5px 20px rgba(0,0,0,.06);
-}
-
-.card{
-  padding:25px;
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
 }
 
 .card h3{
-  color:var(--primary);
   margin-bottom:8px;
 }
 
 .card p{
   color:var(--muted);
+  font-size:14px;
 }
 
-.calculator,
-.goal-box,
-.chart-box,
-.about-box,
-.contact-box{
-  max-width:750px;
-  margin:0 auto 25px;
-  padding:30px;
+.icon{
+  font-size:34px;
+  margin-bottom:12px;
 }
 
-input,
-textarea{
-  width:100%;
-  padding:13px;
-  margin:8px 0 15px;
-  border:1px solid var(--border);
-  background:var(--bg);
-  color:var(--text);
-  border-radius:8px;
-  font-size:15px;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-.result{
-  margin-top:18px;
-  padding:16px;
-  background:#eff6ff;
-  color:#1d4ed8;
-  border-radius:9px;
-  text-align:center;
-  font-weight:bold;
-}
-
-body.dark .result{
-  background:#172554;
-  color:#93c5fd;
-}
-
-.chart{
-  height:280px;
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-around;
-  gap:12px;
-  border-bottom:2px solid var(--border);
-  padding:20px 5px 30px;
-}
-
-.bar-wrap{
-  height:100%;
-  width:13%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-}
-
-.bar{
-  width:70%;
-  background:var(--primary);
-  border-radius:7px 7px 0 0;
-  position:relative;
-  transition:.5s;
-}
-
-.bar-value{
-  position:absolute;
-  top:-24px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:11px;
-  color:var(--muted);
-}
-
-.month{
-  position:absolute;
-  bottom:-28px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:11px;
-  color:var(--muted);
-}
-
-.progress-bg{
-  height:22px;
-  background:var(--border);
-  border-radius:20px;
-  overflow:hidden;
-  margin:15px 0;
-}
-
-.progress-fill{
-  height:100%;
-  width:0%;
-  background:var(--primary);
-  transition:.5s;
-}
-
-.goal{
-  background:var(--bg);
-  padding:13px;
-  margin-top:10px;
-  border-radius:8px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.goal button{
-  border:0;
-  background:#ef4444;
-  color:white;
-  border-radius:6px;
-  padding:6px 10px;
-  cursor:pointer;
-}
-
-.grid3{
-  max-width:1100px;
-  margin:auto;
+.dashboard{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 
-footer{
-  background:var(--header);
-  color:#cbd5e1;
-  text-align:center;
-  padding:30px;
+.dashboard .card{
+  position:relative;
+  overflow:hidden;
 }
 
-footer strong{
+.dashboard-value{
+  font-size:30px;
+  font-weight:800;
+  color:var(--primary);
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin:7px 0 12px;
+  background:var(--bg);
+  color:var(--text);
+  outline:none;
+}
+
+input:focus,textarea:focus{
+  border-color:var(--primary);
+}
+
+.result{
+  margin-top:12px;
+  padding:12px;
+  border-radius:10px;
+  background:#e8f8f5;
+  color:#08766e;
+  font-weight:700;
+}
+
+body.dark .result{
+  background:#123d3a;
+  color:#7ce8dc;
+}
+
+.chart{
+  height:220px;
+  display:flex;
+  align-items:end;
+  gap:15px;
+  padding:20px;
+  margin-top:20px;
+  border-bottom:1px solid var(--border);
+}
+
+.bar{
+  flex:1;
+  background:linear-gradient(to top,var(--primary),var(--primary2));
+  border-radius:8px 8px 0 0;
+  min-height:15px;
+  position:relative;
+}
+
+.bar span{
+  position:absolute;
+  bottom:-25px;
+  width:100%;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.goal{
+  margin:15px 0;
+}
+
+.goal-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:14px;
+  font-weight:700;
+}
+
+.progress{
+  height:10px;
+  background:var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+.progress div{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--primary2));
+  width:0%;
+}
+
+.delete{
+  border:0;
+  background:#ef4444;
   color:white;
+  border-radius:7px;
+  padding:4px 8px;
+  cursor:pointer;
+}
+
+footer{
+  background:#0b1220;
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  margin-top:30px;
+}
+
+footer p{
+  color:#aab4c5;
+  font-size:13px;
+  margin-top:5px;
+}
+
+.about{
+  max-width:800px;
+  margin:auto;
+  text-align:center;
+}
+
+.about p{
+  color:var(--muted);
+  margin-top:12px;
+}
+
+.contact{
+  max-width:700px;
+  margin:auto;
+}
+
+.notice{
+  padding:15px;
+  border-radius:12px;
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--muted);
+  font-size:13px;
+  margin-top:15px;
 }
 
 @media(max-width:850px){
 
-  header{
-    flex-wrap:wrap;
-    gap:10px;
-  }
-
-  .menu-btn{
-    display:block;
-  }
-
   nav{
     display:none;
-    width:100%;
-    order:3;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    background:var(--card);
+    padding:20px;
+    flex-direction:column;
+    border-bottom:1px solid var(--border);
   }
 
   nav.active{
     display:flex;
-    flex-direction:column;
   }
 
-  nav a{
-    padding:10px;
-    margin:0;
-    border-bottom:1px solid #334155;
+  .menu{
+    display:block;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    padding-top:50px;
   }
 
   .hero h1{
-    font-size:36px;
+    font-size:40px;
   }
 
-  .stats,
-  .dashboard,
-  .grid3{
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .grid,
+  .dashboard{
     grid-template-columns:1fr;
-  }
-
-  section{
-    padding:50px 5%;
   }
 }
 
 @media(max-width:500px){
 
-  .logo{
-    font-size:19px;
-  }
-
-  .hero{
-    padding:60px 5%;
+  .stats{
+    grid-template-columns:1fr;
   }
 
   .hero h1{
-    font-size:31px;
+    font-size:34px;
   }
 
-  .calculator,
-  .goal-box,
-  .chart-box,
-  .about-box,
-  .contact-box{
-    padding:22px;
+  section{
+    padding:45px 15px;
+  }
+
+  .nav{
+    padding:12px 15px;
   }
 }
 </style>
@@ -406,346 +482,259 @@ footer strong{
 <body>
 
 <header>
+  <div class="nav">
 
-  <div class="logo">
-    📈 Business <span>Growth</span>
+    <div class="logo">
+      <div class="logo-icon">↗</div>
+      <div>Business <span>Growth</span></div>
+    </div>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#tools" onclick="closeMenu()">Tools</a>
+      <a href="#dashboard" onclick="closeMenu()">Dashboard</a>
+      <a href="#learning" onclick="closeMenu()">Learning</a>
+      <a href="#insights" onclick="closeMenu()">Insights</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <button class="btn" onclick="toggleDarkMode()">🌙</button>
+    </nav>
+
   </div>
-
-  <div class="header-buttons">
-
-    <button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
-      🌙
-    </button>
-
-    <button class="menu-btn" onclick="toggleMenu()">
-      ☰
-    </button>
-
-  </div>
-
-  <nav id="nav">
-
-    <a href="#home">Home</a>
-    <a href="#dashboard">Dashboard</a>
-    <a href="#tools">Tools</a>
-    <a href="#growth">Growth</a>
-    <a href="#goals">Goals</a>
-    <a href="#insights">Insights</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-
-  </nav>
-
 </header>
 
+<main>
 
-<section class="hero" id="home">
+<section id="home" class="hero">
 
-  <h1>Build Better. Grow Smarter.</h1>
+  <div>
+    <div class="badge">🚀 Simple Business Growth Platform</div>
 
-  <p>
-    Simple tools to calculate, plan, learn and understand
-    your business growth.
-  </p>
+    <h1>
+      Build Better.<br>
+      <span>Grow Smarter.</span>
+    </h1>
 
-  <a class="btn" href="#dashboard">
-    Open Dashboard
-  </a>
+    <p>
+      Business Growth helps you plan, calculate, learn and track
+      your business journey with simple digital tools.
+    </p>
+
+    <a href="#tools">
+      <button class="btn">Explore Tools →</button>
+    </a>
+  </div>
+
+  <div class="hero-card">
+    <div class="growth-icon">📈</div>
+    <h2>Grow Your Ideas</h2>
+    <p>
+      Plan your goals, understand your numbers and keep improving.
+    </p>
+  </div>
 
 </section>
-
 
 <div class="stats">
 
   <div class="stat">
-    <h2 id="statGoals">0</h2>
+    <h3 id="statGoals">0</h3>
     <p>Goals Added</p>
   </div>
 
   <div class="stat">
-    <h2>2+</h2>
+    <h3>2+</h3>
     <p>Calculators</p>
   </div>
 
   <div class="stat">
-    <h2>6+</h2>
+    <h3>6+</h3>
     <p>Business Tools</p>
   </div>
 
   <div class="stat">
-    <h2>24/7</h2>
+    <h3>24/7</h3>
     <p>Online Access</p>
   </div>
 
 </div>
 
-
 <section id="dashboard">
 
-  <div class="title">
-    <h2>📊 Professional Dashboard</h2>
-    <p>Your simple business planning center.</p>
+  <div class="section-title">
+    <h2>Professional Dashboard</h2>
+    <p>Keep track of your business progress.</p>
   </div>
 
   <div class="dashboard">
 
     <div class="card">
-      <h3>💰 Revenue</h3>
-      <p>
-        Calculate estimated sales from product price
-        and quantity.
-      </p>
+      <div class="icon">💰</div>
+      <h3>Revenue</h3>
+      <div class="dashboard-value">₹0</div>
+      <p>Track your business income.</p>
     </div>
 
     <div class="card">
-      <h3>📈 Profit</h3>
-      <p>
-        Compare revenue and expenses to estimate
-        profit or loss.
-      </p>
+      <div class="icon">📊</div>
+      <h3>Profit</h3>
+      <div class="dashboard-value">₹0</div>
+      <p>Understand your profit.</p>
     </div>
 
     <div class="card">
-      <h3>🎯 Goals</h3>
-      <p>
-        Add goals and track your overall progress.
-      </p>
+      <div class="icon">🎯</div>
+      <h3>Goals</h3>
+      <div class="dashboard-value" id="dashboardGoals">0</div>
+      <p>Your current goals.</p>
     </div>
 
   </div>
 
 </section>
-
 
 <section id="tools">
 
-  <div class="title">
-    <h2>🛠️ Business Tools</h2>
-    <p>Simple calculators for business planning.</p>
+  <div class="section-title">
+    <h2>Business Growth Tools</h2>
+    <p>Simple tools for planning and understanding your business.</p>
   </div>
 
+  <div class="grid">
 
-  <div class="calculator">
+    <div class="card">
+      <div class="icon">🧮</div>
+      <h3>Business Calculator</h3>
 
-    <h2>🧮 Business Calculator</h2>
+      <input id="price" type="number" placeholder="Price per item">
+      <input id="quantity" type="number" placeholder="Quantity">
 
-    <label>Product Price (₹)</label>
+      <button class="btn" onclick="calculateBusiness()">Calculate</button>
 
-    <input
-      type="number"
-      id="price"
-      placeholder="Example: 100"
-    >
-
-    <label>Quantity Sold</label>
-
-    <input
-      type="number"
-      id="quantity"
-      placeholder="Example: 50"
-    >
-
-    <button class="btn" onclick="calculateSales()">
-      Calculate Sales
-    </button>
-
-    <div class="result" id="salesResult">
-      Result will appear here
+      <div id="businessResult" class="result">
+        Result will appear here.
+      </div>
     </div>
 
-  </div>
+    <div class="card">
+      <div class="icon">💵</div>
+      <h3>Profit Calculator</h3>
 
+      <input id="revenue" type="number" placeholder="Revenue">
+      <input id="expenses" type="number" placeholder="Expenses">
 
-  <div class="calculator">
+      <button class="btn" onclick="calculateProfit()">Calculate</button>
 
-    <h2>💰 Profit Calculator</h2>
+      <div id="profitResult" class="result">
+        Result will appear here.
+      </div>
+    </div>
 
-    <label>Total Revenue (₹)</label>
+    <div class="card">
+      <div class="icon">📅</div>
+      <h3>Growth Planner</h3>
 
-    <input
-      type="number"
-      id="revenue"
-      placeholder="Example: 50000"
-    >
+      <p>
+        Set clear goals and track your progress regularly.
+      </p>
 
-    <label>Total Expenses (₹)</label>
+      <br>
 
-    <input
-      type="number"
-      id="expenses"
-      placeholder="Example: 30000"
-    >
-
-    <button class="btn" onclick="calculateProfit()">
-      Calculate Profit
-    </button>
-
-    <div class="result" id="profitResult">
-      Result will appear here
+      <a href="#goals">
+        <button class="btn">Open Goal Planner</button>
+      </a>
     </div>
 
   </div>
 
 </section>
 
+<section>
 
-<section id="growth">
-
-  <div class="title">
-
-    <h2>📈 Growth Chart</h2>
-
-    <p>
-      Add values to create your own growth visualization.
-    </p>
-
+  <div class="section-title">
+    <h2>Business Growth Chart</h2>
+    <p>Add values to visualize your progress.</p>
   </div>
 
-  <div class="chart-box">
+  <div class="card">
 
-    <input
-      type="number"
-      id="chartValue"
-      placeholder="Enter growth value (1-100)"
-    >
+    <input id="chartInput" type="number" placeholder="Enter growth value">
 
     <button class="btn" onclick="addChartValue()">
-      Add Value
+      Add Growth
     </button>
 
-    <div class="chart" id="chartArea">
+    <div class="chart" id="chart">
 
-      <div class="bar-wrap">
-        <div class="bar" style="height:30%">
-          <span class="bar-value">30</span>
-          <span class="month">Jan</span>
-        </div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar" style="height:45%">
-          <span class="bar-value">45</span>
-          <span class="month">Feb</span>
-        </div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar" style="height:60%">
-          <span class="bar-value">60</span>
-          <span class="month">Mar</span>
-        </div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar" style="height:70%">
-          <span class="bar-value">70</span>
-          <span class="month">Apr</span>
-        </div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar" style="height:82%">
-          <span class="bar-value">82</span>
-          <span class="month">May</span>
-        </div>
-      </div>
-
-      <div class="bar-wrap">
-        <div class="bar" style="height:92%">
-          <span class="bar-value">92</span>
-          <span class="month">Jun</span>
-        </div>
-      </div>
+      <div class="bar" style="height:35%"><span>Jan</span></div>
+      <div class="bar" style="height:45%"><span>Feb</span></div>
+      <div class="bar" style="height:55%"><span>Mar</span></div>
+      <div class="bar" style="height:65%"><span>Apr</span></div>
+      <div class="bar" style="height:75%"><span>May</span></div>
+      <div class="bar" style="height:85%"><span>Jun</span></div>
 
     </div>
 
   </div>
 
 </section>
-
 
 <section id="goals">
 
-  <div class="title">
-
-    <h2>🎯 Goal Planner</h2>
-
-    <p>Create goals and track progress.</p>
-
+  <div class="section-title">
+    <h2>Goal Planner</h2>
+    <p>Create goals and track your progress.</p>
   </div>
 
-  <div class="goal-box">
+  <div class="card">
 
-    <label>Business Goal</label>
+    <input id="goalName" type="text" placeholder="Goal name">
 
-    <input
-      type="text"
-      id="goalInput"
-      placeholder="Example: Increase monthly sales"
-    >
+    <input id="goalProgress" type="number"
+           min="0" max="100"
+           placeholder="Progress %">
 
     <button class="btn" onclick="addGoal()">
-      Add Goal
+      + Add Goal
     </button>
 
     <div id="goalList"></div>
 
-    <br>
-
-    <label>Overall Progress (%)</label>
-
-    <input
-      type="number"
-      id="progressInput"
-      min="0"
-      max="100"
-      placeholder="Example: 70"
-    >
-
-    <button class="btn" onclick="updateProgress()">
-      Update Progress
-    </button>
-
-    <div class="progress-bg">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-
-    <p id="progressText">
-      0% completed
-    </p>
-
   </div>
 
 </section>
 
-
 <section>
 
-  <div class="title">
-    <h2>💡 Business Ideas</h2>
-    <p>Topics to research and learn about.</p>
+  <div class="section-title">
+    <h2>Business Ideas</h2>
+    <p>Explore simple ideas to start learning.</p>
   </div>
 
-  <div class="grid3">
+  <div class="grid">
 
     <div class="card">
-      <h3>📱 Digital Services</h3>
+      <div class="icon">💻</div>
+      <h3>Digital Services</h3>
       <p>
-        Explore website creation, design and digital services.
+        Learn skills such as design, editing, websites and digital services.
       </p>
     </div>
 
     <div class="card">
-      <h3>🛒 Online Store</h3>
+      <div class="icon">🛒</div>
+      <h3>Online Store</h3>
       <p>
-        Learn how products can be presented and sold online.
+        Explore products, customers, pricing and online selling.
       </p>
     </div>
 
     <div class="card">
-      <h3>📚 Education</h3>
+      <div class="icon">📚</div>
+      <h3>Education</h3>
       <p>
-        Explore tutorials, educational content and resources.
+        Create useful educational content and learning resources.
       </p>
     </div>
 
@@ -753,72 +742,73 @@ footer strong{
 
 </section>
 
+<section id="learning">
 
-<section>
-
-  <div class="title">
-    <h2>📚 Business Learning</h2>
-    <p>Basic concepts for beginners.</p>
+  <div class="section-title">
+    <h2>Business Learning</h2>
+    <p>Understand important business concepts.</p>
   </div>
 
-  <div class="grid3">
+  <div class="grid">
 
     <div class="card">
+      <div class="icon">🏗️</div>
       <h3>Business Model</h3>
       <p>
-        Understand products, customers, costs and revenue.
+        Understand how a business creates and delivers value.
       </p>
     </div>
 
     <div class="card">
+      <div class="icon">👥</div>
       <h3>Customers</h3>
       <p>
-        Learn how customer needs and feedback matter.
+        Learn why understanding customer needs is important.
       </p>
     </div>
 
     <div class="card">
+      <div class="icon">📢</div>
       <h3>Marketing</h3>
       <p>
-        Learn basic branding, promotion and communication.
+        Learn basic concepts of marketing and communication.
       </p>
     </div>
 
   </div>
 
 </section>
-
 
 <section id="insights">
 
-  <div class="title">
-    <h2>📖 Business Insights</h2>
-    <p>Simple business knowledge.</p>
+  <div class="section-title">
+    <h2>Business Insights</h2>
+    <p>Simple ideas for better planning.</p>
   </div>
 
-  <div class="grid3">
+  <div class="grid">
 
     <div class="card">
+      <div class="icon">📈</div>
       <h3>Understand Growth</h3>
       <p>
-        Growth can involve more customers, revenue,
-        products or reach.
+        Track progress and make decisions using clear information.
       </p>
     </div>
 
     <div class="card">
+      <div class="icon">💰</div>
       <h3>Revenue vs Profit</h3>
       <p>
-        Revenue comes from sales. Profit is revenue
-        minus expenses.
+        Revenue is income generated from sales. Profit is what remains after expenses.
       </p>
     </div>
 
     <div class="card">
+      <div class="icon">🌱</div>
       <h3>Starting Small</h3>
       <p>
-        Research an idea, understand customers and
-        test assumptions.
+        Start with clear goals, learn continuously and improve step by step.
       </p>
     </div>
 
@@ -826,404 +816,280 @@ footer strong{
 
 </section>
 
+<section>
 
-<section id="about">
+  <div class="about">
 
-  <div class="title">
-    <h2>About Business Growth</h2>
-  </div>
-
-  <div class="about-box">
+    <div class="section-title">
+      <h2>About Business Growth</h2>
+    </div>
 
     <p>
-      <strong>Business Growth</strong> is an independent
-      digital project providing simple business tools,
-      planning features and educational information.
+      Business Growth is an independent educational project designed
+      to provide simple business planning tools, calculators and
+      learning resources.
     </p>
 
-    <br>
-
     <p>
-      This website is intended for general learning and
-      informational purposes. It is not professional
-      financial, legal or business advice.
+      This website is not affiliated with any other company or organization.
     </p>
 
   </div>
 
 </section>
-
 
 <section id="contact">
 
-  <div class="title">
-
-    <h2>📩 Contact</h2>
-
-    <p>Send a message using your email application.</p>
-
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Send your message.</p>
   </div>
 
-  <div class="contact-box">
+  <div class="contact card">
 
-    <label>Name</label>
+    <form onsubmit="sendMessage(event)">
 
-    <input
-      type="text"
-      id="contactName"
-      placeholder="Your name"
-    >
+      <label>Name</label>
+      <input id="contactName" type="text" required placeholder="Your name">
 
-    <label>Email</label>
+      <label>Email</label>
+      <input id="contactEmail" type="email" required placeholder="Your email">
 
-    <input
-      type="email"
-      id="contactEmail"
-      placeholder="Your email"
-    >
+      <label>Message</label>
+      <textarea id="contactMessage" rows="5" required placeholder="Your message"></textarea>
 
-    <label>Message</label>
+      <button class="btn" type="submit">
+        Send Message
+      </button>
 
-    <textarea
-      id="contactMessage"
-      placeholder="Write your message"
-    ></textarea>
+    </form>
 
-    <button class="btn" onclick="sendMessage()">
-      Send Message
-    </button>
+    <div class="notice">
+      Note: The contact button opens your device's email application.
+    </div>
 
   </div>
 
 </section>
 
+</main>
 
 <footer>
 
+  <div class="logo" style="justify-content:center;">
+    <div class="logo-icon">↗</div>
+    <div>Business <span>Growth</span></div>
+  </div>
+
   <p>
-    © <span id="year"></span>
-    <strong>Business Growth</strong>.
-    All rights reserved.
+    © <span id="year"></span> Business Growth. All rights reserved.
+  </p>
+
+  <p>
+    Independent educational project.
   </p>
 
 </footer>
 
-
 <script>
-
-/* DARK MODE */
 
 function toggleDarkMode(){
 
   document.body.classList.toggle("dark");
 
-  const dark =
-    document.body.classList.contains("dark");
-
-  localStorage.setItem("darkMode", dark);
-
-  document.getElementById("themeButton").textContent =
-    dark ? "☀️" : "🌙";
+  if(document.body.classList.contains("dark")){
+    localStorage.setItem("darkMode","on");
+  }else{
+    localStorage.setItem("darkMode","off");
+  }
 }
 
-
-/* LOAD DARK MODE */
-
-if(localStorage.getItem("darkMode") === "true"){
-
+if(localStorage.getItem("darkMode")==="on"){
   document.body.classList.add("dark");
-
-  document.getElementById("themeButton").textContent = "☀️";
 }
-
-
-/* MOBILE MENU */
 
 function toggleMenu(){
 
-  document
-    .getElementById("nav")
-    .classList.toggle("active");
+  document.getElementById("navMenu").classList.toggle("active");
 
 }
 
+function closeMenu(){
 
-/* SALES CALCULATOR */
+  document.getElementById("navMenu").classList.remove("active");
 
-function calculateSales(){
+}
 
-  const price =
-    Number(document.getElementById("price").value);
+function calculateBusiness(){
 
-  const quantity =
-    Number(document.getElementById("quantity").value);
+  let price = Number(document.getElementById("price").value);
+  let quantity = Number(document.getElementById("quantity").value);
 
-  if(price <= 0 || quantity <= 0){
-
-    document.getElementById("salesResult").textContent =
+  if(price<=0 || quantity<=0){
+    document.getElementById("businessResult").innerText =
       "Please enter valid numbers.";
-
     return;
   }
 
-  const sales = price * quantity;
+  let total = price * quantity;
 
-  document.getElementById("salesResult").textContent =
-    "Estimated Sales: ₹" +
-    sales.toLocaleString("en-IN");
-
+  document.getElementById("businessResult").innerText =
+    "Total Sales = ₹" + total.toLocaleString("en-IN");
 }
-
-
-/* PROFIT CALCULATOR */
 
 function calculateProfit(){
 
-  const revenue =
-    Number(document.getElementById("revenue").value);
+  let revenue = Number(document.getElementById("revenue").value);
+  let expenses = Number(document.getElementById("expenses").value);
 
-  const expenses =
-    Number(document.getElementById("expenses").value);
-
-  if(revenue < 0 || expenses < 0){
-
-    document.getElementById("profitResult").textContent =
+  if(revenue<0 || expenses<0){
+    document.getElementById("profitResult").innerText =
       "Please enter valid numbers.";
-
     return;
   }
 
-  const profit =
-    revenue - expenses;
+  let profit = revenue - expenses;
 
-  if(profit >= 0){
-
-    document.getElementById("profitResult").textContent =
-      "Estimated Profit: ₹" +
-      profit.toLocaleString("en-IN");
-
-  }else{
-
-    document.getElementById("profitResult").textContent =
-      "Estimated Loss: ₹" +
-      Math.abs(profit).toLocaleString("en-IN");
-
-  }
-
+  document.getElementById("profitResult").innerText =
+    "Profit = ₹" + profit.toLocaleString("en-IN");
 }
 
-
-/* GOALS */
-
-let goalCount = 0;
-
-function addGoal(){
-
-  const input =
-    document.getElementById("goalInput");
-
-  const text =
-    input.value.trim();
-
-  if(text === ""){
-
-    alert("Please enter a goal.");
-
-    return;
-  }
-
-  const goal =
-    document.createElement("div");
-
-  goal.className = "goal";
-
-  const span =
-    document.createElement("span");
-
-  span.textContent =
-    "🎯 " + text;
-
-  const button =
-    document.createElement("button");
-
-  button.textContent = "Delete";
-
-  button.onclick = function(){
-
-    goal.remove();
-
-    goalCount--;
-
-    updateGoalCount();
-
-  };
-
-  goal.appendChild(span);
-
-  goal.appendChild(button);
-
-  document
-    .getElementById("goalList")
-    .appendChild(goal);
-
-  goalCount++;
-
-  updateGoalCount();
-
-  input.value = "";
-
-}
-
-
-function updateGoalCount(){
-
-  document.getElementById("statGoals").textContent =
-    goalCount;
-
-}
-
-
-/* PROGRESS */
-
-function updateProgress(){
-
-  let value =
-    Number(document.getElementById("progressInput").value);
-
-  if(value < 0) value = 0;
-
-  if(value > 100) value = 100;
-
-  document
-    .getElementById("progressFill")
-    .style.width = value + "%";
-
-  document
-    .getElementById("progressText")
-    .textContent =
-      value + "% completed";
-
-}
-
-
-/* GROWTH CHART */
-
-let chartNumber = 6;
+let chartNumber = 7;
 
 function addChartValue(){
 
-  const input =
-    document.getElementById("chartValue");
+  let value = Number(document.getElementById("chartInput").value);
 
-  let value =
-    Number(input.value);
-
-  if(value <= 0){
-
-    alert("Please enter a value.");
-
+  if(value<=0){
+    alert("Please enter a valid growth value.");
     return;
   }
 
-  if(value > 100){
-    value = 100;
-  }
+  let chart = document.getElementById("chart");
 
-  const wrap =
-    document.createElement("div");
+  let bar = document.createElement("div");
 
-  wrap.className = "bar-wrap";
-
-  const bar =
-    document.createElement("div");
+  let height = Math.min(value,100);
 
   bar.className = "bar";
+  bar.style.height = height + "%";
 
-  bar.style.height =
-    value + "%";
+  bar.innerHTML =
+    "<span>#" + chartNumber + "</span>";
 
-  const valueText =
-    document.createElement("span");
-
-  valueText.className =
-    "bar-value";
-
-  valueText.textContent =
-    value;
-
-  const month =
-    document.createElement("span");
-
-  month.className =
-    "month";
-
-  month.textContent =
-    "M" + (chartNumber + 1);
-
-  bar.appendChild(valueText);
-
-  bar.appendChild(month);
-
-  wrap.appendChild(bar);
-
-  document
-    .getElementById("chartArea")
-    .appendChild(wrap);
+  chart.appendChild(bar);
 
   chartNumber++;
 
-  input.value = "";
-
+  document.getElementById("chartInput").value="";
 }
 
+function addGoal(){
 
-/* CONTACT */
+  let name = document.getElementById("goalName").value.trim();
+  let progress = Number(document.getElementById("goalProgress").value);
 
-function sendMessage(){
-
-  const name =
-    document.getElementById("contactName").value.trim();
-
-  const email =
-    document.getElementById("contactEmail").value.trim();
-
-  const message =
-    document.getElementById("contactMessage").value.trim();
-
-  if(!name || !email || !message){
-
-    alert("Please fill all fields.");
-
+  if(name===""){
+    alert("Please enter a goal.");
     return;
   }
 
-  const subject =
-    encodeURIComponent(
-      "Business Growth Contact Message"
-    );
+  if(progress<0 || progress>100 || isNaN(progress)){
+    alert("Progress must be between 0 and 100.");
+    return;
+  }
 
-  const body =
-    encodeURIComponent(
-      "Name: " + name +
-      "\nEmail: " + email +
-      "\n\nMessage:\n" + message
-    );
+  let goalList = document.getElementById("goalList");
 
-  window.location.href =
-    "mailto:?subject=" +
-    subject +
-    "&body=" +
-    body;
+  let goal = document.createElement("div");
+  goal.className="goal";
+
+  goal.innerHTML = `
+
+    <div class="goal-top">
+
+      <span>${escapeHTML(name)}</span>
+
+      <span>
+        ${progress}%
+        <button class="delete" onclick="deleteGoal(this)">
+          ×
+        </button>
+      </span>
+
+    </div>
+
+    <div class="progress">
+      <div style="width:${progress}%"></div>
+    </div>
+
+  `;
+
+  goalList.appendChild(goal);
+
+  updateGoalStats();
+
+  document.getElementById("goalName").value="";
+  document.getElementById("goalProgress").value="";
+}
+
+function deleteGoal(button){
+
+  button.closest(".goal").remove();
+
+  updateGoalStats();
 
 }
 
+function updateGoalStats(){
 
-/* YEAR */
+  let count = document.querySelectorAll(".goal").length;
 
-document.getElementById("year").textContent =
+  document.getElementById("statGoals").innerText=count;
+  document.getElementById("dashboardGoals").innerText=count;
+
+}
+
+function escapeHTML(text){
+
+  let div=document.createElement("div");
+  div.textContent=text;
+  return div.innerHTML;
+
+}
+
+function sendMessage(event){
+
+  event.preventDefault();
+
+  let name =
+    document.getElementById("contactName").value;
+
+  let email =
+    document.getElementById("contactEmail").value;
+
+  let message =
+    document.getElementById("contactMessage").value;
+
+  let subject =
+    encodeURIComponent("Business Growth Contact");
+
+  let body =
+    encodeURIComponent(
+      "Name: "+name+
+      "\nEmail: "+email+
+      "\n\nMessage:\n"+message
+    );
+
+  window.location.href =
+    "mailto:?subject="+subject+"&body="+body;
+
+}
+
+document.getElementById("year").innerText =
   new Date().getFullYear();
 
 </script>
 
 </body>
-    </html>
+  </html>
