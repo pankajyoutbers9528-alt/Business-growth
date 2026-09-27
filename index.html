@@ -3,238 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Business Growth | Grow Smarter</title>
+
 <meta name="description" content="Business Growth - simple tools, calculators and learning resources for business planning and growth.">
+
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-:root{--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#667085;--primary:#0f766e;--primary2:#14b8a6;--border:#e5e7eb;--shadow:0 10px 30px rgba(0,0,0,.07)}
-body.dark{--bg:#0b1220;--card:#121c2e;--text:#f5f7ff;--muted:#aab4c5;--border:#26344a;--shadow:0 10px 30px rgba(0,0,0,.25)}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);line-height:1.6;transition:.3s}
-header{position:sticky;top:0;z-index:1000;background:var(--card);border-bottom:1px solid var(--border);box-shadow:0 3px 18px rgba(0,0,0,.05)}
-.nav{max-width:1150px;margin:auto;padding:13px 20px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:11px}.logo,.about-logo{background:linear-gradient(135deg,var(--primary),var(--primary2));display:flex;align-items:center;justify-content:center}
-.logo{width:44px;height:44px;border-radius:13px;box-shadow:0 7px 18px rgba(15,118,110,.25)}
-.logo svg{width:27px;height:27px}.brand-name{font-size:20px;font-weight:800}.brand-name span,.footer-brand span{color:var(--primary)}
-nav{display:flex;align-items:center;gap:17px}nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:600}nav a:hover{color:var(--primary)}
-.menu{display:none;font-size:27px;cursor:pointer}
-.btn{border:0;border-radius:10px;padding:11px 16px;background:var(--primary);color:white;font-weight:700;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-1px);opacity:.92}
-.hero{max-width:1150px;margin:auto;padding:80px 20px 60px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-.badge{display:inline-block;padding:7px 13px;border-radius:30px;background:#dff8f4;color:#08766e;font-size:13px;font-weight:700;margin-bottom:16px}
-body.dark .badge{background:#123d3a;color:#75e8dc}
-.hero h1{font-size:54px;line-height:1.08;margin-bottom:18px}.hero h1 span{color:var(--primary)}
-.hero p{max-width:620px;color:var(--muted);font-size:17px;margin-bottom:25px}
-.hero-card{background:linear-gradient(145deg,var(--primary),var(--primary2));color:white;padding:40px;border-radius:28px;box-shadow:var(--shadow)}
-.hero-card-icon{font-size:62px;margin-bottom:12px}.hero-card h2{font-size:29px;margin-bottom:7px}
-.stats{max-width:1150px;margin:0 auto 45px;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stat,.card{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow)}
-.stat{border-radius:17px;padding:22px}.stat h3{color:var(--primary);font-size:29px}.stat p,.card p{color:var(--muted);font-size:14px}
-section{max-width:1150px;margin:auto;padding:65px 20px}.section-title{text-align:center;margin-bottom:35px}.section-title h2{font-size:32px;margin-bottom:7px}.section-title p{color:var(--muted)}
-.grid,.dashboard{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{border-radius:19px;padding:25px}.card h3{margin-bottom:8px}.icon{font-size:34px;margin-bottom:12px}
-.dashboard-value{font-size:30px;font-weight:800;color:var(--primary)}
-input,textarea{width:100%;padding:12px 13px;margin:7px 0 13px;border:1px solid var(--border);border-radius:10px;outline:none;background:var(--bg);color:var(--text)}
-input:focus,textarea:focus{border-color:var(--primary)}
-.result{margin-top:12px;padding:12px;border-radius:10px;background:#e8f8f5;color:#08766e;font-weight:700}body.dark .result{background:#123d3a;color:#7ce8dc}
-.chart{height:220px;display:flex;align-items:end;gap:15px;padding:20px;margin-top:20px;border-bottom:1px solid var(--border)}
-.bar{flex:1;min-height:15px;border-radius:8px 8px 0 0;background:linear-gradient(to top,var(--primary),var(--primary2));position:relative}
-.bar span{position:absolute;bottom:-25px;width:100%;text-align:center;font-size:12px;color:var(--muted)}
-.goal{margin:17px 0}.goal-top{display:flex;justify-content:space-between;gap:10px;font-size:14px;font-weight:700}
-.progress{height:10px;margin-top:8px;border-radius:20px;background:var(--border);overflow:hidden}.progress div{height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2))}
-.delete{border:0;background:#ef4444;color:white;border-radius:7px;padding:4px 8px;cursor:pointer}
-.about-box{max-width:850px;margin:auto;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:22px;padding:35px;box-shadow:var(--shadow)}
-.about-logo{width:70px;height:70px;margin:0 auto 18px;border-radius:20px}.about-logo svg{width:42px;height:42px}.about-box p{color:var(--muted);margin-top:12px}
-.contact{max-width:700px;margin:auto}.contact-info{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
-.contact-item{text-align:center;padding:15px;border:1px solid var(--border);border-radius:12px;background:var(--bg)}
-.contact-item strong{display:block;margin-bottom:4px}.contact-item span{color:var(--muted);font-size:12px}
-.notice{margin-top:15px;padding:14px;border-radius:12px;border:1px solid var(--border);color:var(--muted);font-size:13px}
-footer{background:#0b1220;color:white;text-align:center;padding:35px 20px;margin-top:30px}.footer-brand{display:flex;justify-content:center;align-items:center;gap:9px;font-size:20px;font-weight:800}.footer-brand span{color:#5eead4}
-footer p{color:#aab4c5;font-size:13px;margin-top:8px}
-@media(max-width:850px){
-nav{display:none;position:absolute;top:70px;left:0;right:0;background:var(--card);padding:20px;flex-direction:column;border-bottom:1px solid var(--border)}
-nav.active{display:flex}.menu{display:block}.hero{grid-template-columns:1fr;padding-top:50px}.hero h1{font-size:42px}
-.stats{grid-template-columns:repeat(2,1fr)}.grid,.dashboard{grid-template-columns:1fr}.contact-info{grid-template-columns:1fr}
-}
-@media(max-width:500px){.stats{grid-template-columns:1fr}.hero h1{font-size:35px}section{padding:45px 15px}.nav{padding:12px 15px}.brand-name{font-size:18px}}
-</style>
-</head>
-
-<body>
-<header>
-<div class="nav">
-<div class="brand">
-<div class="logo">
-<svg viewBox="0 0 100 100">
-<path d="M20 70 L40 50 L55 62 L80 30" stroke="white" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M66 30 H80 V44" stroke="white" stroke-width="10" fill="none" stroke-linecap="round"/>
-</svg>
-</div>
-<div class="brand-name">Business <span>Growth</span></div>
-</div>
-<div class="menu" onclick="toggleMenu()">☰</div>
-<nav id="navMenu">
-<a href="#home" onclick="closeMenu()">Home</a><a href="#tools" onclick="closeMenu()">Tools</a><a href="#dashboard" onclick="closeMenu()">Dashboard</a><a href="#learning" onclick="closeMenu()">Learning</a><a href="#insights" onclick="closeMenu()">Insights</a><a href="#about" onclick="closeMenu()">About</a><a href="#contact" onclick="closeMenu()">Contact</a>
-<button class="btn" onclick="toggleDarkMode()">🌙</button>
-</nav>
-</div>
-</header>
-
-<main>
-<section id="home" class="hero">
-<div>
-<div class="badge">🚀 Independent Business Growth Platform</div>
-<h1>Build Better.<br><span>Grow Smarter.</span></h1>
-<p>Simple tools, calculators and learning resources to help you plan, understand and track your business journey.</p>
-<a href="#tools"><button class="btn">Explore Tools →</button></a>
-</div>
-<div class="hero-card"><div class="hero-card-icon">📈</div><h2>Turn Ideas Into Growth</h2><p>Plan your goals, understand your numbers and improve step by step.</p></div>
-</section>
-
-<div class="stats">
-<div class="stat"><h3 id="statGoals">0</h3><p>Goals Added</p></div><div class="stat"><h3>2+</h3><p>Calculators</p></div><div class="stat"><h3>6+</h3><p>Business Tools</p></div><div class="stat"><h3>24/7</h3><p>Online Access</p></div>
-</div>
-
-<section id="dashboard">
-<div class="section-title"><h2>Professional Dashboard</h2><p>Quick view of your business planning.</p></div>
-<div class="dashboard">
-<div class="card"><div class="icon">💰</div><h3>Revenue</h3><div class="dashboard-value" id="dashboardRevenue">₹0</div><p>Track your business income.</p></div>
-<div class="card"><div class="icon">📊</div><h3>Profit</h3><div class="dashboard-value" id="dashboardProfit">₹0</div><p>Understand your profit.</p></div>
-<div class="card"><div class="icon">🎯</div><h3>Goals</h3><div class="dashboard-value" id="dashboardGoals">0</div><p>Your current goals.</p></div>
-</div>
-</section>
-
-<section id="tools">
-<div class="section-title"><h2>Business Growth Tools</h2><p>Simple tools for planning and understanding business numbers.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">🧮</div><h3>Business Calculator</h3>
-<input id="price" type="number" placeholder="Price per item"><input id="quantity" type="number" placeholder="Quantity">
-<button class="btn" onclick="calculateBusiness()">Calculate</button><div id="businessResult" class="result">Result will appear here.</div>
-</div>
-<div class="card"><div class="icon">💵</div><h3>Profit Calculator</h3>
-<input id="revenue" type="number" placeholder="Revenue"><input id="expenses" type="number" placeholder="Expenses">
-<button class="btn" onclick="calculateProfit()">Calculate</button><div id="profitResult" class="result">Result will appear here.</div>
-</div>
-<div class="card"><div class="icon">📅</div><h3>Growth Planner</h3><p>Set clear goals and track your progress regularly.</p><br><a href="#goals"><button class="btn">Open Goal Planner</button></a></div>
-</div>
-</section>
-
-<section>
-<div class="section-title"><h2>Business Growth Chart</h2><p>Add values to visualize your progress.</p></div>
-<div class="card"><input id="chartInput" type="number" placeholder="Enter growth value"><button class="btn" onclick="addChartValue()">Add Growth</button>
-<div class="chart" id="chart">
-<div class="bar" style="height:35%"><span>Jan</span></div><div class="bar" style="height:45%"><span>Feb</span></div><div class="bar" style="height:55%"><span>Mar</span></div><div class="bar" style="height:65%"><span>Apr</span></div><div class="bar" style="height:75%"><span>May</span></div><div class="bar" style="height:85%"><span>Jun</span></div>
-</div></div>
-</section>
-
-<section id="goals">
-<div class="section-title"><h2>Goal Planner</h2><p>Create goals and track your progress.</p></div>
-<div class="card"><input id="goalName" type="text" placeholder="Goal name"><input id="goalProgress" type="number" min="0" max="100" placeholder="Progress %">
-<button class="btn" onclick="addGoal()">+ Add Goal</button><div id="goalList"></div></div>
-</section>
-
-<section><div class="section-title"><h2>Business Ideas</h2><p>Explore simple areas to learn and develop.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">💻</div><h3>Digital Services</h3><p>Learn skills such as design, editing, websites and digital services.</p></div>
-<div class="card"><div class="icon">🛒</div><h3>Online Store</h3><p>Explore products, customers, pricing and online selling.</p></div>
-<div class="card"><div class="icon">📚</div><h3>Education</h3><p>Create useful educational content and learning resources.</p></div>
-</div></section>
-
-<section id="learning"><div class="section-title"><h2>Business Learning</h2><p>Understand important business concepts.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">🏗️</div><h3>Business Model</h3><p>Understand how a business creates and delivers value.</p></div>
-<div class="card"><div class="icon">👥</div><h3>Customers</h3><p>Learn why understanding customer needs is important.</p></div>
-<div class="card"><div class="icon">📢</div><h3>Marketing</h3><p>Learn basic concepts of marketing and communication.</p></div>
-</div></section>
-
-<section id="insights"><div class="section-title"><h2>Business Insights</h2><p>Simple ideas for better planning.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">📈</div><h3>Understand Growth</h3><p>Track progress and use clear information when planning.</p></div>
-<div class="card"><div class="icon">💰</div><h3>Revenue vs Profit</h3><p>Revenue is income generated from sales. Profit is what remains after expenses.</p></div>
-<div class="card"><div class="icon">🌱</div><h3>Starting Small</h3><p>Start with clear goals, learn continuously and improve step by step.</p></div>
-</div></section>
-
-<section id="about"><div class="section-title"><h2>About Business Growth</h2><p>Simple. Independent. Growth-focused.</p></div>
-<div class="about-box"><div class="about-logo"><svg viewBox="0 0 100 100"><path d="M20 70 L40 50 L55 62 L80 30" stroke="white" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 30 H80 V44" stroke="white" stroke-width="10" fill="none" stroke-linecap="round"/></svg></div>
-<h2>Business Growth</h2><p>Business Growth is an independent educational project created to provide simple business planning tools, calculators and learning resources.</p>
-<p>The goal is to make business concepts easier to understand and help users organize their ideas and goals.</p>
-<p>This website is an independent project and is not affiliated with any other company or organization.</p></div></section>
-
-<section id="contact"><div class="section-title"><h2>Contact Business Growth</h2><p>Have a question or suggestion? Send us a message.</p></div>
-<div class="contact card"><div class="contact-info"><div class="contact-item"><strong>💬 Questions</strong><span>Send your message</span></div><div class="contact-item"><strong>💡 Ideas</strong><span>Share suggestions</span></div><div class="contact-item"><strong>📩 Support</strong><span>Website feedback</span></div></div>
-<form onsubmit="sendMessage(event)"><label>Name</label><input id="contactName" type="text" placeholder="Your name" required><label>Email</label><input id="contactEmail" type="email" placeholder="Your email" required><label>Message</label><textarea id="contactMessage" rows="5" placeholder="Write your message..." required></textarea><button class="btn" type="submit">Send Message</button></form>
-<div class="notice">The Send Message button opens the email application available on your device.</div></div></section>
-</main>
-
-<footer><div class="footer-brand"><div>↗</div><div>Business <span>Growth</span></div></div><p>© <span id="year"></span> Business Growth. All rights reserved.</p><p>Independent educational project.</p></footer>
-
-<script>
-function toggleDarkMode(){document.body.classList.toggle("dark");localStorage.setItem("darkMode",document.body.classList.contains("dark")?"on":"off")}
-if(localStorage.getItem("darkMode")==="on")document.body.classList.add("dark");
-
-function toggleMenu(){document.getElementById("navMenu").classList.toggle("active")}
-function closeMenu(){document.getElementById("navMenu").classList.remove("active")}
-
-function calculateBusiness(){
- const price=Number(document.getElementById("price").value), quantity=Number(document.getElementById("quantity").value);
- if(price<=0||quantity<=0){document.getElementById("businessResult").innerText="Please enter valid numbers.";return}
- const total=price*quantity;
- document.getElementById("businessResult").innerText="Total Sales = ₹"+total.toLocaleString("en-IN");
- document.getElementById("dashboardRevenue").innerText="₹"+total.toLocaleString("en-IN");
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif
 }
 
-function calculateProfit(){
- const revenue=Number(document.getElementById("revenue").value), expenses=Number(document.getElementById("expenses").value);
- if(revenue<0||expenses<0){document.getElementById("profitResult").innerText="Please enter valid numbers.";return}
- const profit=revenue-expenses;
- document.getElementById("profitResult").innerText="Profit = ₹"+profit.toLocaleString("en-IN");
- document.getElementById("dashboardProfit").innerText="₹"+profit.toLocaleString("en-IN");
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#667085;
+  --primary:#0f766e;
+  --primary2:#14b8a6;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(0,0,0,.07)
 }
 
-let chartNumber=7;
-function addChartValue(){
- const value=Number(document.getElementById("chartInput").value);
- if(value<=0){alert("Please enter a valid growth value.");return}
- const bar=document.createElement("div");bar.className="bar";bar.style.height=Math.min(value,100)+"%";bar.innerHTML="<span>#"+chartNumber+"</span>";
- document.getElementById("chart").appendChild(bar);chartNumber++;document.getElementById("chartInput").value="";
+body.dark{
+  --bg:#0b1220;
+  --card:#121c2e;
+  --text:#f5f7ff;
+  --muted:#aab4c5;
+  --border:#26344a;
+  --shadow:0 10px 30px rgba(0,0,0,.25)
 }
 
-function escapeHTML(text){const d=document.createElement("div");d.textContent=text;return d.innerHTML}
-
-let goalCount=0;
-function addGoal(){
- const name=document.getElementById("goalName").value.trim(), progress=Number(document.getElementById("goalProgress").value);
- if(!name){alert("Please enter a goal.");return}
- if(progress<0||progress>100||isNaN(progress)){alert("Progress must be between 0 and 100.");return}
- const goal=document.createElement("div");goal.className="goal";
- goal.innerHTML=`<div class="goal-top"><span>${escapeHTML(name)}</span><span>${progress}% <button class="delete" onclick="deleteGoal(this)">×</button></span></div><div class="progress"><div style="width:${progress}%"></div></div>`;
- document.getElementById("goalList").appendChild(goal);goalCount++;updateGoalCount();
- document.getElementById("goalName").value="";document.getElementById("goalProgress").value="";
-}
-function deleteGoal(button){button.closest(".goal").remove();goalCount=Math.max(0,goalCount-1);updateGoalCount()}
-function updateGoalCount(){document.getElementById("statGoals").innerText=goalCount;document.getElementById("dashboardGoals").innerText=goalCount}
-
-function sendMessage(event){
- event.preventDefault();
- const name=document.getElementById("contactName").value.trim();
- const email=document.getElementById("contactEmail").value.trim();
- const message=document.getElementById("contactMessage").value.trim();
- const subject=encodeURIComponent("Business Growth Contact - "+name);
- const body=encodeURIComponent("Name: "+name+"\nEmail: "+email+"\n\nMessage:\n"+message);
- window.location.href="mailto:?subject="+subject+"&body="+body;
+html{
+  scroll-behavior:smooth
 }
 
-document.getElementById("year").textContent=new Date().getFullYear();
-
-if("serviceWorker" in navigator){
- window.addEventListener("load",()=>{
-  navigator.serviceWorker.register("./sw.js")
-   .then(()=>console.log("Business Growth PWA ready"))
-   .catch(error=>console.log("PWA error:",error));
- });
+body{
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  transition:.3s
 }
-</script>
-</body>
-  </html>
-  
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 3px 18px rgba(0,0,0,.05)
+}
+
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:13px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px
+}
+
+.logo,
+.about-logo{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:13px;
+  box-shadow:0 7px 18px rgba(15,118,110,.25)
+}
+
+.logo svg{
+  width:27px;
+  height:27px
+}
+
+.brand-name{
+  font-size:20px;
+  font-weight:800
+}
+
+.brand-name span,
+.footer-brand span{
+  color:var(--primary)
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:17px
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600
+}
+
+nav a:hover{
+  color:var(--primary)
+}
+
+.menu{
+  display:none;
+  font-size:27px;
+  cursor:pointer
+}
+
+.btn{
+  border:0;
+  border-radius:10px;
+  padding:11px 16px;
+  background:var(--primary);
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  opacity:.92
+}
+
+/* PROFESSIONAL HOME */
+.hero{
+  max-width:1150px;
+  margin:auto;
+  padding:80px 20px 60px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:40px;
+  align-items:center
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:#dff8f4;
+  color:#08766e;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:16px
+}
+
+body.dark .badge{
+  background:#123d3a;
+  color:#75e8dc
+}
+
+.hero h1{
+  font-size:54px;
+  line-height:1.08;
+  margin-bottom:18px
+}
+
+.hero h1 span{
+  color:var(--primary)
+}
+
+.hero p{
+  max-width:620px;
+  color:var(--muted);
+  font-size:17px;
+  margin-bottom:25px
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap
+}
+
+.hero-card{
+  background:linear-gradient(145deg,var(--primary),var(--primary2));
+  color:white;
+  padding:40px;
+  border-radius:28px;
+  box-shadow:var(--shadow)
+}
+
+.hero-card-icon{
+  font-size:62px;
+  margin-bottom:12px
+}
+
+.hero-card h2{
+  font-size:29px;
+  margin-bottom:7px
+}
+
+.stats{
+  max-width:1150px;
+  margin:0 auto 45px;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px
+}
