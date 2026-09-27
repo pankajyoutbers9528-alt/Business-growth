@@ -3,365 +3,402 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Business Growth | Grow Smarter</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-    scroll-behavior:smooth;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+  scroll-behavior:smooth;
+}
+
+:root{
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --text:#172033;
+  --muted:#64748b;
+  --primary:#2563eb;
+  --header:#0f172a;
+  --border:#e2e8f0;
+}
+
+body.dark{
+  --bg:#0b1120;
+  --card:#111827;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --border:#334155;
+  --header:#020617;
 }
 
 body{
-    background:#f4f7fb;
-    color:#172033;
-    line-height:1.6;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  transition:.3s;
 }
 
 header{
-    background:#0f172a;
-    color:white;
-    padding:15px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+  background:var(--header);
+  color:white;
+  padding:15px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
-    font-size:22px;
-    font-weight:bold;
+  font-size:22px;
+  font-weight:bold;
 }
 
 .logo span{
-    color:#38bdf8;
-}
-
-.menu-btn{
-    display:none;
-    background:none;
-    border:0;
-    color:white;
-    font-size:27px;
-    cursor:pointer;
+  color:#38bdf8;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:18px;
-    font-size:14px;
+  color:white;
+  text-decoration:none;
+  margin-left:16px;
+  font-size:14px;
 }
 
 nav a:hover{
-    color:#38bdf8;
+  color:#38bdf8;
+}
+
+.header-buttons{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.theme-btn,
+.menu-btn{
+  border:0;
+  background:#1e293b;
+  color:white;
+  padding:9px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.menu-btn{
+  display:none;
 }
 
 .hero{
-    background:linear-gradient(135deg,#0f172a,#1d4ed8);
-    color:white;
-    text-align:center;
-    padding:85px 6%;
+  background:linear-gradient(135deg,#0f172a,#1d4ed8);
+  color:white;
+  text-align:center;
+  padding:80px 6%;
 }
 
 .hero h1{
-    font-size:48px;
-    margin-bottom:15px;
+  font-size:48px;
+  margin-bottom:15px;
 }
 
 .hero p{
-    max-width:700px;
-    margin:auto;
-    color:#dbeafe;
-    font-size:18px;
+  max-width:700px;
+  margin:auto;
+  color:#dbeafe;
+  font-size:18px;
 }
 
 .btn{
-    display:inline-block;
-    background:#38bdf8;
-    color:#082f49;
-    border:0;
-    padding:12px 22px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:18px;
-    text-decoration:none;
-}
-
-.btn:hover{
-    opacity:.9;
+  display:inline-block;
+  border:0;
+  background:#38bdf8;
+  color:#082f49;
+  padding:12px 22px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:18px;
 }
 
 .stats{
-    max-width:1100px;
-    margin:-35px auto 0;
-    padding:0 20px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+  max-width:1100px;
+  margin:-35px auto 0;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
 .stat{
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:14px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+  background:var(--card);
+  padding:22px;
+  text-align:center;
+  border-radius:14px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .stat h2{
-    color:#2563eb;
-    font-size:30px;
+  color:var(--primary);
+  font-size:28px;
 }
 
 section{
-    padding:65px 6%;
+  padding:65px 6%;
 }
 
 .title{
-    text-align:center;
-    margin-bottom:35px;
+  text-align:center;
+  margin-bottom:35px;
 }
 
 .title h2{
-    font-size:32px;
+  font-size:32px;
 }
 
 .title p{
-    color:#64748b;
+  color:var(--muted);
 }
 
-.dashboard,
-.cards,
-.ideas,
-.learning,
-.insights{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.dashboard{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card,
+.calculator,
+.goal-box,
+.chart-box,
+.about-box,
+.contact-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 5px 18px rgba(0,0,0,.07);
+  padding:25px;
 }
 
 .card h3{
-    color:#1e3a8a;
-    margin-bottom:8px;
+  color:var(--primary);
+  margin-bottom:8px;
 }
 
 .card p{
-    color:#64748b;
+  color:var(--muted);
 }
 
 .calculator,
 .goal-box,
-.contact-box,
+.chart-box,
 .about-box,
-.chart-box{
-    max-width:750px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:16px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-}
-
-.calculator{
-    margin-bottom:25px;
+.contact-box{
+  max-width:750px;
+  margin:0 auto 25px;
+  padding:30px;
 }
 
 input,
 textarea{
-    width:100%;
-    padding:13px;
-    margin:8px 0 15px;
-    border:1px solid #d1d5db;
-    border-radius:8px;
-    font-size:15px;
+  width:100%;
+  padding:13px;
+  margin:8px 0 15px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  border-radius:8px;
+  font-size:15px;
 }
 
 textarea{
-    min-height:120px;
-    resize:vertical;
+  min-height:120px;
+  resize:vertical;
 }
 
 .result{
-    margin-top:18px;
-    background:#eff6ff;
-    color:#1d4ed8;
-    padding:16px;
-    border-radius:9px;
-    text-align:center;
-    font-weight:bold;
+  margin-top:18px;
+  padding:16px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-radius:9px;
+  text-align:center;
+  font-weight:bold;
 }
 
-.chart-controls{
-    text-align:center;
-    margin-bottom:20px;
+body.dark .result{
+  background:#172554;
+  color:#93c5fd;
 }
 
 .chart{
-    height:300px;
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-around;
-    gap:12px;
-    border-bottom:2px solid #cbd5e1;
-    padding:20px 5px 30px;
+  height:280px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-around;
+  gap:12px;
+  border-bottom:2px solid var(--border);
+  padding:20px 5px 30px;
 }
 
 .bar-wrap{
-    height:100%;
-    width:12%;
-    display:flex;
-    align-items:flex-end;
-    justify-content:center;
+  height:100%;
+  width:13%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
 }
 
 .bar{
-    width:70%;
-    min-height:8px;
-    background:#2563eb;
-    border-radius:7px 7px 0 0;
-    transition:.5s;
-    position:relative;
-}
-
-.bar:hover{
-    background:#1d4ed8;
+  width:70%;
+  background:var(--primary);
+  border-radius:7px 7px 0 0;
+  position:relative;
+  transition:.5s;
 }
 
 .bar-value{
-    position:absolute;
-    top:-24px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:11px;
-    color:#334155;
+  position:absolute;
+  top:-24px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  color:var(--muted);
 }
 
 .month{
-    position:absolute;
-    bottom:-28px;
-    left:50%;
-    transform:translateX(-50%);
-    font-size:11px;
-    color:#64748b;
+  position:absolute;
+  bottom:-28px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:11px;
+  color:var(--muted);
 }
 
 .progress-bg{
-    width:100%;
-    height:22px;
-    background:#e5e7eb;
-    border-radius:20px;
-    overflow:hidden;
-    margin:15px 0;
+  height:22px;
+  background:var(--border);
+  border-radius:20px;
+  overflow:hidden;
+  margin:15px 0;
 }
 
 .progress-fill{
-    width:0%;
-    height:100%;
-    background:#2563eb;
-    transition:.5s;
+  height:100%;
+  width:0%;
+  background:var(--primary);
+  transition:.5s;
 }
 
 .goal{
-    background:#f8fafc;
-    margin-top:10px;
-    padding:13px;
-    border-radius:8px;
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
+  background:var(--bg);
+  padding:13px;
+  margin-top:10px;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
 .goal button{
-    border:0;
-    background:#ef4444;
-    color:white;
-    border-radius:6px;
-    padding:6px 10px;
-    cursor:pointer;
+  border:0;
+  background:#ef4444;
+  color:white;
+  border-radius:6px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+
+.grid3{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
 footer{
-    background:#0f172a;
-    color:#cbd5e1;
-    text-align:center;
-    padding:30px 6%;
+  background:var(--header);
+  color:#cbd5e1;
+  text-align:center;
+  padding:30px;
 }
 
 footer strong{
-    color:white;
+  color:white;
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
 
-    header{
-        padding:14px 5%;
-    }
+  header{
+    flex-wrap:wrap;
+    gap:10px;
+  }
 
-    .menu-btn{
-        display:block;
-    }
+  .menu-btn{
+    display:block;
+  }
 
-    nav{
-        display:none;
-        position:absolute;
-        top:62px;
-        left:0;
-        width:100%;
-        background:#0f172a;
-        padding:15px;
-    }
+  nav{
+    display:none;
+    width:100%;
+    order:3;
+  }
 
-    nav.active{
-        display:flex;
-        flex-direction:column;
-    }
+  nav.active{
+    display:flex;
+    flex-direction:column;
+  }
 
-    nav a{
-        margin:0;
-        padding:12px;
-        border-bottom:1px solid #334155;
-    }
+  nav a{
+    padding:10px;
+    margin:0;
+    border-bottom:1px solid #334155;
+  }
 
-    .hero{
-        padding:65px 5%;
-    }
+  .hero h1{
+    font-size:36px;
+  }
 
-    .hero h1{
-        font-size:36px;
-    }
+  .stats,
+  .dashboard,
+  .grid3{
+    grid-template-columns:1fr;
+  }
 
-    .stats,
-    .dashboard,
-    .cards,
-    .ideas,
-    .learning,
-    .insights{
-        grid-template-columns:1fr;
-    }
+  section{
+    padding:50px 5%;
+  }
+}
 
-    section{
-        padding:50px 5%;
-    }
+@media(max-width:500px){
 
-    .title h2{
-        font-size:28px;
-    }
+  .logo{
+    font-size:19px;
+  }
+
+  .hero{
+    padding:60px 5%;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .calculator,
+  .goal-box,
+  .chart-box,
+  .about-box,
+  .contact-box{
+    padding:22px;
+  }
 }
 </style>
 </head>
@@ -370,551 +407,543 @@ footer strong{
 
 <header>
 
-    <div class="logo">
-        📈 Business <span>Growth</span>
-    </div>
+  <div class="logo">
+    📈 Business <span>Growth</span>
+  </div>
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <div class="header-buttons">
 
-    <nav id="nav">
-        <a href="#home">Home</a>
-        <a href="#dashboard">Dashboard</a>
-        <a href="#tools">Tools</a>
-        <a href="#chart">Growth</a>
-        <a href="#goals">Goals</a>
-        <a href="#insights">Insights</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <button class="theme-btn" onclick="toggleDarkMode()" id="themeButton">
+      🌙
+    </button>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </button>
+
+  </div>
+
+  <nav id="nav">
+
+    <a href="#home">Home</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#tools">Tools</a>
+    <a href="#growth">Growth</a>
+    <a href="#goals">Goals</a>
+    <a href="#insights">Insights</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+  </nav>
 
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
-    <h1>Build Better. Grow Smarter.</h1>
+  <h1>Build Better. Grow Smarter.</h1>
 
-    <p>
-        Simple digital tools to understand business,
-        calculate profit, plan goals and learn business basics.
-    </p>
+  <p>
+    Simple tools to calculate, plan, learn and understand
+    your business growth.
+  </p>
 
-    <a href="#tools" class="btn">Explore Tools</a>
+  <a class="btn" href="#dashboard">
+    Open Dashboard
+  </a>
 
 </section>
 
 
-<!-- STATS -->
-
 <div class="stats">
 
-    <div class="stat">
-        <h2>6+</h2>
-        <p>Business Tools</p>
-    </div>
+  <div class="stat">
+    <h2 id="statGoals">0</h2>
+    <p>Goals Added</p>
+  </div>
 
-    <div class="stat">
-        <h2>100%</h2>
-        <p>Simple Interface</p>
-    </div>
+  <div class="stat">
+    <h2>2+</h2>
+    <p>Calculators</p>
+  </div>
 
-    <div class="stat">
-        <h2>24/7</h2>
-        <p>Online Access</p>
-    </div>
+  <div class="stat">
+    <h2>6+</h2>
+    <p>Business Tools</p>
+  </div>
+
+  <div class="stat">
+    <h2>24/7</h2>
+    <p>Online Access</p>
+  </div>
 
 </div>
 
 
-<!-- DASHBOARD -->
-
 <section id="dashboard">
 
-    <div class="title">
-        <h2>📊 Professional Dashboard</h2>
-        <p>Quick overview of your business planning tools.</p>
+  <div class="title">
+    <h2>📊 Professional Dashboard</h2>
+    <p>Your simple business planning center.</p>
+  </div>
+
+  <div class="dashboard">
+
+    <div class="card">
+      <h3>💰 Revenue</h3>
+      <p>
+        Calculate estimated sales from product price
+        and quantity.
+      </p>
     </div>
 
-    <div class="dashboard">
-
-        <div class="card">
-            <h3>💰 Revenue</h3>
-            <p>
-                Calculate estimated sales revenue using
-                product price and quantity.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📈 Profit</h3>
-            <p>
-                Compare revenue and expenses to estimate
-                your profit or loss.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🎯 Goals</h3>
-            <p>
-                Add goals and track your progress
-                toward completing them.
-            </p>
-        </div>
-
+    <div class="card">
+      <h3>📈 Profit</h3>
+      <p>
+        Compare revenue and expenses to estimate
+        profit or loss.
+      </p>
     </div>
+
+    <div class="card">
+      <h3>🎯 Goals</h3>
+      <p>
+        Add goals and track your overall progress.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
-
-<!-- TOOLS -->
 
 <section id="tools">
 
-    <div class="title">
-        <h2>🛠️ Business Tools</h2>
-        <p>Useful calculators for basic business planning.</p>
+  <div class="title">
+    <h2>🛠️ Business Tools</h2>
+    <p>Simple calculators for business planning.</p>
+  </div>
+
+
+  <div class="calculator">
+
+    <h2>🧮 Business Calculator</h2>
+
+    <label>Product Price (₹)</label>
+
+    <input
+      type="number"
+      id="price"
+      placeholder="Example: 100"
+    >
+
+    <label>Quantity Sold</label>
+
+    <input
+      type="number"
+      id="quantity"
+      placeholder="Example: 50"
+    >
+
+    <button class="btn" onclick="calculateSales()">
+      Calculate Sales
+    </button>
+
+    <div class="result" id="salesResult">
+      Result will appear here
     </div>
 
+  </div>
 
-    <!-- SALES -->
 
-    <div class="calculator">
+  <div class="calculator">
 
-        <h2>🧮 Business Calculator</h2>
+    <h2>💰 Profit Calculator</h2>
 
-        <label>Product Price (₹)</label>
+    <label>Total Revenue (₹)</label>
 
-        <input
-            type="number"
-            id="price"
-            placeholder="Example: 100"
-        >
+    <input
+      type="number"
+      id="revenue"
+      placeholder="Example: 50000"
+    >
 
-        <label>Quantity Sold</label>
+    <label>Total Expenses (₹)</label>
 
-        <input
-            type="number"
-            id="quantity"
-            placeholder="Example: 50"
-        >
+    <input
+      type="number"
+      id="expenses"
+      placeholder="Example: 30000"
+    >
 
-        <button class="btn" onclick="calculateSales()">
-            Calculate Sales
-        </button>
+    <button class="btn" onclick="calculateProfit()">
+      Calculate Profit
+    </button>
 
-        <div class="result" id="salesResult">
-            Result will appear here
-        </div>
-
+    <div class="result" id="profitResult">
+      Result will appear here
     </div>
 
-
-    <!-- PROFIT -->
-
-    <div class="calculator">
-
-        <h2>💰 Profit Calculator</h2>
-
-        <label>Total Revenue (₹)</label>
-
-        <input
-            type="number"
-            id="revenue"
-            placeholder="Example: 50000"
-        >
-
-        <label>Total Expenses (₹)</label>
-
-        <input
-            type="number"
-            id="expenses"
-            placeholder="Example: 30000"
-        >
-
-        <button class="btn" onclick="calculateProfit()">
-            Calculate Profit
-        </button>
-
-        <div class="result" id="profitResult">
-            Result will appear here
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
-<!-- GROWTH CHART -->
+<section id="growth">
 
-<section id="chart">
+  <div class="title">
 
-    <div class="title">
+    <h2>📈 Growth Chart</h2>
 
-        <h2>📈 Interactive Growth Chart</h2>
+    <p>
+      Add values to create your own growth visualization.
+    </p>
 
-        <p>
-            Enter monthly values to see your growth chart.
-        </p>
+  </div>
+
+  <div class="chart-box">
+
+    <input
+      type="number"
+      id="chartValue"
+      placeholder="Enter growth value (1-100)"
+    >
+
+    <button class="btn" onclick="addChartValue()">
+      Add Value
+    </button>
+
+    <div class="chart" id="chartArea">
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:30%">
+          <span class="bar-value">30</span>
+          <span class="month">Jan</span>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:45%">
+          <span class="bar-value">45</span>
+          <span class="month">Feb</span>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:60%">
+          <span class="bar-value">60</span>
+          <span class="month">Mar</span>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:70%">
+          <span class="bar-value">70</span>
+          <span class="month">Apr</span>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:82%">
+          <span class="bar-value">82</span>
+          <span class="month">May</span>
+        </div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar" style="height:92%">
+          <span class="bar-value">92</span>
+          <span class="month">Jun</span>
+        </div>
+      </div>
 
     </div>
 
-    <div class="chart-box">
-
-        <div class="chart-controls">
-
-            <input
-                type="number"
-                id="chartValue"
-                placeholder="Enter value"
-            >
-
-            <button class="btn" onclick="addChartValue()">
-                Add Monthly Value
-            </button>
-
-        </div>
-
-        <div class="chart" id="chartArea">
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:30%">
-                    <span class="bar-value">30</span>
-                    <span class="month">Jan</span>
-                </div>
-            </div>
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:42%">
-                    <span class="bar-value">42</span>
-                    <span class="month">Feb</span>
-                </div>
-            </div>
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:55%">
-                    <span class="bar-value">55</span>
-                    <span class="month">Mar</span>
-                </div>
-            </div>
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:65%">
-                    <span class="bar-value">65</span>
-                    <span class="month">Apr</span>
-                </div>
-            </div>
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:78%">
-                    <span class="bar-value">78</span>
-                    <span class="month">May</span>
-                </div>
-            </div>
-
-            <div class="bar-wrap">
-                <div class="bar" style="height:90%">
-                    <span class="bar-value">90</span>
-                    <span class="month">Jun</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
-
-<!-- GOALS -->
 
 <section id="goals">
 
-    <div class="title">
+  <div class="title">
 
-        <h2>🎯 Goal Planner</h2>
+    <h2>🎯 Goal Planner</h2>
 
-        <p>Create goals and track your progress.</p>
+    <p>Create goals and track progress.</p>
 
+  </div>
+
+  <div class="goal-box">
+
+    <label>Business Goal</label>
+
+    <input
+      type="text"
+      id="goalInput"
+      placeholder="Example: Increase monthly sales"
+    >
+
+    <button class="btn" onclick="addGoal()">
+      Add Goal
+    </button>
+
+    <div id="goalList"></div>
+
+    <br>
+
+    <label>Overall Progress (%)</label>
+
+    <input
+      type="number"
+      id="progressInput"
+      min="0"
+      max="100"
+      placeholder="Example: 70"
+    >
+
+    <button class="btn" onclick="updateProgress()">
+      Update Progress
+    </button>
+
+    <div class="progress-bg">
+      <div class="progress-fill" id="progressFill"></div>
     </div>
 
-    <div class="goal-box">
+    <p id="progressText">
+      0% completed
+    </p>
 
-        <label>Business Goal</label>
-
-        <input
-            type="text"
-            id="goalInput"
-            placeholder="Example: Increase monthly sales"
-        >
-
-        <button class="btn" onclick="addGoal()">
-            Add Goal
-        </button>
-
-        <div id="goalList"></div>
-
-        <br>
-
-        <label>Overall Progress (%)</label>
-
-        <input
-            type="number"
-            id="progressInput"
-            min="0"
-            max="100"
-            placeholder="Example: 60"
-        >
-
-        <button class="btn" onclick="updateProgress()">
-            Update Progress
-        </button>
-
-        <div class="progress-bg">
-
-            <div
-                class="progress-fill"
-                id="progressFill">
-            </div>
-
-        </div>
-
-        <p id="progressText">
-            0% completed
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
-
-<!-- BUSINESS IDEAS -->
 
 <section>
 
-    <div class="title">
+  <div class="title">
+    <h2>💡 Business Ideas</h2>
+    <p>Topics to research and learn about.</p>
+  </div>
 
-        <h2>💡 Business Ideas</h2>
+  <div class="grid3">
 
-        <p>Topics you can research and learn about.</p>
-
+    <div class="card">
+      <h3>📱 Digital Services</h3>
+      <p>
+        Explore website creation, design and digital services.
+      </p>
     </div>
 
-    <div class="ideas">
-
-        <div class="card">
-            <h3>📱 Digital Services</h3>
-            <p>
-                Explore website creation, design,
-                digital support and online services.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🛒 Online Store</h3>
-            <p>
-                Learn how online stores work,
-                from products to customer service.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📚 Education</h3>
-            <p>
-                Explore educational content,
-                tutorials and learning resources.
-            </p>
-        </div>
-
+    <div class="card">
+      <h3>🛒 Online Store</h3>
+      <p>
+        Learn how products can be presented and sold online.
+      </p>
     </div>
+
+    <div class="card">
+      <h3>📚 Education</h3>
+      <p>
+        Explore tutorials, educational content and resources.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
-
-<!-- LEARNING -->
 
 <section>
 
-    <div class="title">
+  <div class="title">
+    <h2>📚 Business Learning</h2>
+    <p>Basic concepts for beginners.</p>
+  </div>
 
-        <h2>📚 Business Learning</h2>
+  <div class="grid3">
 
-        <p>Basic concepts for beginners.</p>
-
+    <div class="card">
+      <h3>Business Model</h3>
+      <p>
+        Understand products, customers, costs and revenue.
+      </p>
     </div>
 
-    <div class="learning">
-
-        <div class="card">
-            <h3>Business Model</h3>
-            <p>
-                Understand products, customers,
-                costs and revenue.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Customers</h3>
-            <p>
-                Learn how customer needs and
-                feedback can influence a product.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Marketing</h3>
-            <p>
-                Learn the basics of branding,
-                promotion and communication.
-            </p>
-        </div>
-
+    <div class="card">
+      <h3>Customers</h3>
+      <p>
+        Learn how customer needs and feedback matter.
+      </p>
     </div>
+
+    <div class="card">
+      <h3>Marketing</h3>
+      <p>
+        Learn basic branding, promotion and communication.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
-
-<!-- INSIGHTS -->
 
 <section id="insights">
 
-    <div class="title">
+  <div class="title">
+    <h2>📖 Business Insights</h2>
+    <p>Simple business knowledge.</p>
+  </div>
 
-        <h2>📖 Business Insights</h2>
+  <div class="grid3">
 
-        <p>Simple business knowledge.</p>
-
+    <div class="card">
+      <h3>Understand Growth</h3>
+      <p>
+        Growth can involve more customers, revenue,
+        products or reach.
+      </p>
     </div>
 
-    <div class="insights">
-
-        <div class="card">
-            <h3>Understand Growth</h3>
-            <p>
-                Business growth can involve more
-                customers, revenue, products or reach.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Revenue vs Profit</h3>
-            <p>
-                Revenue is money generated from sales.
-                Profit is revenue minus expenses.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Starting Small</h3>
-            <p>
-                Research an idea, understand customers
-                and test assumptions before expanding.
-            </p>
-        </div>
-
+    <div class="card">
+      <h3>Revenue vs Profit</h3>
+      <p>
+        Revenue comes from sales. Profit is revenue
+        minus expenses.
+      </p>
     </div>
+
+    <div class="card">
+      <h3>Starting Small</h3>
+      <p>
+        Research an idea, understand customers and
+        test assumptions.
+      </p>
+    </div>
+
+  </div>
 
 </section>
 
-
-<!-- ABOUT -->
 
 <section id="about">
 
-    <div class="title">
+  <div class="title">
+    <h2>About Business Growth</h2>
+  </div>
 
-        <h2>About Business Growth</h2>
+  <div class="about-box">
 
-    </div>
+    <p>
+      <strong>Business Growth</strong> is an independent
+      digital project providing simple business tools,
+      planning features and educational information.
+    </p>
 
-    <div class="about-box">
+    <br>
 
-        <p>
-            <strong>Business Growth</strong> is an independent
-            digital project designed to provide simple
-            business tools and educational information.
-        </p>
+    <p>
+      This website is intended for general learning and
+      informational purposes. It is not professional
+      financial, legal or business advice.
+    </p>
 
-        <br>
-
-        <p>
-            This website is for general informational and
-            learning purposes and is not professional
-            financial, legal or business advice.
-        </p>
-
-    </div>
+  </div>
 
 </section>
 
-
-<!-- CONTACT -->
 
 <section id="contact">
 
-    <div class="title">
+  <div class="title">
 
-        <h2>📩 Contact Us</h2>
+    <h2>📩 Contact</h2>
 
-        <p>Send a message using your email app.</p>
+    <p>Send a message using your email application.</p>
 
-    </div>
+  </div>
 
-    <div class="contact-box">
+  <div class="contact-box">
 
-        <label>Name</label>
+    <label>Name</label>
 
-        <input
-            type="text"
-            id="contactName"
-            placeholder="Your name"
-        >
+    <input
+      type="text"
+      id="contactName"
+      placeholder="Your name"
+    >
 
-        <label>Email</label>
+    <label>Email</label>
 
-        <input
-            type="email"
-            id="contactEmail"
-            placeholder="Your email"
-        >
+    <input
+      type="email"
+      id="contactEmail"
+      placeholder="Your email"
+    >
 
-        <label>Message</label>
+    <label>Message</label>
 
-        <textarea
-            id="contactMessage"
-            placeholder="Write your message"
-        ></textarea>
+    <textarea
+      id="contactMessage"
+      placeholder="Write your message"
+    ></textarea>
 
-        <button class="btn" onclick="sendMessage()">
-            Send Message
-        </button>
+    <button class="btn" onclick="sendMessage()">
+      Send Message
+    </button>
 
-    </div>
+  </div>
 
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
-    <p>
-        © <span id="year"></span>
-        <strong>Business Growth</strong>.
-        All rights reserved.
-    </p>
+  <p>
+    © <span id="year"></span>
+    <strong>Business Growth</strong>.
+    All rights reserved.
+  </p>
 
 </footer>
 
 
 <script>
 
+/* DARK MODE */
+
+function toggleDarkMode(){
+
+  document.body.classList.toggle("dark");
+
+  const dark =
+    document.body.classList.contains("dark");
+
+  localStorage.setItem("darkMode", dark);
+
+  document.getElementById("themeButton").textContent =
+    dark ? "☀️" : "🌙";
+}
+
+
+/* LOAD DARK MODE */
+
+if(localStorage.getItem("darkMode") === "true"){
+
+  document.body.classList.add("dark");
+
+  document.getElementById("themeButton").textContent = "☀️";
+}
+
+
 /* MOBILE MENU */
 
 function toggleMenu(){
 
-    document.getElementById("nav").classList.toggle("active");
+  document
+    .getElementById("nav")
+    .classList.toggle("active");
 
 }
 
@@ -923,25 +952,25 @@ function toggleMenu(){
 
 function calculateSales(){
 
-    const price =
-        Number(document.getElementById("price").value);
+  const price =
+    Number(document.getElementById("price").value);
 
-    const quantity =
-        Number(document.getElementById("quantity").value);
+  const quantity =
+    Number(document.getElementById("quantity").value);
 
-    if(price <= 0 || quantity <= 0){
+  if(price <= 0 || quantity <= 0){
 
-        document.getElementById("salesResult").innerHTML =
-            "Please enter valid numbers.";
+    document.getElementById("salesResult").textContent =
+      "Please enter valid numbers.";
 
-        return;
-    }
+    return;
+  }
 
-    const sales = price * quantity;
+  const sales = price * quantity;
 
-    document.getElementById("salesResult").innerHTML =
-        "Estimated Sales: ₹" +
-        sales.toLocaleString("en-IN");
+  document.getElementById("salesResult").textContent =
+    "Estimated Sales: ₹" +
+    sales.toLocaleString("en-IN");
 
 }
 
@@ -950,72 +979,106 @@ function calculateSales(){
 
 function calculateProfit(){
 
-    const revenue =
-        Number(document.getElementById("revenue").value);
+  const revenue =
+    Number(document.getElementById("revenue").value);
 
-    const expenses =
-        Number(document.getElementById("expenses").value);
+  const expenses =
+    Number(document.getElementById("expenses").value);
 
-    if(revenue < 0 || expenses < 0){
+  if(revenue < 0 || expenses < 0){
 
-        document.getElementById("profitResult").innerHTML =
-            "Please enter valid numbers.";
+    document.getElementById("profitResult").textContent =
+      "Please enter valid numbers.";
 
-        return;
-    }
+    return;
+  }
 
-    const profit = revenue - expenses;
+  const profit =
+    revenue - expenses;
 
-    if(profit >= 0){
+  if(profit >= 0){
 
-        document.getElementById("profitResult").innerHTML =
-            "Estimated Profit: ₹" +
-            profit.toLocaleString("en-IN");
+    document.getElementById("profitResult").textContent =
+      "Estimated Profit: ₹" +
+      profit.toLocaleString("en-IN");
 
-    }else{
+  }else{
 
-        document.getElementById("profitResult").innerHTML =
-            "Estimated Loss: ₹" +
-            Math.abs(profit).toLocaleString("en-IN");
+    document.getElementById("profitResult").textContent =
+      "Estimated Loss: ₹" +
+      Math.abs(profit).toLocaleString("en-IN");
 
-    }
+  }
 
 }
 
 
 /* GOALS */
 
+let goalCount = 0;
+
 function addGoal(){
 
-    const input =
-        document.getElementById("goalInput");
+  const input =
+    document.getElementById("goalInput");
 
-    const text = input.value.trim();
+  const text =
+    input.value.trim();
 
-    if(text === ""){
+  if(text === ""){
 
-        alert("Please enter a goal.");
+    alert("Please enter a goal.");
 
-        return;
-    }
+    return;
+  }
 
-    const goalList =
-        document.getElementById("goalList");
+  const goal =
+    document.createElement("div");
 
-    const goal =
-        document.createElement("div");
+  goal.className = "goal";
 
-    goal.className = "goal";
+  const span =
+    document.createElement("span");
 
-    goal.innerHTML =
-        "<span>🎯 " +
-        escapeHTML(text) +
-        "</span>" +
-        "<button onclick='this.parentElement.remove()'>Delete</button>";
+  span.textContent =
+    "🎯 " + text;
 
-    goalList.appendChild(goal);
+  const button =
+    document.createElement("button");
 
-    input.value = "";
+  button.textContent = "Delete";
+
+  button.onclick = function(){
+
+    goal.remove();
+
+    goalCount--;
+
+    updateGoalCount();
+
+  };
+
+  goal.appendChild(span);
+
+  goal.appendChild(button);
+
+  document
+    .getElementById("goalList")
+    .appendChild(goal);
+
+  goalCount++;
+
+  updateGoalCount();
+
+  input.value = "";
+
+}
+
+
+function updateGoalCount(){
+
+  document.getElementById("statGoals").textContent =
+    goalCount;
 
 }
 
@@ -1024,88 +1087,92 @@ function addGoal(){
 
 function updateProgress(){
 
-    let value =
-        Number(document.getElementById("progressInput").value);
+  let value =
+    Number(document.getElementById("progressInput").value);
 
-    if(value < 0) value = 0;
+  if(value < 0) value = 0;
 
-    if(value > 100) value = 100;
+  if(value > 100) value = 100;
 
-    document.getElementById("progressFill").style.width =
-        value + "%";
+  document
+    .getElementById("progressFill")
+    .style.width = value + "%";
 
-    document.getElementById("progressText").innerHTML =
-        value + "% completed";
+  document
+    .getElementById("progressText")
+    .textContent =
+      value + "% completed";
 
 }
 
 
-/* CHART */
+/* GROWTH CHART */
 
 let chartNumber = 6;
 
 function addChartValue(){
 
-    const input =
-        document.getElementById("chartValue");
+  const input =
+    document.getElementById("chartValue");
 
-    const value = Number(input.value);
+  let value =
+    Number(input.value);
 
-    if(value <= 0){
+  if(value <= 0){
 
-        alert("Please enter a value.");
+    alert("Please enter a value.");
 
-        return;
-    }
+    return;
+  }
 
-    const chart =
-        document.getElementById("chartArea");
+  if(value > 100){
+    value = 100;
+  }
 
-    const wrap =
-        document.createElement("div");
+  const wrap =
+    document.createElement("div");
 
-    wrap.className = "bar-wrap";
+  wrap.className = "bar-wrap";
 
-    const bar =
-        document.createElement("div");
+  const bar =
+    document.createElement("div");
 
-    bar.className = "bar";
+  bar.className = "bar";
 
-    const height =
-        Math.min(value,100);
+  bar.style.height =
+    value + "%";
 
-    bar.style.height =
-        height + "%";
+  const valueText =
+    document.createElement("span");
 
-    const valueText =
-        document.createElement("span");
+  valueText.className =
+    "bar-value";
 
-    valueText.className =
-        "bar-value";
+  valueText.textContent =
+    value;
 
-    valueText.textContent =
-        value;
+  const month =
+    document.createElement("span");
 
-    const month =
-        document.createElement("span");
+  month.className =
+    "month";
 
-    month.className =
-        "month";
+  month.textContent =
+    "M" + (chartNumber + 1);
 
-    month.textContent =
-        "M" + (chartNumber + 1);
+  bar.appendChild(valueText);
 
-    bar.appendChild(valueText);
+  bar.appendChild(month);
 
-    bar.appendChild(month);
+  wrap.appendChild(bar);
 
-    wrap.appendChild(bar);
+  document
+    .getElementById("chartArea")
+    .appendChild(wrap);
 
-    chart.appendChild(wrap);
+  chartNumber++;
 
-    chartNumber++;
-
-    input.value = "";
+  input.value = "";
 
 }
 
@@ -1114,45 +1181,49 @@ function addChartValue(){
 
 function sendMessage(){
 
-    const name =
-        document.getElementById("contactName").value.trim();
+  const name =
+    document.getElementById("contactName").value.trim();
 
-    const email =
-        document.getElementById("contactEmail").value.trim();
+  const email =
+    document.getElementById("contactEmail").value.trim();
 
-    const message =
-        document.getElementById("contactMessage").value.trim();
+  const message =
+    document.getElementById("contactMessage").value.trim();
 
-    if(name === "" ||
-       email === "" ||
-       message === ""){
+  if(!name || !email || !message){
 
-        alert("Please fill all fields.");
+    alert("Please fill all fields.");
 
-        return;
-    }
+    return;
+  }
 
-    const subject =
-        encodeURIComponent(
-            "Business Growth Contact Message"
-        );
+  const subject =
+    encodeURIComponent(
+      "Business Growth Contact Message"
+    );
 
-    const body =
-        encodeURIComponent(
-            "Name: " + name +
-            "\nEmail: " + email +
-            "\n\nMessage:\n" + message
-        );
+  const body =
+    encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\nMessage:\n" + message
+    );
 
-    window.location.href =
-        "mailto:?subject=" +
-        subject +
-        "&body=" +
-        body;
+  window.location.href =
+    "mailto:?subject=" +
+    subject +
+    "&body=" +
+    body;
 
 }
 
 
-/* BASIC HTML SAFETY */
+/* YEAR */
 
-function e
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+</script>
+
+</body>
+    </html>
