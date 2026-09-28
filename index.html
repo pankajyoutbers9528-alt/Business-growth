@@ -1,204 +1,1083 @@
-<!-- FIREBASE SDK -->
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-auth-compat.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-const firebaseConfig = {
-  apiKey: "AIzaSyA9lBmoY4FmQzVxJ4FIpohuirAdk4RWny",
-  authDomain: "business-growth-3d243.firebaseapp.com",
-  projectId: "business-growth-3d243",
-  storageBucket: "business-growth-3d243.firebasestorage.app",
-  messagingSenderId: "566770152061",
-  appId: "1:566770152061:web:c70917ca65d944fa1a3714"
-};
+  <title>Business Growth | Grow Smarter</title>
 
-firebase.initializeApp(firebaseConfig);
+  <meta name="description"
+    content="Business Growth - business planning, calculators, learning and growth tools.">
 
-const auth = firebase.auth();
+  <meta name="theme-color" content="#0f766e">
 
-const statusBox = document.getElementById("authStatus");
-const logoutBtn = document.getElementById("logoutBtn");
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
 
-function showAuthMessage(message, success = false) {
-  statusBox.innerText = message;
-  statusBox.className =
-    "auth-status " + (success ? "auth-success" : "auth-error");
-}
-
-function showLogin() {
-  document.getElementById("authLoginForm").style.display = "block";
-  document.getElementById("authSignupForm").style.display = "none";
-
-  document.getElementById("loginTab").style.background = "var(--primary)";
-  document.getElementById("loginTab").style.color = "white";
-
-  document.getElementById("signupTab").style.background = "transparent";
-  document.getElementById("signupTab").style.color = "var(--primary)";
-}
-
-function showSignup() {
-  document.getElementById("authLoginForm").style.display = "none";
-  document.getElementById("authSignupForm").style.display = "block";
-
-  document.getElementById("signupTab").style.background = "var(--primary)";
-  document.getElementById("signupTab").style.color = "white";
-
-  document.getElementById("loginTab").style.background = "transparent";
-  document.getElementById("loginTab").style.color = "var(--primary)";
-}
-
-async function signupUser() {
-
-  const email = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPassword").value;
-
-  if (!email || !password) {
-    showAuthMessage("Email और password डालें।");
-    return;
-  }
-
-  if (password.length < 6) {
-    showAuthMessage("Password कम से कम 6 characters का होना चाहिए।");
-    return;
-  }
-
-  try {
-
-    await auth.createUserWithEmailAndPassword(email, password);
-
-    showAuthMessage(
-      "Account successfully created!",
-      true
-    );
-
-  } catch (error) {
-
-    console.error(error);
-
-    if (error.code === "auth/email-already-in-use") {
-      showAuthMessage("यह email पहले से registered है। Login करें।");
-    } else if (error.code === "auth/invalid-email") {
-      showAuthMessage("Email सही नहीं है।");
-    } else if (error.code === "auth/weak-password") {
-      showAuthMessage("Password बहुत छोटा है।");
-    } else if (error.code === "auth/operation-not-allowed") {
-      showAuthMessage("Firebase में Email/Password Login enable नहीं है।");
-    } else if (error.code === "auth/unauthorized-domain") {
-      showAuthMessage("GitHub domain Firebase में authorized नहीं है।");
-    } else {
-      showAuthMessage("Signup error: " + error.message);
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-  }
-}
-
-async function loginUser() {
-
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
-
-  if (!email || !password) {
-    showAuthMessage("Email और password डालें।");
-    return;
-  }
-
-  try {
-
-    await auth.signInWithEmailAndPassword(email, password);
-
-    showAuthMessage(
-      "Login successful!",
-      true
-    );
-
-  } catch (error) {
-
-    console.error(error);
-
-    if (
-      error.code === "auth/wrong-password" ||
-      error.code === "auth/user-not-found" ||
-      error.code === "auth/invalid-credential"
-    ) {
-      showAuthMessage("Email या password गलत है।");
-    } else if (error.code === "auth/unauthorized-domain") {
-      showAuthMessage("GitHub domain Firebase में authorized नहीं है।");
-    } else {
-      showAuthMessage("Login error: " + error.message);
+    html {
+      scroll-behavior: smooth;
     }
 
-  }
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+      transition: 0.3s;
+    }
 
-async function resetPassword() {
+    body.dark {
+      background: #111827;
+      color: #f3f4f6;
+    }
 
-  const email =
-    document.getElementById("loginEmail").value.trim();
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  if (!email) {
-    showAuthMessage("पहले अपना email डालें।");
-    return;
-  }
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
 
-  try {
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(10px);
+    }
 
-    await auth.sendPasswordResetEmail(email);
+    body.dark header {
+      background: rgba(17,24,39,0.96);
+      border-color: #374151;
+    }
 
-    showAuthMessage(
-      "Password reset email भेज दिया गया है।",
-      true
-    );
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      min-height: 70px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-  } catch (error) {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+      color: #0f766e;
+    }
 
-    showAuthMessage(
-      "Reset error: " + error.message
-    );
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+    }
 
-  }
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-async function logoutUser() {
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-  try {
+    .nav-links a:hover {
+      color: #0f766e;
+    }
 
-    await auth.signOut();
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    showAuthMessage(
-      "Logout successful.",
-      true
-    );
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s;
+    }
 
-  } catch (error) {
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
-    showAuthMessage(
-      "Logout error: " + error.message
-    );
+    .btn-primary {
+      background: #0f766e;
+      color: white;
+    }
 
-  }
-}
+    .btn-secondary {
+      background: #e6fffb;
+      color: #0f766e;
+    }
 
-auth.onAuthStateChanged(function(user) {
+    body.dark .btn-secondary {
+      background: #173b38;
+      color: #8ff3e8;
+    }
 
-  if (user) {
+    .btn-danger {
+      background: #dc2626;
+      color: white;
+    }
 
-    showAuthMessage(
-      "Logged in as: " + user.email,
-      true
-    );
+    .theme-btn,
+    .menu-btn {
+      border: 1px solid #d1d5db;
+      background: transparent;
+      border-radius: 10px;
+      padding: 9px 12px;
+      cursor: pointer;
+    }
 
-    logoutBtn.style.display = "inline-block";
+    body.dark .theme-btn,
+    body.dark .menu-btn {
+      color: white;
+      border-color: #4b5563;
+    }
 
-  } else {
+    .menu-btn {
+      display: none;
+    }
 
-    showAuthMessage(
-      "Firebase ready. You can Login or Sign Up.",
-      true
-    );
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 80px 20px 60px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 45px;
+      align-items: center;
+    }
 
-    logoutBtn.style.display = "none";
+    .hero-badge {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 50px;
+      background: #dffaf6;
+      color: #0f766e;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
 
-  }
+    body.dark .hero-badge {
+      background: #163b38;
+      color: #8ff3e8;
+    }
 
-});
-</script>
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #0f766e;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #667085;
+      max-width: 650px;
+      margin-bottom: 25px;
+    }
+
+    body.dark .hero p {
+      color: #cbd5e1;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(15,118,110,0.12);
+      border: 1px solid #e5e7eb;
+    }
+
+    body.dark .hero-card,
+    body.dark .card {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    .growth-visual {
+      min-height: 300px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .bar {
+      width: 45px;
+      border-radius: 10px 10px 0 0;
+      background: #0f766e;
+    }
+
+    .bar:nth-child(1) {
+      height: 70px;
+    }
+
+    .bar:nth-child(2) {
+      height: 110px;
+    }
+
+    .bar:nth-child(3) {
+      height: 155px;
+    }
+
+    .bar:nth-child(4) {
+      height: 205px;
+    }
+
+    .bar:nth-child(5) {
+      height: 250px;
+    }
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 65px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #667085;
+    }
+
+    body.dark .section-title p {
+      color: #cbd5e1;
+    }
+
+    .stats {
+      max-width: 1150px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    body.dark .stat {
+      background: #1f2937;
+      border-color: #374151;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      color: #0f766e;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #667085;
+    }
+
+    body.dark .card p {
+      color: #cbd5e1;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .calculator {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      background: white;
+      color: #111827;
+      outline: none;
+    }
+
+    body.dark input,
+    body.dark textarea,
+    body.dark select {
+      background: #111827;
+      color: white;
+      border-color: #4b5563;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #0f766e;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      color: #065f46;
+      font-weight: 700;
+    }
+
+    body.dark .result {
+      background: #12352d;
+      color: #a7f3d0;
+    }
+
+    .auth-card {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .auth-tabs button {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #0f766e;
+      background: transparent;
+      color: #0f766e;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .auth-tabs button.active {
+      background: #0f766e;
+      color: white;
+    }
+
+    .auth-status {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 14px;
+    }
+
+    .auth-success {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .auth-error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    body.dark .auth-status {
+      background: #374151;
+      color: #e5e7eb;
+    }
+
+    body.dark .auth-success {
+      background: #14532d;
+      color: #bbf7d0;
+    }
+
+    body.dark .auth-error {
+      background: #7f1d1d;
+      color: #fecaca;
+    }
+
+    .dashboard-box {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+    }
+
+    .dashboard-item {
+      padding: 20px;
+      border-radius: 15px;
+      background: #f0fdfa;
+      border: 1px solid #ccfbf1;
+    }
+
+    body.dark .dashboard-item {
+      background: #173b38;
+      border-color: #245a54;
+    }
+
+    .goal-progress {
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 50px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .goal-progress div {
+      height: 100%;
+      width: 0%;
+      background: #0f766e;
+      transition: 0.3s;
+    }
+
+    footer {
+      margin-top: 30px;
+      padding: 35px 20px;
+      text-align: center;
+      background: #0f172a;
+      color: white;
+    }
+
+    footer p {
+      color: #cbd5e1;
+      margin-top: 5px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media(max-width:850px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        top: 70px;
+        background: white;
+        padding: 18px;
+        border-radius: 15px;
+        border: 1px solid #e5e7eb;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      body.dark .nav-links {
+        background: #1f2937;
+        border-color: #374151;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 50px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width:550px) {
+      .grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero-card {
+        padding: 18px;
+      }
+
+      section {
+        padding: 45px 15px;
+      }
+
+      .nav {
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="#home" class="brand">
+      <img src="icon.svg" class="brand-logo" alt="Business Growth">
+      <span>Business Growth</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="#learning">Learning</a>
+      <a href="#insights">Insights</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#auth">Login</a>
+    </nav>
+
+    <div class="nav-buttons">
+      <button class="theme-btn" onclick="toggleDarkMode()">🌙</button>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- HOME -->
+<section id="home" class="hero">
+
+  <div>
+    <span class="hero-badge">BUSINESS PLANNING PLATFORM</span>
+
+    <h1>
+      Build Better.<br>
+      <span>Grow Smarter.</span>
+    </h1>
+
+    <p>
+      Business Growth helps you plan, calculate, learn and improve
+      your business with simple tools.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#tools" class="btn btn-primary">Explore Tools</a>
+      <a href="#auth" class="btn btn-secondary">Login / Sign Up</a>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h3>Growth Overview</h3>
+
+    <div class="growth-visual">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
+    <p>
+      Plan your business growth step by step.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- STATS -->
+<div class="stats">
+
+  <div class="stat">
+    <strong>10+</strong>
+    <span>Business Tools</span>
+  </div>
+
+  <div class="stat">
+    <strong>100%</strong>
+    <span>Simple Interface</span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>Access</span>
+  </div>
+
+  <div class="stat">
+    <strong>Free</strong>
+    <span>To Start</span>
+  </div>
+
+</div>
+
+
+<!-- TOOLS -->
+<section id="tools">
+
+  <div class="section-title">
+    <h2>Business Growth Tools</h2>
+    <p>Useful tools for planning and understanding your business.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🧮</div>
+      <h3>Business Calculator</h3>
+      <p>Calculate revenue, expenses and estimated profit.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Profit Calculator</h3>
+      <p>Find profit and profit margin from your business numbers.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📈</div>
+      <h3>Growth Planner</h3>
+      <p>Set a target and track your business growth.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BUSINESS CALCULATOR -->
+<section id="calculator">
+
+  <div class="section-title">
+    <h2>Business Calculator</h2>
+    <p>Enter your business numbers.</p>
+  </div>
+
+  <div class="card calculator">
+
+    <div class="form-group">
+      <label>Monthly Revenue</label>
+      <input type="number" id="revenue" placeholder="Example: 50000">
+    </div>
+
+    <div class="form-group">
+      <label>Monthly Expenses</label>
+      <input type="number" id="expenses" placeholder="Example: 30000">
+    </div>
+
+    <button class="btn btn-primary" onclick="calculateBusiness()">
+      Calculate
+    </button>
+
+    <div id="businessResult" class="result hidden"></div>
+
+  </div>
+
+</section>
+
+
+<!-- PROFIT -->
+<section id="profit">
+
+  <div class="section-title">
+    <h2>Profit Calculator</h2>
+    <p>Quickly calculate your profit margin.</p>
+  </div>
+
+  <div class="card calculator">
+
+    <div class="form-group">
+      <label>Sales</label>
+      <input type="number" id="sales" placeholder="Example: 100000">
+    </div>
+
+    <div class="form-group">
+      <label>Total Cost</label>
+      <input type="number" id="cost" placeholder="Example: 70000">
+    </div>
+
+    <button class="btn btn-primary" onclick="calculateProfit()">
+      Calculate Profit
+    </button>
+
+    <div id="profitResult" class="result hidden"></div>
+
+  </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+
+  <div class="section-title">
+    <h2>Business Dashboard</h2>
+    <p>A simple overview of your business numbers.</p>
+  </div>
+
+  <div class="dashboard-box">
+
+    <div class="dashboard-item">
+      <h3>Revenue</h3>
+      <strong id="dashRevenue">₹0</strong>
+    </div>
+
+    <div class="dashboard-item">
+      <h3>Expenses</h3>
+      <strong id="dashExpenses">₹0</strong>
+    </div>
+
+    <div class="dashboard-item">
+      <h3>Profit</h3>
+      <strong id="dashProfit">₹0</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GOAL -->
+<section id="goals">
+
+  <div class="section-title">
+    <h2>Goal Planner</h2>
+    <p>Set a business target and track your progress.</p>
+  </div>
+
+  <div class="card calculator">
+
+    <div class="form-group">
+      <label>Goal Amount</label>
+      <input type="number" id="goalAmount" placeholder="Example: 100000">
+    </div>
+
+    <div class="form-group">
+      <label>Current Amount</label>
+      <input type="number" id="currentAmount" placeholder="Example: 40000">
+    </div>
+
+    <button class="btn btn-primary" onclick="updateGoal()">
+      Update Goal
+    </button>
+
+    <div class="goal-progress">
+      <div id="goalBar"></div>
+    </div>
+
+    <p id="goalText" style="margin-top:12px;">
+      Enter your goal and current amount.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- IDEAS -->
+<section id="ideas">
+
+  <div class="section-title">
+    <h2>Business Ideas</h2>
+    <p>Simple ideas you can research and develop.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>📱 Digital Services</h3>
+      <p>Website, design, editing and other digital services.</p>
+    </div>
+
+    <div class="card">
+      <h3>🛍️ Online Store</h3>
+      <p>Build an online product or service business.</p>
+    </div>
+
+    <div class="card">
+      <h3>📚 Education</h3>
+      <p>Create useful educational content or learning resources.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LEARNING -->
+<section id="learning">
+
+  <div class="section-title">
+    <h2>Business Learning</h2>
+    <p>Learn important business concepts.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Revenue</h3>
+      <p>
+        Revenue is the money generated from selling products or services.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💵</div>
+      <h3>Profit</h3>
+      <p>
+        Profit is generally revenue minus business expenses.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🚀</div>
+      <h3>Growth</h3>
+      <p>
+        Business growth can involve increasing customers, revenue,
+        products or market reach.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INSIGHTS -->
+<section id="insights">
+
+  <div class="section-title">
+    <h2>Business Insights</h2>
+    <p>Simple ideas for better planning.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Track Expenses</h3>
+      <p>Knowing where money goes can help with financial planning.</p>
+    </div>
+
+    <div class="card">
+      <h3>Know Your Customers</h3>
+      <p>Understand customer needs before developing products.</p>
+    </div>
+
+    <div class="card">
+      <h3>Set Clear Goals</h3>
+      <p>Break large business goals into smaller measurable steps.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AUTH -->
+<section id="auth">
+
+  <div class="section-title">
+    <h2>Login & Sign Up</h2>
+    <p>Create an account or login to your Business Growth account.</p>
+  </div>
+
+  <div class="card auth-card">
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="active" onclick="showLogin()">
+        Login
+      </button>
+
+      <button id="signupTab" onclick="showSignup()">
+        Sign Up
+      </button>
+    </div>
+
+
+    <!-- LOGIN FORM -->
+    <div id="authLoginForm">
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          id="loginEmail"
+          placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="loginPassword"
+          placeholder="Enter your password">
+      </div>
+
+      <button
+        class="btn btn-primary"
+        onclick="loginUser()">
+        Login
+      </button>
+
+      <button
+        class="btn btn-secondary"
+        onclick="resetPassword()"
+        style="margin-left:5px;">
+        Forgot Password
+      </button>
+
+    </div>
+
+
+    <!-- SIGNUP FORM -->
+    <div id="authSignupForm" class="hidden">
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          id="signupEmail"
+          placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="signupPassword"
+          placeholder="Minimum 6 characters">
+      </div>
+
+      <button
+        class="btn btn-primary"
+        onclick="signupUser()">
+        Create Account
+      </button>
+
+    </div>
+
+
+    <div id="authStatus" class="auth-status">
+      Firebase is loading...
+    </div>
+
+    <button
+      id="logoutBtn"
+      class="btn btn-danger hidden"
+      onclick="logoutUser()"
+      style="margin-top:12px;">
+      Logout
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="section-title">
+    <h2>About Business Growth</h2>
+  </div>
+
+  <div class="card">
+
+    <h3>Simple tools for better business planning</h3>
+
+    <p style="margin-top:10px;">
+      Business Growth is a simple web platform designed to provide
+      business calculators, planning tools, learning resources and
+      useful information in one place.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <div class="section-title">
+    <h2>Contact</h2>
+    <p>Send us your message.</p>
+  </div>
+
+  <div class="card calculator">
+
+    <form onsubmit="sendContact(event)">
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <inpu
