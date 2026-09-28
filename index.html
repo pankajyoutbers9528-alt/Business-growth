@@ -1,1083 +1,1482 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Business Growth | Grow Smarter</title>
-
-  <meta name="description"
-    content="Business Growth - business planning, calculators, learning and growth tools.">
-
-  <meta name="theme-color" content="#0f766e">
-
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon.svg" type="image/svg+xml">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.6;
-      transition: 0.3s;
-    }
-
-    body.dark {
-      background: #111827;
-      color: #f3f4f6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid #e5e7eb;
-      backdrop-filter: blur(10px);
-    }
-
-    body.dark header {
-      background: rgba(17,24,39,0.96);
-      border-color: #374151;
-    }
-
-    .nav {
-      max-width: 1150px;
-      margin: auto;
-      min-height: 70px;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
-      color: #0f766e;
-    }
-
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      color: #0f766e;
-    }
-
-    .nav-buttons {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 10px;
-      padding: 11px 16px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: #0f766e;
-      color: white;
-    }
-
-    .btn-secondary {
-      background: #e6fffb;
-      color: #0f766e;
-    }
-
-    body.dark .btn-secondary {
-      background: #173b38;
-      color: #8ff3e8;
-    }
-
-    .btn-danger {
-      background: #dc2626;
-      color: white;
-    }
-
-    .theme-btn,
-    .menu-btn {
-      border: 1px solid #d1d5db;
-      background: transparent;
-      border-radius: 10px;
-      padding: 9px 12px;
-      cursor: pointer;
-    }
-
-    body.dark .theme-btn,
-    body.dark .menu-btn {
-      color: white;
-      border-color: #4b5563;
-    }
-
-    .menu-btn {
-      display: none;
-    }
-
-    .hero {
-      max-width: 1150px;
-      margin: auto;
-      padding: 80px 20px 60px;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 50px;
-      background: #dffaf6;
-      color: #0f766e;
-      font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-
-    body.dark .hero-badge {
-      background: #163b38;
-      color: #8ff3e8;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 65px);
-      line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #0f766e;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #667085;
-      max-width: 650px;
-      margin-bottom: 25px;
-    }
-
-    body.dark .hero p {
-      color: #cbd5e1;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .hero-card {
-      background: white;
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(15,118,110,0.12);
-      border: 1px solid #e5e7eb;
-    }
-
-    body.dark .hero-card,
-    body.dark .card {
-      background: #1f2937;
-      border-color: #374151;
-    }
-
-    .growth-visual {
-      min-height: 300px;
-      display: flex;
-      align-items: end;
-      justify-content: center;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    .bar {
-      width: 45px;
-      border-radius: 10px 10px 0 0;
-      background: #0f766e;
-    }
-
-    .bar:nth-child(1) {
-      height: 70px;
-    }
-
-    .bar:nth-child(2) {
-      height: 110px;
-    }
-
-    .bar:nth-child(3) {
-      height: 155px;
-    }
-
-    .bar:nth-child(4) {
-      height: 205px;
-    }
-
-    .bar:nth-child(5) {
-      height: 250px;
-    }
-
-    section {
-      max-width: 1150px;
-      margin: auto;
-      padding: 65px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-title h2 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    .section-title p {
-      color: #667085;
-    }
-
-    body.dark .section-title p {
-      color: #cbd5e1;
-    }
-
-    .stats {
-      max-width: 1150px;
-      margin: auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 15px;
-    }
-
-    .stat {
-      background: white;
-      border: 1px solid #e5e7eb;
-      padding: 25px;
-      border-radius: 16px;
-      text-align: center;
-    }
-
-    body.dark .stat {
-      background: #1f2937;
-      border-color: #374151;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 30px;
-      color: #0f766e;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.04);
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #667085;
-    }
-
-    body.dark .card p {
-      color: #cbd5e1;
-    }
-
-    .icon {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .calculator {
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      background: white;
-      color: #111827;
-      outline: none;
-    }
-
-    body.dark input,
-    body.dark textarea,
-    body.dark select {
-      background: #111827;
-      color: white;
-      border-color: #4b5563;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: #0f766e;
-    }
-
-    .result {
-      margin-top: 20px;
-      padding: 18px;
-      border-radius: 12px;
-      background: #ecfdf5;
-      color: #065f46;
-      font-weight: 700;
-    }
-
-    body.dark .result {
-      background: #12352d;
-      color: #a7f3d0;
-    }
-
-    .auth-card {
-      max-width: 500px;
-      margin: auto;
-    }
-
-    .auth-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .auth-tabs button {
-      flex: 1;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #0f766e;
-      background: transparent;
-      color: #0f766e;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .auth-tabs button.active {
-      background: #0f766e;
-      color: white;
-    }
-
-    .auth-status {
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 10px;
-      background: #f3f4f6;
-      color: #374151;
-      font-size: 14px;
-    }
-
-    .auth-success {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .auth-error {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    body.dark .auth-status {
-      background: #374151;
-      color: #e5e7eb;
-    }
-
-    body.dark .auth-success {
-      background: #14532d;
-      color: #bbf7d0;
-    }
-
-    body.dark .auth-error {
-      background: #7f1d1d;
-      color: #fecaca;
-    }
-
-    .dashboard-box {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 15px;
-    }
-
-    .dashboard-item {
-      padding: 20px;
-      border-radius: 15px;
-      background: #f0fdfa;
-      border: 1px solid #ccfbf1;
-    }
-
-    body.dark .dashboard-item {
-      background: #173b38;
-      border-color: #245a54;
-    }
-
-    .goal-progress {
-      height: 12px;
-      background: #e5e7eb;
-      border-radius: 50px;
-      overflow: hidden;
-      margin-top: 12px;
-    }
-
-    .goal-progress div {
-      height: 100%;
-      width: 0%;
-      background: #0f766e;
-      transition: 0.3s;
-    }
-
-    footer {
-      margin-top: 30px;
-      padding: 35px 20px;
-      text-align: center;
-      background: #0f172a;
-      color: white;
-    }
-
-    footer p {
-      color: #cbd5e1;
-      margin-top: 5px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media(max-width:850px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        left: 15px;
-        right: 15px;
-        top: 70px;
-        background: white;
-        padding: 18px;
-        border-radius: 15px;
-        border: 1px solid #e5e7eb;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      body.dark .nav-links {
-        background: #1f2937;
-        border-color: #374151;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding-top: 50px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .dashboard-box {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media(max-width:550px) {
-      .grid,
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero-card {
-        padding: 18px;
-      }
-
-      section {
-        padding: 45px 15px;
-      }
-
-      .nav {
-        padding: 10px 15px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="FasalNazar - किसानों के लिए फसल, पौधे, रोग और खेती की जानकारी">
+
+<title>FasalNazar 🌾</title>
+
+<style>
+:root{
+  --green:#16833b;
+  --darkgreen:#075526;
+  --light:#f3faf4;
+  --card:#ffffff;
+  --text:#18331f;
+  --muted:#66766b;
+  --border:#dce9df;
+  --shadow:0 8px 30px rgba(0,0,0,.07);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:var(--text);
+  line-height:1.6;
+}
+
+body.dark{
+  --light:#101812;
+  --card:#18231b;
+  --text:#edf7ee;
+  --muted:#b4c2b7;
+  --border:#2d3c31;
+  --shadow:0 8px 30px rgba(0,0,0,.3);
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(7,85,38,.97);
+  color:white;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.nav{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#b9efc5;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.nav-links a{
+  font-size:14px;
+  font-weight:600;
+}
+
+.nav-links a:hover{
+  color:#baf0c5;
+}
+
+.nav-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  border:1px solid rgba(255,255,255,.3);
+  background:transparent;
+  color:white;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+}
+
+.menu-btn{
+  display:none;
+}
+
+/* HERO */
+
+.hero{
+  background:
+  radial-gradient(circle at 90% 20%,rgba(47,170,82,.22),transparent 30%),
+  linear-gradient(135deg,#e5f8e8,#f8fff8);
+  padding:80px 5%;
+}
+
+.dark .hero{
+  background:
+  radial-gradient(circle at 90% 20%,rgba(47,170,82,.18),transparent 30%),
+  #101812;
+}
+
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  align-items:center;
+  gap:40px;
+}
+
+.badge{
+  display:inline-block;
+  background:#d5f2da;
+  color:var(--darkgreen);
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.dark .badge{
+  background:#223d28;
+  color:#b9efc5;
+}
+
+.hero h1{
+  font-size:clamp(40px,7vw,70px);
+  line-height:1.05;
+  color:var(--darkgreen);
+  margin-bottom:20px;
+}
+
+.dark .hero h1{
+  color:#c7f2ce;
+}
+
+.hero h1 span{
+  color:var(--green);
+}
+
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  max-width:650px;
+  margin-bottom:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.btn{
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:13px 20px;
+  border-radius:11px;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(.95);
+}
+
+.btn.secondary{
+  background:transparent;
+  color:var(--green);
+  border:1px solid var(--green);
+}
+
+.hero-art{
+  min-height:300px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.farm-circle{
+  width:290px;
+  height:290px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#b9ebc1,#e9faeb);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:125px;
+  box-shadow:0 25px 60px rgba(22,131,59,.18);
+}
+
+/* COMMON */
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
+}
+
+.section{
+  padding:70px 0;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-head h2{
+  color:var(--darkgreen);
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.dark .section-head h2{
+  color:#c7f2ce;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+
+.feature-icon{
+  font-size:40px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  color:var(--darkgreen);
+  margin-bottom:7px;
+}
+
+.dark .card h3{
+  color:#c7f2ce;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.small{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* SCANNER */
+
+.scanner-box{
+  max-width:850px;
+  margin:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.scanner-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:25px;
+  overflow:auto;
+}
+
+.tab{
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--text);
+  padding:11px 15px;
+  border-radius:10px;
+  white-space:nowrap;
+}
+
+.tab.active{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+.upload-area{
+  border:2px dashed #73b982;
+  background:rgba(115,185,130,.07);
+  border-radius:18px;
+  padding:35px 20px;
+  text-align:center;
+}
+
+.upload-icon{
+  font-size:55px;
+  margin-bottom:10px;
+}
+
+.file-label{
+  display:inline-flex;
+  background:var(--green);
+  color:white;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:15px;
+  cursor:pointer;
+}
+
+#cropPhoto,
+#plantPhoto,
+#diseasePhoto{
+  display:none;
+}
+
+.preview{
+  display:none;
+  width:100%;
+  max-width:450px;
+  max-height:320px;
+  object-fit:contain;
+  margin:20px auto 0;
+  border-radius:15px;
+}
+
+.result{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  background:rgba(22,131,59,.08);
+  border:1px solid #a8d8b1;
+  border-radius:15px;
+}
+
+.result h3{
+  margin-bottom:8px;
+  color:var(--darkgreen);
+}
+
+.dark .result h3{
+  color:#c7f2ce;
+}
+
+/* SEARCH */
+
+.search-wrap{
+  max-width:700px;
+  margin:0 auto 30px;
+  display:flex;
+  gap:10px;
+}
+
+.search-wrap input{
+  flex:1;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+  background:var(--card);
+  color:var(--text);
+}
+
+.search-wrap input:focus{
+  border-color:var(--green);
+}
+
+.no-result{
+  display:none;
+  text-align:center;
+  color:var(--muted);
+  padding:20px;
+}
+
+/* CROP CARDS */
+
+.crop-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.crop-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+
+.crop-emoji{
+  font-size:42px;
+}
+
+.crop-card h3{
+  margin:8px 0;
+  color:var(--darkgreen);
+}
+
+.dark .crop-card h3{
+  color:#c7f2ce;
+}
+
+.crop-info{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.crop-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:13px;
+}
+
+.tag{
+  font-size:11px;
+  background:#e7f6e9;
+  color:#276838;
+  padding:5px 8px;
+  border-radius:20px;
+}
+
+.dark .tag{
+  background:#263d2b;
+  color:#b8e9bf;
+}
+
+.favorite{
+  position:absolute;
+  right:15px;
+  top:15px;
+  border:0;
+  background:transparent;
+  font-size:22px;
+}
+
+/* CALCULATOR */
+
+.calculator{
+  max-width:700px;
+  margin:auto;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--card);
+  color:var(--text);
+}
+
+.calc-result{
+  margin-top:20px;
+  padding:18px;
+  background:rgba(22,131,59,.08);
+  border-radius:12px;
+  display:none;
+}
+
+/* TIPS */
+
+.tip{
+  display:flex;
+  gap:15px;
+  align-items:flex-start;
+}
+
+.tip-icon{
+  font-size:30px;
+}
+
+.tip h3{
+  margin-bottom:4px;
+}
+
+/* FOOTER */
+
+footer{
+  background:#092c16;
+  color:white;
+  padding:45px 0 25px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:30px;
+}
+
+footer h3{
+  margin-bottom:10px;
+}
+
+footer p,
+footer a{
+  color:#c8d9cc;
+  font-size:14px;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15);
+  margin-top:30px;
+  padding-top:20px;
+  text-align:center;
+  font-size:13px;
+  color:#aebdb2;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#075526;
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .grid,
+  .crop-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:560px){
+
+  .hero{
+    padding:55px 5%;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .farm-circle{
+    width:210px;
+    height:210px;
+    font-size:90px;
+  }
+
+  .grid,
+  .crop-grid,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .scanner-box{
+    padding:18px;
+  }
+
+  .section{
+    padding:50px 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
   <div class="nav">
 
-    <a href="#home" class="brand">
-      <img src="icon.svg" class="brand-logo" alt="Business Growth">
-      <span>Business Growth</span>
+    <a href="#home" class="logo">
+      🌾 Fasal<span>Nazar</span>
     </a>
 
     <nav class="nav-links" id="navLinks">
       <a href="#home">Home</a>
-      <a href="#tools">Tools</a>
-      <a href="#learning">Learning</a>
-      <a href="#insights">Insights</a>
+      <a href="#scanner">Scanner</a>
+      <a href="#crops">फसलें</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#tips">Tips</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#auth">Login</a>
     </nav>
 
-    <div class="nav-buttons">
-      <button class="theme-btn" onclick="toggleDarkMode()">🌙</button>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="toggleDark()" title="Dark Mode">🌙</button>
+
+      <button
+        class="icon-btn menu-btn"
+        onclick="toggleMenu()"
+        title="Menu">
+        ☰
+      </button>
     </div>
 
   </div>
 </header>
 
 
-<!-- HOME -->
-<section id="home" class="hero">
+<!-- HERO -->
 
-  <div>
-    <span class="hero-badge">BUSINESS PLANNING PLATFORM</span>
+<section class="hero" id="home">
 
-    <h1>
-      Build Better.<br>
-      <span>Grow Smarter.</span>
-    </h1>
+  <div class="hero-inner">
 
-    <p>
-      Business Growth helps you plan, calculate, learn and improve
-      your business with simple tools.
-    </p>
+    <div>
 
-    <div class="hero-buttons">
-      <a href="#tools" class="btn btn-primary">Explore Tools</a>
-      <a href="#auth" class="btn btn-secondary">Login / Sign Up</a>
+      <div class="badge">
+        🌱 किसानों के लिए डिजिटल खेती साथी
+      </div>
+
+      <h1>
+        Fasal<span>Nazar</span>
+      </h1>
+
+      <p>
+        अपनी फसल, पौधे और खेती से जुड़ी जानकारी
+        एक ही जगह आसान भाषा में खोजें।
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#scanner" class="btn">
+          📷 Fasal Scanner
+        </a>
+
+        <a href="#crops" class="btn secondary">
+          🌾 फसल देखें
+        </a>
+
+      </div>
+
     </div>
-  </div>
 
-  <div class="hero-card">
-    <h3>Growth Overview</h3>
-
-    <div class="growth-visual">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
+    <div class="hero-art">
+      <div class="farm-circle">
+        🌾
+      </div>
     </div>
 
-    <p>
-      Plan your business growth step by step.
-    </p>
   </div>
 
 </section>
 
 
-<!-- STATS -->
-<div class="stats">
+<!-- FEATURES -->
 
-  <div class="stat">
-    <strong>10+</strong>
-    <span>Business Tools</span>
-  </div>
+<section class="section">
 
-  <div class="stat">
-    <strong>100%</strong>
-    <span>Simple Interface</span>
-  </div>
+<div class="container">
 
-  <div class="stat">
-    <strong>24/7</strong>
-    <span>Access</span>
-  </div>
+<div class="section-head">
+<h2>FasalNazar की सुविधाएँ</h2>
+<p>खेती से जुड़ी जरूरी जानकारी एक जगह</p>
+</div>
 
-  <div class="stat">
-    <strong>Free</strong>
-    <span>To Start</span>
-  </div>
+<div class="grid">
+
+<div class="card">
+<div class="feature-icon">📷</div>
+<h3>Fasal Scanner</h3>
+<p>
+फसल की तस्वीर upload करके जांच की शुरुआत करें।
+</p>
+</div>
+
+<div class="card">
+<div class="feature-icon">🌱</div>
+<h3>Plant Identifier</h3>
+<p>
+पौधे की फोटो के आधार पर पहचान की सुविधा के लिए तैयार interface।
+</p>
+</div>
+
+<div class="card">
+<div class="feature-icon">🦠</div>
+<h3>Disease Scanner</h3>
+<p>
+फसल की संभावित बीमारी की जानकारी के लिए scanner section।
+</p>
+</div>
+
+<div class="card">
+<div class="feature-icon">🌾</div>
+<h3>Crop Guide</h3>
+<p>
+प्रमुख फसलों की सामान्य खेती संबंधी जानकारी।
+</p>
+</div>
+
+<div class="card">
+<div class="feature-icon">💧</div>
+<h3>सिंचाई जानकारी</h3>
+<p>
+फसल के अनुसार सामान्य सिंचाई संबंधी जानकारी।
+</p>
+</div>
+
+<div class="card">
+<div class="feature-icon">🧮</div>
+<h3>Simple Calculator</h3>
+<p>
+क्षेत्र और बीज दर के आधार पर अनुमानित बीज मात्रा।
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- SCANNER -->
+
+<section class="section" id="scanner">
+
+<div class="container">
+
+<div class="section-head">
+<h2>📷 Fasal Scanner</h2>
+<p>फसल या पौधे की फोटो चुनें</p>
+</div>
+
+<div class="scanner-box">
+
+<div class="scanner-tabs">
+
+<button
+class="tab active"
+onclick="selectScanner('crop',this)">
+🌾 Fasal
+</button>
+
+<button
+class="tab"
+onclick="selectScanner('plant',this)">
+🌱 Plant
+</button>
+
+<button
+class="tab"
+onclick="selectScanner('disease',this)">
+🦠 Disease
+</button>
 
 </div>
 
 
-<!-- TOOLS -->
-<section id="tools">
+<div class="upload-area">
 
-  <div class="section-title">
-    <h2>Business Growth Tools</h2>
-    <p>Useful tools for planning and understanding your business.</p>
-  </div>
+<div class="upload-icon">
+📸
+</div>
 
-  <div class="grid">
+<h3 id="uploadTitle">
+फसल की फोटो चुनें
+</h3>
 
-    <div class="card">
-      <div class="icon">🧮</div>
-      <h3>Business Calculator</h3>
-      <p>Calculate revenue, expenses and estimated profit.</p>
-    </div>
+<p class="small">
+साफ और अच्छी रोशनी वाली फोटो चुनने की कोशिश करें।
+</p>
 
-    <div class="card">
-      <div class="icon">💰</div>
-      <h3>Profit Calculator</h3>
-      <p>Find profit and profit margin from your business numbers.</p>
-    </div>
 
-    <div class="card">
-      <div class="icon">📈</div>
-      <h3>Growth Planner</h3>
-      <p>Set a target and track your business growth.</p>
-    </div>
+<label
+for="cropPhoto"
+class="file-label"
+id="fileLabel">
+📷 फोटो चुनें
+</label>
 
-  </div>
+<input
+type="file"
+id="cropPhoto"
+accept="image/*">
 
+<input
+type="file"
+id="plantPhoto"
+accept="image/*">
+
+<input
+type="file"
+id="diseasePhoto"
+accept="image/*">
+
+
+<img
+id="cropPreview"
+class="preview">
+
+</div>
+
+
+<br>
+
+<button
+class="btn"
+onclick="analyzePhoto()">
+🔍 जांच शुरू करें
+</button>
+
+
+<div
+class="result"
+id="scannerResult">
+
+<h3>📋 फोटो प्राप्त हो गई</h3>
+
+<p id="resultText">
+आपकी फोटो तैयार है।
+</p>
+
+<br>
+
+<p class="small">
+⚠️ यह version केवल photo upload और interface
+प्रदान करता है। वास्तविक AI diagnosis के लिए
+AI model/backend जोड़ना आवश्यक है।
+फोटो के आधार पर किसी रोग की अंतिम पुष्टि न करें।
+</p>
+
+</div>
+
+</div>
+</div>
 </section>
 
 
-<!-- BUSINESS CALCULATOR -->
-<section id="calculator">
+<!-- CROP SEARCH -->
 
-  <div class="section-title">
-    <h2>Business Calculator</h2>
-    <p>Enter your business numbers.</p>
-  </div>
+<section class="section" id="crops">
 
-  <div class="card calculator">
+<div class="container">
 
-    <div class="form-group">
-      <label>Monthly Revenue</label>
-      <input type="number" id="revenue" placeholder="Example: 50000">
-    </div>
+<div class="section-head">
+<h2>🌾 फसल जानकारी</h2>
+<p>अपनी फसल खोजें</p>
+</div>
 
-    <div class="form-group">
-      <label>Monthly Expenses</label>
-      <input type="number" id="expenses" placeholder="Example: 30000">
-    </div>
 
-    <button class="btn btn-primary" onclick="calculateBusiness()">
-      Calculate
-    </button>
+<div class="search-wrap">
 
-    <div id="businessResult" class="result hidden"></div>
+<input
+type="search"
+id="cropSearch"
+placeholder="जैसे गेहूं, धान, आलू, सरसों..."
+oninput="searchCrops()">
 
-  </div>
+<button
+class="btn"
+onclick="clearSearch()">
+Clear
+</button>
 
+</div>
+
+
+<div class="crop-grid" id="cropGrid">
+
+
+<!-- WHEAT -->
+
+<div
+class="crop-card"
+data-name="गेहूं wheat">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🌾</div>
+
+<h3>गेहूं</h3>
+
+<p class="crop-info">
+रबी मौसम की प्रमुख फसल। अच्छी फसल के लिए
+मिट्टी, सिंचाई और पोषण पर ध्यान जरूरी है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">रबी</span>
+<span class="tag">अनाज</span>
+<span class="tag">सिंचाई</span>
+</div>
+
+</div>
+
+
+<!-- RICE -->
+
+<div
+class="crop-card"
+data-name="धान rice paddy">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🌾</div>
+
+<h3>धान</h3>
+
+<p class="crop-info">
+धान की खेती में खेत की जल स्थिति, मौसम और
+रोग-कीट की नियमित निगरानी महत्वपूर्ण है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">खरीफ</span>
+<span class="tag">अनाज</span>
+<span class="tag">पानी</span>
+</div>
+
+</div>
+
+
+<!-- POTATO -->
+
+<div
+class="crop-card"
+data-name="आलू potato">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🥔</div>
+
+<h3>आलू</h3>
+
+<p class="crop-info">
+आलू में मिट्टी की नमी, तापमान और पौधों की
+स्थिति की नियमित निगरानी उपयोगी है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">सब्जी</span>
+<span class="tag">रबी</span>
+</div>
+
+</div>
+
+
+<!-- MUSTARD -->
+
+<div
+class="crop-card"
+data-name="सरसों mustard">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🌼</div>
+
+<h3>सरसों</h3>
+
+<p class="crop-info">
+सरसों एक प्रमुख तिलहनी फसल है। पौधों की वृद्धि
+और कीटों की निगरानी आवश्यक है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">रबी</span>
+<span class="tag">तिलहन</span>
+</div>
+
+</div>
+
+
+<!-- TOMATO -->
+
+<div
+class="crop-card"
+data-name="टमाटर tomato">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🍅</div>
+
+<h3>टमाटर</h3>
+
+<p class="crop-info">
+टमाटर में पत्तियों, तने और फल की स्थिति को
+नियमित रूप से देखना उपयोगी है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">सब्जी</span>
+<span class="tag">बागवानी</span>
+</div>
+
+</div>
+
+
+<!-- CHILLI -->
+
+<div
+class="crop-card"
+data-name="मिर्च chilli chili pepper">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🌶️</div>
+
+<h3>मिर्च</h3>
+
+<p class="crop-info">
+मिर्च की फसल में पत्तियों और पौधे की वृद्धि
+की नियमित निगरानी करें।
+</p>
+
+<div class="crop-tags">
+<span class="tag">सब्जी</span>
+<span class="tag">बागवानी</span>
+</div>
+
+</div>
+
+
+<!-- SUGARCANE -->
+
+<div
+class="crop-card"
+data-name="गन्ना sugarcane">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🎋</div>
+
+<h3>गन्ना</h3>
+
+<p class="crop-info">
+गन्ने में खेत की नमी, पोषण और पौधों की
+स्वास्थ्य स्थिति पर ध्यान देना जरूरी है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">नकदी फसल</span>
+</div>
+
+</div>
+
+
+<!-- MAIZE -->
+
+<div
+class="crop-card"
+data-name="मक्का maize corn">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">🌽</div>
+
+<h3>मक्का</h3>
+
+<p class="crop-info">
+मक्का में अंकुरण, पौधे की वृद्धि और रोग-कीट
+की निगरानी महत्वपूर्ण है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">अनाज</span>
+<span class="tag">खरीफ</span>
+</div>
+
+</div>
+
+
+<!-- COTTON -->
+
+<div
+class="crop-card"
+data-name="कपास cotton">
+
+<button
+class="favorite"
+onclick="favoriteCrop(this)">
+☆</button>
+
+<div class="crop-emoji">☁️</div>
+
+<h3>कपास</h3>
+
+<p class="crop-info">
+कपास में पौधे की वृद्धि तथा कीटों की नियमित
+निगरानी महत्वपूर्ण है।
+</p>
+
+<div class="crop-tags">
+<span class="tag">नकदी फसल</span>
+</div>
+
+</div>
+
+</div>
+
+<div
+id="noResult"
+class="no-result">
+कोई फसल नहीं मिली।
+</div>
+
+</div>
 </section>
 
 
-<!-- PROFIT -->
-<section id="profit">
+<!-- IRRIGATION -->
 
-  <div class="section-title">
-    <h2>Profit Calculator</h2>
-    <p>Quickly calculate your profit margin.</p>
-  </div>
+<section class="section">
 
-  <div class="card calculator">
+<div class="container">
 
-    <div class="form-group">
-      <label>Sales</label>
-      <input type="number" id="sales" placeholder="Example: 100000">
-    </div>
+<div class="section-head">
+<h2>💧 सामान्य सिंचाई जानकारी</h2>
+<p>सिंचाई हमेशा मौसम और खेत की स्थिति देखकर करें</p>
+</div>
 
-    <div class="form-group">
-      <label>Total Cost</label>
-      <input type="number" id="cost" placeholder="Example: 70000">
-    </div>
 
-    <button class="btn btn-primary" onclick="calculateProfit()">
-      Calculate Profit
-    </button>
+<div class="grid">
 
-    <div id="profitResult" class="result hidden"></div>
+<div class="card">
+<h3>🌾 गेहूं</h3>
+<p>
+गेहूं में सिंचाई का समय मिट्टी, मौसम और
+फसल की अवस्था पर निर्भर करता है।
+</p>
+</div>
 
-  </div>
+<div class="card">
+<h3>🌾 धान</h3>
+<p>
+धान में पानी प्रबंधन स्थानीय विधि, मिट्टी
+और मौसम के अनुसार करें।
+</p>
+</div>
 
+<div class="card">
+<h3>🥔 आलू</h3>
+<p>
+आलू में मिट्टी को अत्यधिक सूखने या
+अत्यधिक पानी से बचाना महत्वपूर्ण है।
+</p>
+</div>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- DASHBOARD -->
-<section id="dashboard">
+<!-- CALCULATOR -->
 
-  <div class="section-title">
-    <h2>Business Dashboard</h2>
-    <p>A simple overview of your business numbers.</p>
-  </div>
+<section class="section" id="calculator">
 
-  <div class="dashboard-box">
+<div class="container">
 
-    <div class="dashboard-item">
-      <h3>Revenue</h3>
-      <strong id="dashRevenue">₹0</strong>
-    </div>
+<div class="section-head">
+<h2>🧮 बीज मात्रा Calculator</h2>
+<p>सिर्फ अनुमान के लिए</p>
+</div>
 
-    <div class="dashboard-item">
-      <h3>Expenses</h3>
-      <strong id="dashExpenses">₹0</strong>
-    </div>
 
-    <div class="dashboard-item">
-      <h3>Profit</h3>
-      <strong id="dashProfit">₹0</strong>
-    </div>
+<div class="calculator">
 
-  </div>
+<div class="form-grid">
 
+<div class="form-group">
+
+<label>
+फसल
+</label>
+
+<select id="seedCrop">
+
+<option value="40">
+गेहूं
+</option>
+
+<option value="20">
+धान
+</option>
+
+<option value="25">
+मक्का
+</option>
+
+<option value="5">
+सरसों
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+क्षेत्रफल (एकड़)
+</label>
+
+<input
+type="number"
+id="area"
+placeholder="जैसे 2"
+min="0"
+step="0.1">
+
+</div>
+
+</div>
+
+
+<br>
+
+<button
+class="btn"
+onclick="calculateSeed()">
+🧮 गणना करें
+</button>
+
+
+<div
+class="calc-result"
+id="calcResult">
+</div>
+
+
+<p class="small" style="margin-top:15px;">
+नोट: वास्तविक बीज दर फसल की किस्म,
+बुवाई विधि, क्षेत्र और स्थानीय कृषि सलाह पर निर्भर करती है।
+</p>
+
+</div>
+
+</div>
 </section>
 
 
-<!-- GOAL -->
-<section id="goals">
+<!-- TIPS -->
 
-  <div class="section-title">
-    <h2>Goal Planner</h2>
-    <p>Set a business target and track your progress.</p>
-  </div>
+<section class="section" id="tips">
 
-  <div class="card calculator">
+<div class="container">
 
-    <div class="form-group">
-      <label>Goal Amount</label>
-      <input type="number" id="goalAmount" placeholder="Example: 100000">
-    </div>
-
-    <div class="form-group">
-      <label>Current Amount</label>
-      <input type="number" id="currentAmount" placeholder="Example: 40000">
-    </div>
-
-    <button class="btn btn-primary" onclick="updateGoal()">
-      Update Goal
-    </button>
-
-    <div class="goal-progress">
-      <div id="goalBar"></div>
-    </div>
-
-    <p id="goalText" style="margin-top:12px;">
-      Enter your goal and current amount.
-    </p>
-
-  </div>
-
-</section>
+<div class="section-head">
+<h2>🌱 किसान Tips</h2>
+<p>रोजमर्रा की खेती के लिए सामान्य सुझाव</p>
+</div>
 
 
-<!-- IDEAS -->
-<section id="ideas">
+<div class="grid">
 
-  <div class="section-title">
-    <h2>Business Ideas</h2>
-    <p>Simple ideas you can research and develop.</p>
-  </div>
+<div class="card tip">
 
-  <div class="grid">
+<div class="tip-icon">🔍</div>
 
-    <div class="card">
-      <h3>📱 Digital Services</h3>
-      <p>Website, design, editing and other digital services.</p>
-    </div>
+<div>
+<h3>फसल की निगरानी</h3>
+<p>
+पत्तियों, तने और पौधे की वृद्धि में
+असामान्य बदलाव दिखाई दें तो फोटो लें।
+</p>
+</div>
 
-    <div class="card">
-      <h3>🛍️ Online Store</h3>
-      <p>Build an online product or service business.</p>
-    </div>
-
-    <div class="card">
-      <h3>📚 Education</h3>
-      <p>Create useful educational content or learning resources.</p>
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<!-- LEARNING -->
-<section id="learning">
+<div class="card tip">
 
-  <div class="section-title">
-    <h2>Business Learning</h2>
-    <p>Learn important business concepts.</p>
-  </div>
+<div class="tip-icon">💧</div>
 
-  <div class="grid">
+<div>
+<h3>पानी प्रबंधन</h3>
+<p>
+मौसम और मिट्टी की स्थिति देखकर सिंचाई करें।
+</p>
+</div>
 
-    <div class="card">
-      <div class="icon">📊</div>
-      <h3>Revenue</h3>
-      <p>
-        Revenue is the money generated from selling products or services.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💵</div>
-      <h3>Profit</h3>
-      <p>
-        Profit is generally revenue minus business expenses.
-      </p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🚀</div>
-      <h3>Growth</h3>
-      <p>
-        Business growth can involve increasing customers, revenue,
-        products or market reach.
-      </p>
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<!-- INSIGHTS -->
-<section id="insights">
+<div class="card tip">
 
-  <div class="section-title">
-    <h2>Business Insights</h2>
-    <p>Simple ideas for better planning.</p>
-  </div>
+<div class="tip-icon">🌱</div>
 
-  <div class="grid">
+<div>
+<h3>खेत साफ रखें</h3>
+<p>
+खरपतवार और पौधों के अवशेषों का उचित
+प्रबंधन करें।
+</p>
+</div>
 
-    <div class="card">
-      <h3>Track Expenses</h3>
-      <p>Knowing where money goes can help with financial planning.</p>
-    </div>
-
-    <div class="card">
-      <h3>Know Your Customers</h3>
-      <p>Understand customer needs before developing products.</p>
-    </div>
-
-    <div class="card">
-      <h3>Set Clear Goals</h3>
-      <p>Break large business goals into smaller measurable steps.</p>
-    </div>
-
-  </div>
-
-</section>
+</div>
 
 
-<!-- AUTH -->
-<section id="auth">
+<div class="card tip">
 
-  <div class="section-title">
-    <h2>Login & Sign Up</h2>
-    <p>Create an account or login to your Business Growth account.</p>
-  </div>
+<div class="tip-icon">📷</div>
 
-  <div class="card auth-card">
+<div>
+<h3>साफ फोटो लें</h3>
+<p>
+बीमारी की जानकारी के लिए प्रभावित हिस्से की
+स्पष्ट फोटो लेना उपयोगी हो सकता है।
+</p>
+</div>
 
-    <div class="auth-tabs">
-      <button id="loginTab" class="active" onclick="showLogin()">
-        Login
-      </button>
-
-      <button id="signupTab" onclick="showSignup()">
-        Sign Up
-      </button>
-    </div>
+</div>
 
 
-    <!-- LOGIN FORM -->
-    <div id="authLoginForm">
+<div class="card tip">
 
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          id="loginEmail"
-          placeholder="Enter your email">
-      </div>
+<div class="tip-icon">☀️</div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input
-          type="password"
-          id="loginPassword"
-          placeholder="Enter your password">
-      </div>
+<div>
+<h3>मौसम देखें</h3>
+<p>
+बारिश, तापमान और मौसम के बदलाव को
+ध्यान में रखकर खेती के काम करें।
+</p>
+</div>
 
-      <button
-        class="btn btn-primary"
-        onclick="loginUser()">
-        Login
-      </button>
-
-      <button
-        class="btn btn-secondary"
-        onclick="resetPassword()"
-        style="margin-left:5px;">
-        Forgot Password
-      </button>
-
-    </div>
+</div>
 
 
-    <!-- SIGNUP FORM -->
-    <div id="authSignupForm" class="hidden">
+<div class="card tip">
 
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          id="signupEmail"
-          placeholder="Enter your email">
-      </div>
+<div class="tip-icon">👨‍🌾</div>
 
-      <div class="form-group">
-        <label>Password</label>
-        <input
-          type="password"
-          id="signupPassword"
-          placeholder="Minimum 6 characters">
-      </div>
+<div>
+<h3>विशेषज्ञ सलाह</h3>
+<p>
+गंभीर रोग या फसल नुकसान की स्थिति में
+स्थानीय कृषि विशेषज्ञ से सलाह लें।
+</p>
+</div>
 
-      <button
-        class="btn btn-primary"
-        onclick="signupUser()">
-        Create Account
-      </button>
+</div>
 
-    </div>
+</div>
 
-
-    <div id="authStatus" class="auth-status">
-      Firebase is loading...
-    </div>
-
-    <button
-      id="logoutBtn"
-      class="btn btn-danger hidden"
-      onclick="logoutUser()"
-      style="margin-top:12px;">
-      Logout
-    </button>
-
-  </div>
-
+</div>
 </section>
 
 
 <!-- ABOUT -->
-<section id="about">
 
-  <div class="section-title">
-    <h2>About Business Growth</h2>
-  </div>
+<section class="section" id="about">
 
-  <div class="card">
+<div class="container">
 
-    <h3>Simple tools for better business planning</h3>
-
-    <p style="margin-top:10px;">
-      Business Growth is a simple web platform designed to provide
-      business calculators, planning tools, learning resources and
-      useful information in one place.
-    </p>
-
-  </div>
-
-</section>
+<div class="section-head">
+<h2>🌾 FasalNazar के बारे में</h2>
+<p>किसानों के लिए बनाया जा रहा digital platform</p>
+</div>
 
 
-<!-- CONTACT -->
-<section id="contact">
+<div class="card">
 
-  <div class="section-title">
-    <h2>Contact</h2>
-    <p>Send us your message.</p>
-  </div>
-
-  <div class="card calculator">
-
-    <form onsubmit="sendContact(event)">
-
-      <div class="form-group">
-        <label>Your Name</label>
-        <inpu
+<h3>हमारा उद्द
