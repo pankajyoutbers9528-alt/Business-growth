@@ -3,177 +3,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FasalNazar 🌾 | Smart Farming</title>
+<meta name="theme-color" content="#168a45">
+<meta name="description" content="FasalNazar - Free Farming Helper">
+<title>FasalNazar 🌾 | खेती का स्मार्ट साथी</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 :root{
- --green:#198754;
- --dark:#103b24;
- --light:#f4faf5;
- --card:#fff;
- --text:#183022;
- --muted:#66756b;
- --border:#dce9df;
+--green:#168a45;
+--green2:#0d6f37;
+--light:#f4faf6;
+--card:#fff;
+--text:#17301f;
+--muted:#607568;
+--border:#dce9df;
+--shadow:0 8px 25px #16452a12;
 }
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
- font-family:Arial,Helvetica,sans-serif;
- background:var(--light);
- color:var(--text);
- line-height:1.6;
- transition:.3s;
+font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+background:var(--light);
+color:var(--text);
+line-height:1.6;
 }
+
 body.dark{
- --light:#101914;
- --card:#18231c;
- --text:#edf7ef;
- --muted:#aab8ad;
- --border:#304237;
+--light:#101813;
+--card:#17221a;
+--text:#edf8ef;
+--muted:#a9b9ad;
+--border:#2c3d30;
+--shadow:0 8px 25px #0008;
 }
-header{
- position:sticky;top:0;z-index:1000;
- background:var(--card);
- border-bottom:1px solid var(--border);
- box-shadow:0 2px 12px #00000010;
+
+a{
+text-decoration:none;
+color:inherit;
 }
-.nav{
- max-width:1150px;margin:auto;padding:12px 18px;
- display:flex;align-items:center;justify-content:space-between;
+
+button,input,select,textarea{
+font:inherit;
 }
-.logo{
- display:flex;align-items:center;gap:10px;
- font-weight:800;font-size:22px;color:var(--green);
-}
-.logo svg{width:45px;height:45px}
-nav{display:flex;gap:18px;align-items:center}
-nav a{
- text-decoration:none;color:var(--text);font-weight:600;
-}
-nav a:hover{color:var(--green)}
+
 button{
- border:0;border-radius:10px;padding:11px 16px;
- cursor:pointer;font-weight:700;
+cursor:pointer;
 }
-.btn{background:var(--green);color:white}
-.btn2{background:#e9f5eb;color:var(--green)}
-.dark .btn2{background:#25392c;color:#bce7c8}
-.menu{display:none;font-size:24px;background:none;color:var(--text)}
+
+.container{
+width:min(1150px,92%);
+margin:auto;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:50;
+background:var(--card);
+border-bottom:1px solid var(--border);
+box-shadow:0 2px 15px #00000008;
+}
+
+.nav{
+height:70px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:9px;
+font-size:1.35rem;
+font-weight:800;
+color:var(--green);
+}
+
+.logo span{
+font-size:1.8rem;
+}
+
+nav{
+display:flex;
+gap:16px;
+align-items:center;
+}
+
+nav a{
+font-weight:600;
+color:var(--muted);
+}
+
+nav a:hover{
+color:var(--green);
+}
+
+.menu{
+display:none;
+border:0;
+background:transparent;
+font-size:1.6rem;
+color:var(--text);
+}
 
 .hero{
- max-width:1150px;margin:auto;padding:70px 20px;
- display:grid;grid-template-columns:1.2fr .8fr;
- gap:40px;align-items:center;
+padding:70px 0 55px;
+background:linear-gradient(135deg,#e6f8eb,#f8fcf8);
 }
-.hero h1{font-size:50px;line-height:1.1;color:var(--dark)}
-.dark .hero h1{color:#bfeac8}
-.hero h1 span{color:var(--green)}
-.hero p{margin:20px 0;color:var(--muted);font-size:18px}
-.hero-box{
- background:linear-gradient(145deg,#dff4e3,#f8fff9);
- border-radius:30px;padding:45px;text-align:center;
-}
-.dark .hero-box{background:#1d3024}
-.big-leaf{font-size:100px}
 
-.container{max-width:1150px;margin:auto;padding:25px 20px 60px}
-.title{text-align:center;margin:45px 0 25px}
-.title h2{font-size:32px}
-.title p{color:var(--muted)}
+.dark .hero{
+background:linear-gradient(135deg,#14251a,#101813);
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:35px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+padding:7px 13px;
+background:#d5f2de;
+color:var(--green2);
+border-radius:999px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+h1{
+font-size:clamp(2.2rem,5vw,4.3rem);
+line-height:1.08;
+margin-bottom:18px;
+}
+
+.hero p{
+font-size:1.08rem;
+color:var(--muted);
+max-width:650px;
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.btn{
+border:0;
+border-radius:12px;
+padding:11px 17px;
+font-weight:700;
+background:var(--green);
+color:#fff;
+box-shadow:var(--shadow);
+}
+
+.btn:hover{
+background:var(--green2);
+}
+
+.btn.secondary{
+background:var(--card);
+color:var(--green);
+border:1px solid var(--border);
+}
+
+.hero-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:25px;
+padding:28px;
+box-shadow:var(--shadow);
+}
+
+.hero-card .big{
+font-size:5rem;
+text-align:center;
+}
+
+section{
+padding:55px 0;
+}
+
+.section-head{
+margin-bottom:25px;
+}
+
+.section-head h2{
+font-size:2rem;
+margin-bottom:5px;
+}
+
+.section-head p{
+color:var(--muted);
+}
 
 .grid{
- display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
 }
-.card{
- background:var(--card);border:1px solid var(--border);
- border-radius:18px;padding:22px;
- box-shadow:0 5px 20px #00000008;
-}
-.card h3{margin:8px 0}
-.icon{font-size:35px}
-.muted{color:var(--muted)}
 
-.scanner{
- background:var(--card);border:1px solid var(--border);
- padding:25px;border-radius:20px;
+.grid2{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
 }
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
-.tab.active{background:var(--green);color:white}
-.upload{
- border:2px dashed #8dbb98;border-radius:18px;
- padding:30px;text-align:center;
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:20px;
+box-shadow:var(--shadow);
 }
-.preview{
- max-width:260px;max-height:220px;
- display:none;margin:20px auto;border-radius:15px;
+
+.card h3{
+margin:7px 0 6px;
 }
+
+.card p{
+color:var(--muted);
+}
+
+.icon{
+font-size:2rem;
+}
+
+.tool{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+label{
+display:block;
+font-weight:700;
+margin:10px 0 5px;
+}
+
 input,select,textarea{
- width:100%;padding:13px;border:1px solid var(--border);
- border-radius:10px;background:var(--card);color:var(--text);
- margin:7px 0 12px;
+width:100%;
+padding:11px 12px;
+border:1px solid var(--border);
+border-radius:10px;
+background:var(--card);
+color:var(--text);
+outline:none;
 }
-textarea{min-height:120px;resize:vertical}
+
+input:focus,select:focus,textarea:focus{
+border-color:var(--green);
+}
 
 .result{
- display:none;margin-top:20px;padding:18px;
- background:#edf8ef;border-left:5px solid var(--green);
- border-radius:10px;
+margin-top:14px;
+padding:14px;
+border-radius:12px;
+background:#edf9f0;
+border:1px solid #cce9d4;
 }
-.dark .result{background:#203427}
 
-.section-box{
- margin-top:25px;background:var(--card);
- border:1px solid var(--border);padding:22px;border-radius:18px;
+.dark .result{
+background:#193122;
+border-color:#31543b;
+}
+
+.crop-list{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:15px;
 }
 
 .crop{
- position:relative;
+padding:13px;
+border:1px solid var(--border);
+border-radius:12px;
+background:var(--card);
+display:flex;
+justify-content:space-between;
+gap:8px;
+align-items:center;
 }
-.fav{
- position:absolute;right:15px;top:15px;
- background:none;font-size:22px;padding:2px;
-}
-.crop-search{max-width:600px;margin:0 auto 25px}
 
-.badge{
- display:inline-block;background:#e6f5e9;color:var(--green);
- padding:5px 10px;border-radius:20px;font-size:12px;font-weight:bold;
+.crop button{
+border:0;
+background:transparent;
+font-size:1.2rem;
 }
-.dark .badge{background:#27432f}
 
-.list{padding-left:20px}
-.list li{margin:7px 0}
+.search{
+margin-bottom:15px;
+}
+
+.checks label{
+font-weight:500;
+display:flex;
+gap:8px;
+align-items:center;
+}
+
+.checks input{
+width:auto;
+}
+
+.notice{
+padding:13px 15px;
+border-left:4px solid var(--green);
+background:var(--card);
+border-radius:8px;
+color:var(--muted);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:var(--card);
+border-radius:12px;
+overflow:hidden;
+}
+
+th,td{
+text-align:left;
+padding:12px;
+border-bottom:1px solid var(--border);
+}
+
+th{
+background:#e9f7ed;
+}
+
+.dark th{
+background:#203629;
+}
+
+small,.muted{
+color:var(--muted);
+}
 
 footer{
- background:#0f2d1c;color:white;text-align:center;
- padding:35px 20px;margin-top:30px;
+background:#102218;
+color:#d8eadc;
+padding:35px 0;
+margin-top:20px;
 }
-footer .logo{justify-content:center;color:#8be09d}
 
-.modal{
- display:none;position:fixed;inset:0;background:#0008;
- z-index:2000;align-items:center;justify-content:center;padding:20px;
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:25px;
 }
-.modal-box{
- background:var(--card);max-width:500px;width:100%;
- padding:25px;border-radius:20px;
+
+footer p,footer a{
+color:#b7cabb;
 }
-.close{float:right;background:none;font-size:22px;color:var(--text)}
+
+.fav{
+color:#e3a500;
+}
+
+.hidden{
+display:none!important;
+}
+
+.empty{
+padding:18px;
+text-align:center;
+color:var(--muted);
+}
 
 @media(max-width:800px){
- .hero{grid-template-columns:1fr;padding:45px 20px}
- .hero h1{font-size:38px}
- .grid{grid-template-columns:1fr 1fr}
- nav{
-  display:none;position:absolute;top:70px;left:0;right:0;
-  background:var(--card);padding:20px;flex-direction:column;
-  border-bottom:1px solid var(--border);
- }
- nav.show{display:flex}
- .menu{display:block}
+
+nav{
+display:none;
+position:absolute;
+top:70px;
+left:0;
+right:0;
+background:var(--card);
+padding:18px;
+flex-direction:column;
+border-bottom:1px solid var(--border);
 }
-@media(max-width:520px){
- .grid{grid-template-columns:1fr}
- .hero-box{padding:30px}
+
+nav.open{
+display:flex;
+}
+
+.menu{
+display:block;
+}
+
+.hero-grid,
+.tool,
+.grid2,
+.footer-grid{
+grid-template-columns:1fr;
+}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
+.crop-list{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.crop-list{
+grid-template-columns:1fr;
+}
+
+section{
+padding:42px 0;
+}
+
+.hero{
+padding-top:45px;
+}
+
 }
 </style>
 </head>
@@ -181,675 +450,927 @@ footer .logo{justify-content:center;color:#8be09d}
 <body>
 
 <header>
-<div class="nav">
 
-<div class="logo">
-<svg viewBox="0 0 100 100">
-<circle cx="50" cy="50" r="46" fill="#198754"/>
-<path d="M25 67 Q48 35 76 24 Q70 59 39 73 Q30 76 25 67Z" fill="white"/>
-<path d="M29 68 Q50 56 69 31" stroke="#198754" stroke-width="5" fill="none"/>
-<path d="M20 78 Q50 68 80 78" stroke="white" stroke-width="5" fill="none"/>
-</svg>
+<div class="container nav">
+
+<a class="logo" href="#home">
+<span>🌾</span>
 FasalNazar
-</div>
+</a>
 
-<button class="menu" onclick="toggleMenu()">☰</button>
+<button class="menu" id="menuBtn">☰</button>
 
 <nav id="nav">
-<a href="#home">Home</a>
-<a href="#doctor">Crop Doctor</a>
-<a href="#crops">Crops</a>
+
 <a href="#tools">Tools</a>
+<a href="#crops">फसलें</a>
+<a href="#calendar">Calendar</a>
 <a href="#diary">Diary</a>
 <a href="#about">About</a>
-<button class="btn2" onclick="toggleDark()">🌙</button>
-<button class="btn2" onclick="changeLang()">हिं/EN</button>
+
+<button class="btn secondary" id="themeBtn">
+🌙
+</button>
+
 </nav>
 
 </div>
+
 </header>
 
-<section class="hero" id="home">
+
+<main id="home">
+
+
+<section class="hero">
+
+<div class="container hero-grid">
 
 <div>
-<span class="badge">🌾 Smart Farming Platform</span>
-<h1>खेती को बनाइए<br><span>और Smart</span></h1>
+
+<span class="badge">
+100% local tools • ₹0 API
+</span>
+
+<h1>
+खेती की जानकारी,
+<br>
+<span style="color:var(--green)">
+एक जगह।
+</span>
+</h1>
+
 <p>
-FasalNazar किसानों के लिए फसल जानकारी, खेती के tools,
-crop calendar, reminders और farming guidance को एक जगह लाता है।
+FasalNazar किसानों के लिए एक सरल farming helper है।
+फसल जानकारी, बीज और पानी की calculation,
+crop calendar, मिट्टी, कीट और farm diary जैसे free tools
+एक ही जगह।
 </p>
 
-<a href="#doctor">
-<button class="btn">🌱 Crop Doctor खोलें</button>
+<div class="actions">
+
+<a class="btn" href="#tools">
+Tools शुरू करें
 </a>
 
-<button class="btn2" onclick="shareSite()">📤 Share</button>
+<a class="btn secondary" href="#crops">
+फसल देखें
+</a>
+
 </div>
 
-<div class="hero-box">
-<div class="big-leaf">🌾</div>
-<h2>FasalNazar</h2>
-<p>देखें • समझें • बेहतर खेती करें</p>
+</div>
+
+
+<div class="hero-card">
+
+<div class="big">
+🌾🚜🌱
+</div>
+
+<h3 style="text-align:center">
+FasalNazar
+</h3>
+
+<p style="text-align:center">
+आपकी खेती का digital साथी
+</p>
+
+</div>
+
 </div>
 
 </section>
 
 
+<section id="tools">
+
 <div class="container">
 
-<div class="title">
-<h2>FasalNazar Features</h2>
-<p>किसान के लिए उपयोगी smart tools</p>
-</div>
+<div class="section-head">
 
-<div class="grid">
+<h2>
+🛠️ Free Farming Tools
+</h2>
 
-<div class="card">
-<div class="icon">🤖</div>
-<h3>Crop Doctor</h3>
-<p class="muted">फसल की फोटो upload करके समस्या की जानकारी के लिए interface।</p>
-</div>
-
-<div class="card">
-<div class="icon">🌦️</div>
-<h3>Weather</h3>
-<p class="muted">Weather section तैयार है। Live weather जोड़ने के लिए वास्तविक weather service चाहिए।</p>
-</div>
-
-<div class="card">
-<div class="icon">🔔</div>
-<h3>Farm Alerts</h3>
-<p class="muted">अपने खेती के reminders बनाइए और browser में save रखिए।</p>
-</div>
-
-<div class="card">
-<div class="icon">🐛</div>
-<h3>Pest Library</h3>
-<p class="muted">आम pests और crop problems की basic जानकारी।</p>
-</div>
-
-<div class="card">
-<div class="icon">📅</div>
-<h3>Crop Calendar</h3>
-<p class="muted">अलग-अलग crops के लिए सामान्य seasonal guidance।</p>
-</div>
-
-<div class="card">
-<div class="icon">📔</div>
-<h3>Farm Diary</h3>
-<p class="muted">अपने खेत के काम और notes सुरक्षित रखें।</p>
-</div>
-
-</div>
-
-
-<!-- CROP DOCTOR -->
-
-<div class="title" id="doctor">
-<h2>🤖 Crop Doctor</h2>
-<p>फसल की फोटो से समस्या समझने की शुरुआत करें</p>
-</div>
-
-<div class="scanner">
-
-<div class="tabs">
-<button class="tab active" onclick="selectTab(this,'फसल')">🌾 Fasal</button>
-<button class="tab" onclick="selectTab(this,'पौधा')">🌱 Plant</button>
-<button class="tab" onclick="selectTab(this,'रोग')">🐛 Disease</button>
-</div>
-
-<div class="upload">
-<h3>📷 फसल की फोटो चुनें</h3>
-<p class="muted">JPG, PNG आदि image चुन सकते हैं</p>
-
-<input type="file" id="photo" accept="image/*" onchange="previewImage(event)">
-
-<img id="preview" class="preview">
-
-<button class="btn" onclick="analyzeCrop()">🔍 Check Crop</button>
-</div>
-
-<div id="scanResult" class="result"></div>
-
-</div>
-
-
-<!-- CROPS -->
-
-<div class="title" id="crops">
-<h2>🌾 Crop Library</h2>
-<p>अपनी फसल खोजें</p>
-</div>
-
-<div class="crop-search">
-<input id="cropSearch" placeholder="🔍 फसल खोजें..." oninput="searchCrops()">
-</div>
-
-<div class="grid" id="cropGrid">
-
-<div class="card crop" data-name="गेहूं wheat">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🌾</div>
-<h3>गेहूं</h3>
-<p class="muted">Wheat</p>
-</div>
-
-<div class="card crop" data-name="धान rice">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🌾</div>
-<h3>धान</h3>
-<p class="muted">Rice</p>
-</div>
-
-<div class="card crop" data-name="आलू potato">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🥔</div>
-<h3>आलू</h3>
-<p class="muted">Potato</p>
-</div>
-
-<div class="card crop" data-name="सरसों mustard">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🌼</div>
-<h3>सरसों</h3>
-<p class="muted">Mustard</p>
-</div>
-
-<div class="card crop" data-name="टमाटर tomato">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🍅</div>
-<h3>टमाटर</h3>
-<p class="muted">Tomato</p>
-</div>
-
-<div class="card crop" data-name="मिर्च chilli">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🌶️</div>
-<h3>मिर्च</h3>
-<p class="muted">Chilli</p>
-</div>
-
-<div class="card crop" data-name="गन्ना sugarcane">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🎋</div>
-<h3>गन्ना</h3>
-<p class="muted">Sugarcane</p>
-</div>
-
-<div class="card crop" data-name="मक्का maize">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">🌽</div>
-<h3>मक्का</h3>
-<p class="muted">Maize</p>
-</div>
-
-<div class="card crop" data-name="कपास cotton">
-<button class="fav" onclick="favorite(this)">♡</button>
-<div class="icon">☁️</div>
-<h3>कपास</h3>
-<p class="muted">Cotton</p>
-</div>
-
-</div>
-
-
-<!-- TOOLS -->
-
-<div class="title" id="tools">
-<h2>🛠️ Smart Farming Tools</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>💧 Water Planner</h3>
-<p class="muted">फसल और खेत के अनुसार पानी planning के लिए basic tool.</p>
-
-<label>फसल</label>
-<select id="waterCrop">
-<option>गेहूं</option>
-<option>धान</option>
-<option>आलू</option>
-<option>मक्का</option>
-<option>सब्जियां</option>
-</select>
-
-<label>खेत का क्षेत्रफल (एकड़)</label>
-<input type="number" id="area" placeholder="जैसे 2">
-
-<button class="btn" onclick="waterPlan()">Calculate</button>
-<div id="waterResult" class="result"></div>
-</div>
-
-
-<div class="card">
-<h3>🌱 Seed Calculator</h3>
-<p class="muted">क्षेत्रफल के आधार पर एक सामान्य seed estimate.</p>
-
-<label>क्षेत्रफल (एकड़)</label>
-<input type="number" id="seedArea" placeholder="जैसे 2">
-
-<label>Seed rate (kg/acre)</label>
-<input type="number" id="seedRate" value="40">
-
-<button class="btn" onclick="seedCalc()">Calculate</button>
-<div id="seedResult" class="result"></div>
-</div>
-
-
-<div class="card">
-<h3>📍 My Region</h3>
-<p class="muted">अपना राज्य चुनें।</p>
-
-<select id="state" onchange="regionInfo()">
-<option value="">राज्य चुनें</option>
-<option>Uttar Pradesh</option>
-<option>Punjab</option>
-<option>Haryana</option>
-<option>Madhya Pradesh</option>
-<option>Rajasthan</option>
-<option>Bihar</option>
-</select>
-
-<div id="regionResult" class="result"></div>
-</div>
-
-</div>
-
-
-<!-- CALENDAR -->
-
-<div class="title">
-<h2>📅 Crop Calendar</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>🌧️ खरीफ</h3>
-<p class="muted">धान, मक्का, सोयाबीन, कपास आदि।</p>
-</div>
-
-<div class="card">
-<h3>❄️ रबी</h3>
-<p class="muted">गेहूं, चना, सरसों, मटर आदि।</p>
-</div>
-
-<div class="card">
-<h3>☀️ जायद</h3>
-<p class="muted">तरबूज, खरबूजा, कुछ सब्जियां आदि।</p>
-</div>
-
-</div>
-
-
-<!-- PEST LIBRARY -->
-
-<div class="title">
-<h2>🐛 Pest & Problem Library</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>🐛 Aphids</h3>
-<p class="muted">पत्तियों पर छोटे कीड़े दिखाई दे सकते हैं। पौधे की नियमित जांच करें।</p>
-</div>
-
-<div class="card">
-<h3>🍂 Leaf Spot</h3>
-<p class="muted">पत्तियों पर धब्बे दिखाई दे सकते हैं। कारण की पुष्टि विशेषज्ञ से करें।</p>
-</div>
-
-<div class="card">
-<h3>🌿 Yellow Leaves</h3>
-<p class="muted">पानी, पोषक तत्व या अन्य कारण हो सकते हैं। केवल फोटो देखकर निश्चित diagnosis न करें।</p>
-</div>
-
-</div>
-
-
-<!-- DIARY -->
-
-<div class="title" id="diary">
-<h2>📔 My Farm Diary</h2>
-<p>अपने खेत के काम लिखें</p>
-</div>
-
-<div class="section-box">
-
-<label>आज क्या काम किया?</label>
-<textarea id="diaryText" placeholder="जैसे: गेहूं की सिंचाई की..."></textarea>
-
-<button class="btn" onclick="saveDiary()">💾 Save Note</button>
-<button class="btn2" onclick="clearDiary()">Clear</button>
-
-<div id="diaryOutput" style="margin-top:20px"></div>
-
-</div>
-
-
-<!-- ALERT -->
-
-<div class="title">
-<h2>🔔 Farm Reminder</h2>
-</div>
-
-<div class="section-box">
-
-<input id="reminder" placeholder="Reminder लिखें...">
-
-<button class="btn" onclick="saveReminder()">🔔 Save Reminder</button>
-
-<div id="reminderList" style="margin-top:20px"></div>
-
-</div>
-
-
-<!-- WEATHER -->
-
-<div class="title">
-<h2>🌦️ Weather</h2>
-</div>
-
-<div class="section-box">
-<h3>Live Weather</h3>
-<p class="muted">
-यहाँ live weather दिखाने के लिए बाद में किसी वास्तविक weather service/API को जोड़ना होगा।
-अभी website कोई fake weather data नहीं दिखाती।
-</p>
-</div>
-
-
-<!-- TIPS -->
-
-<div class="title">
-<h2>🌱 Farming Tips</h2>
-</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>💧 पानी</h3>
-<p class="muted">फसल की जरूरत और मिट्टी की स्थिति देखकर सिंचाई करें।</p>
-</div>
-
-<div class="card">
-<h3>🌱 मिट्टी</h3>
-<p class="muted">Soil testing से nutrient management बेहतर किया जा सकता है।</p>
-</div>
-
-<div class="card">
-<h3>👀 निगरानी</h3>
-<p class="muted">फसल को नियमित देखें और समस्या जल्दी पहचानने की कोशिश करें।</p>
-</div>
-
-</div>
-
-
-<!-- ABOUT -->
-
-<div class="title" id="about">
-<h2>ℹ️ About FasalNazar</h2>
-</div>
-
-<div class="section-box">
 <p>
-<b>FasalNazar 🌾</b> एक farming-focused website project है।
-इसका उद्देश्य किसानों और agriculture learners को फसल,
-खेती के tools और सामान्य farming information एक जगह उपलब्ध कराना है।
+इन tools को चलाने के लिए किसी paid API की जरूरत नहीं है।
 </p>
 
-<br>
+</div>
 
-<p class="muted">
-Important: Crop Doctor अभी वास्तविक AI diagnosis नहीं करता।
-किसी गंभीर फसल समस्या के लिए स्थानीय कृषि विशेषज्ञ/कृषि विभाग से पुष्टि करें।
+
+<div class="grid">
+
+
+<div class="card">
+
+<div class="icon">🌱</div>
+
+<h3>
+Crop Symptom Helper
+</h3>
+
+<p>
+पत्तियों/फसल के सामान्य लक्षण चुनकर संभावित समस्या और सामान्य देखभाल देखें।
 </p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#doctor">
+खोलें
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌾</div>
+
+<h3>
+Seed Calculator
+</h3>
+
+<p>
+खेत के area और seed rate से अनुमानित बीज की मात्रा निकालें।
+</p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#seed">
+खोलें
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💧</div>
+
+<h3>
+Water Planner
+</h3>
+
+<p>
+फसल, area और सिंचाई की सामान्य planning के लिए calculator।
+</p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#water">
+खोलें
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📅</div>
+
+<h3>
+Crop Calendar
+</h3>
+
+<p>
+चुनिंदा फसलों की सामान्य बुवाई, बढ़वार और कटाई अवधि देखें।
+</p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#calendar">
+खोलें
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🐛</div>
+
+<h3>
+Pest & Problem Guide
+</h3>
+
+<p>
+सामान्य crop problems और सुरक्षित general prevention tips देखें।
+</p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#pests">
+खोलें
+</a>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📔</div>
+
+<h3>
+Farm Diary & Reminders
+</h3>
+
+<p>
+अपने मोबाइल में खेती के notes और reminders save करें।
+</p>
+
+<a class="btn" style="display:inline-block;margin-top:12px" href="#diary">
+खोलें
+</a>
+
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+<section id="doctor">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+🔍 Crop Symptom Helper
+</h2>
+
+<p>
+यह local rule-based helper है, real AI diagnosis नहीं।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="checks">
+
+<label>
+<input type="checkbox" value="yellow">
+पत्तियाँ पीली हो रही हैं
+</label>
+
+<label>
+<input type="checkbox" value="spots">
+पत्तियों पर धब्बे हैं
+</label>
+
+<label>
+<input type="checkbox" value="curl">
+पत्तियाँ मुड़ रही हैं
+</label>
+
+<label>
+<input type="checkbox" value="wilting">
+पौधा मुरझा रहा है
+</label>
+
+<label>
+<input type="checkbox" value="holes">
+पत्तियों में छेद/कुतरने के निशान हैं
+</label>
+
+</div>
+
+<button class="btn" style="margin-top:15px" onclick="symptomHelp()">
+समस्या देखें
+</button>
+
+<div id="symptomResult" class="result hidden">
+</div>
+
+<p class="notice" style="margin-top:14px">
+⚠️ किसी pesticide/chemical की मात्रा बिना स्थानीय कृषि विशेषज्ञ और product label की सलाह के तय न करें।
+</p>
+
 </div>
 
 </div>
+
+</section>
+
+
+<section id="seed">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+🌾 Seed Calculator
+</h2>
+
+<p>
+यह अनुमानित calculation है।
+</p>
+
+</div>
+
+
+<div class="card tool">
+
+<div>
+
+<label>
+खेत का area (hectare)
+</label>
+
+<input
+id="seedArea"
+type="number"
+min="0"
+step="0.01"
+placeholder="जैसे 1.5"
+>
+
+
+<label>
+Seed rate (kg/hectare)
+</label>
+
+<input
+id="seedRate"
+type="number"
+min="0"
+step="0.1"
+placeholder="जैसे 100"
+>
+
+
+<button
+class="btn"
+style="margin-top:14px"
+onclick="calcSeed()"
+>
+Calculate
+</button>
+
+</div>
+
+
+<div id="seedResult" class="result">
+Area और seed rate भरकर Calculate दबाएँ।
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="water">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+💧 Water Planner
+</h2>
+
+<p>
+यह अनुमानित water volume calculator है।
+</p>
+
+</div>
+
+
+<div class="card tool">
+
+<div>
+
+<label>
+Area (hectare)
+</label>
+
+<input
+id="waterArea"
+type="number"
+min="0"
+step="0.01"
+placeholder="जैसे 1"
+>
+
+
+<label>
+पानी की depth (mm)
+</label>
+
+<input
+id="waterDepth"
+type="number"
+min="0"
+step="1"
+placeholder="जैसे 30"
+>
+
+
+<button
+class="btn"
+style="margin-top:14px"
+onclick="calcWater()"
+>
+Calculate
+</button>
+
+</div>
+
+
+<div id="waterResult" class="result">
+1 hectare पर 1 mm पानी ≈ 10,000 litres होता है।
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="crops">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+🌱 Crop Library
+</h2>
+
+<p>
+फसल चुनें और सामान्य जानकारी देखें।
+</p>
+
+</div>
+
+
+<input
+class="search"
+id="cropSearch"
+oninput="renderCrops()"
+placeholder="🔎 फसल खोजें..."
+>
+
+
+<div class="crop-list" id="cropList">
+</div>
+
+
+<div
+id="cropInfo"
+class="card"
+style="margin-top:18px"
+>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="calendar">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+📅 Crop Calendar
+</h2>
+
+<p>
+सामान्य reference calendar।
+</p>
+
+</div>
+
+
+<div class="card" style="overflow:auto">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>फसल</th>
+<th>सामान्य बुवाई</th>
+<th>बढ़वार/देखभाल</th>
+<th>सामान्य कटाई</th>
+
+</tr>
+
+</thead>
+
+<tbody id="calendarBody">
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="pests">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+🐛 Pest & Problem Guide
+</h2>
+
+<p>
+सामान्य पहचान और prevention ideas।
+</p>
+
+</div>
+
+<div class="grid2" id="pestList">
+</div>
+
+</div>
+
+</section>
+
+
+<section id="soil">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+🌍 Soil Guide
+</h2>
+
+<p>
+मिट्टी की जांच के लिए soil test सबसे भरोसेमंद तरीका है।
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+🟤 दोमट मिट्टी
+</h3>
+
+<p>
+कई फसलों के लिए अच्छी मानी जाती है।
+जैविक पदार्थ और उचित जल निकास बनाए रखें।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+⚫ चिकनी मिट्टी
+</h3>
+
+<p>
+पानी रोकने की क्षमता अधिक हो सकती है।
+जल निकास पर ध्यान दें।
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🟡 रेतीली मिट्टी
+</h3>
+
+<p>
+पानी जल्दी निकल सकता है।
+सिंचाई और organic matter की planning महत्वपूर्ण हो सकती है।
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="diary">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+📔 Farm Diary & Reminders
+</h2>
+
+<p>
+Data आपके browser में localStorage में save होता है।
+</p>
+
+</div>
+
+
+<div class="grid2">
+
+
+<div class="card">
+
+<h3>
+आज का Note
+</h3>
+
+<label>
+Note
+</label>
+
+<textarea
+id="noteText"
+rows="5"
+placeholder="आज खेत में क्या किया?"
+></textarea>
+
+<button
+class="btn"
+style="margin-top:12px"
+onclick="saveNote()"
+>
+Save Note
+</button>
+
+<div
+id="notes"
+style="margin-top:15px"
+></div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+⏰ Reminder
+</h3>
+
+<label>
+काम
+</label>
+
+<input
+id="remText"
+placeholder="जैसे सिंचाई check करना"
+>
+
+<label>
+तारीख
+</label>
+
+<input
+id="remDate"
+type="date"
+>
+
+<button
+class="btn"
+style="margin-top:12px"
+onclick="saveReminder()"
+>
+Save Reminder
+</button>
+
+<div
+id="reminders"
+style="margin-top:15px"
+></div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+⭐ Favorites
+</h2>
+
+<p>
+आपकी पसंदीदा फसलें इसी browser में save होती हैं।
+</p>
+
+</div>
+
+<div class="card" id="favorites">
+</div>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>
+ℹ️ FasalNazar के बारे में
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<p>
+FasalNazar एक simple, free farming information website है।
+इसका उद्देश्य किसानों और students को basic farming tools और सामान्य जानकारी एक जगह देना है।
+</p>
+
+<p style="margin-top:10px">
+
+<b>महत्वपूर्ण:</b>
+Crop information सामान्य educational reference है।
+मौसम, रोग, कीट, खाद या pesticide के बारे में स्थानीय कृषि विशेषज्ञ,
+कृषि विभाग और product label की सलाह को प्राथमिकता दें।
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
 
 
 <footer>
-<div class="logo">
+
+<div class="container footer-grid">
+
+<div>
+
+<h2>
 🌾 FasalNazar
+</h2>
+
+<p>
+खेती की जानकारी, एक जगह।
+</p>
+
 </div>
-<p>Smart Farming • Better Decisions • Better Agriculture</p>
-<p>© 2026 FasalNazar</p>
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<p>
+<a href="#tools">Tools</a>
+</p>
+
+<p>
+<a href="#crops">Crops</a>
+</p>
+
+<p>
+<a href="#calendar">Calendar</a>
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Free by design
+</h3>
+
+<p>
+इस version में paid API या login dependency नहीं है।
+</p>
+
+</div>
+
+</div>
+
 </footer>
 
 
 <script>
 
-function toggleMenu(){
- document.getElementById("nav").classList.toggle("show");
+const crops=[
+
+{
+name:"गेहूं",
+emoji:"🌾",
+season:"रबी",
+soil:"अच्छी जल निकासी वाली दोमट मिट्टी",
+tip:"समय पर बुवाई और खेत में उचित नमी बनाए रखना महत्वपूर्ण है।"
+},
+
+{
+name:"धान",
+emoji:"🌾",
+season:"खरीफ",
+soil:"पानी उपलब्ध वाली उपयुक्त मिट्टी",
+tip:"सिंचाई और खरपतवार प्रबंधन पर ध्यान दें।"
+},
+
+{
+name:"आलू",
+emoji:"🥔",
+season:"रबी",
+soil:"भुरभुरी, अच्छी जल निकासी वाली मिट्टी",
+tip:"जलभराव से बचें और पौधों की नियमित निगरानी करें।"
+},
+
+{
+name:"सरसों",
+emoji:"🌼",
+season:"रबी",
+soil:"दोमट से हल्की मिट्टी",
+tip:"संतुलित पोषण और समय पर सिंचाई उपयोगी हो सकती है।"
+},
+
+{
+name:"टमाटर",
+emoji:"🍅",
+season:"क्षेत्र अनुसार",
+soil:"अच्छी जल निकासी वाली मिट्टी",
+tip:"पत्तियों और फलों की नियमित निगरानी करें।"
+},
+
+{
+name:"मिर्च",
+emoji:"🌶️",
+season:"क्षेत्र अनुसार",
+soil:"भुरभुरी और अच्छी drainage वाली मिट्टी",
+tip:"जलभराव से बचें और पौधों की जांच करते रहें।"
+},
+
+{
+name:"गन्ना",
+emoji:"🎋",
+season:"क्षेत्र अनुसार",
+soil:"गहरी, उपजाऊ मिट्टी",
+tip:"सिंचाई schedule और खरपतवार नियंत्रण पर ध्यान दें।"
+},
+
+{
+name:"मक्का",
+emoji:"🌽",
+season:"खरीफ/क्षेत्र अनुसार",
+soil:"अच्छी drainage वाली उपजाऊ मिट्टी",
+tip:"शुरुआती बढ़वार में खरपतवार नियंत्रण महत्वपूर्ण है।"
+},
+
+{
+name:"कपास",
+emoji:"🌿",
+season:"खरीफ",
+soil:"अच्छी drainage वाली मिट्टी",
+tip:"फसल की नियमित pest scouting करें।"
 }
 
-function toggleDark(){
- document.body.classList.toggle("dark");
- localStorage.setItem("dark",document.body.classList.contains("dark"));
-}
+];
 
-if(localStorage.getItem("dark")==="true"){
- document.body.classList.add("dark");
-}
 
-function changeLang(){
- alert("Hindi + English interface धीरे-धीरे expand किया जा सकता है।");
-}
+const calendar=[
 
-function previewImage(event){
- const file=event.target.files[0];
- const img=document.getElementById("preview");
+["गेहूं","अक्टूबर–दिसंबर","नमी, खरपतवार और पोषण की निगरानी","मार्च–अप्रैल"],
 
- if(file){
-  img.src=URL.createObjectURL(file);
-  img.style.display="block";
- }
-}
+["धान","जून–जुलाई","पानी/खरपतवार प्रबंधन","सितंबर–नवंबर"],
 
-function analyzeCrop(){
+["आलू","अक्टूबर–नवंबर","सिंचाई और पौधों की निगरानी","जनवरी–फरवरी"],
 
- const result=document.getElementById("scanResult");
+["सरसों","अक्टूबर–नवंबर","नमी और रोग/कीट निगरानी","फरवरी–मार्च"],
 
- result.style.display="block";
-
- result.innerHTML=
- `
- <b>🌱 Photo received</b><br><br>
- अभी यह website वास्तविक AI disease detection से connected नहीं है।
- <br><br>
- <b>क्या करें?</b>
- <ul class="list">
- <li>पत्तियों और तने को ध्यान से देखें।</li>
- <li>पानी और मिट्टी की स्थिति जांचें।</li>
- <li>समस्या ज्यादा हो तो कृषि विशेषज्ञ से पुष्टि करें।</li>
- </ul>
- `;
-}
-
-function selectTab(btn,type){
- document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
- btn.classList.add("active");
-}
-
-function searchCrops(){
-
- const q=document.getElementById("cropSearch").value.toLowerCase();
-
- document.querySelectorAll(".crop").forEach(c=>{
-  c.style.display=c.dataset.name.includes(q)?"block":"none";
- });
-}
-
-function favorite(btn){
-
- if(btn.innerText==="♡"){
-  btn.innerText="♥";
-  localStorage.setItem("fav_"+btn.parentElement.dataset.name,"yes");
- }else{
-  btn.innerText="♡";
-  localStorage.removeItem("fav_"+btn.parentElement.dataset.name);
- }
-}
-
-function seedCalc(){
-
- const area=parseFloat(document.getElementById("seedArea").value);
- const rate=parseFloat(document.getElementById("seedRate").value);
- const result=document.getElementById("seedResult");
-
- if(!area || !rate){
-  alert("कृपया दोनों values भरें");
-  return;
- }
-
- result.style.display="block";
- result.innerHTML="<b>🌱 Estimated Seed:</b> "+(area*rate)+" kg";
-}
-
-function waterPlan(){
-
- const area=parseFloat(document.getElementById("area").value);
- const crop=document.getElementById("waterCrop").value;
- const result=document.getElementById("waterResult");
-
- if(!area){
-  alert("क्षेत्रफल भरें");
-  return;
- }
-
- result.style.display="block";
- result.innerHTML=
- "💧 "+crop+" के लिए "+area+
- " acre क्षेत्र चुना गया है। वास्तविक irrigation quantity मिट्टी, मौसम और crop stage पर निर्भर करती है।";
-}
-
-function regionInfo(){
-
- const state=document.getElementById("state").value;
- const result=document.getElementById("regionResult");
-
- if(!state){
-  result.style.display="none";
-  return;
- }
-
- result.style.display="block";
-
- const data={
-  "Uttar Pradesh":"गेहूं, धान, गन्ना, आलू और सरसों प्रमुख crops में शामिल हैं।",
-  "Punjab":"गेहूं और धान प्रमुख crops में शामिल हैं।",
-  "Haryana":"गेहूं, धान, सरसों और बाजरा प्रमुख crops में शामिल हैं।",
-  "Madhya Pradesh":"सोयाबीन, गेहूं, चना आदि प्रमुख crops में शामिल हैं।",
-  "Rajasthan":"बाजरा, गेहूं, सरसों और चना आदि प्रमुख crops में शामिल हैं।",
-  "Bihar":"धान, गेहूं, मक्का और दलहन आदि प्रमुख crops में शामिल हैं।"
- };
-
- result.innerHTML="<b>"+state+"</b><br>"+data[state];
-}
-
-function saveDiary(){
-
- const text=document.getElementById("diaryText").value.trim();
-
- if(!text){
-  alert("पहले note लिखें");
-  return;
- }
-
- localStorage.setItem("farmDiary",text);
- showDiary();
-}
-
-function showDiary(){
-
- const text=localStorage.getItem("farmDiary");
-
- if(text){
-  document.getElementById("diaryOutput").innerHTML=
-  "<div class='result' style='display:block'><b>📔 Saved Note</b><br>"+text+"</div>";
- }
-}
-
-function clearDiary(){
-
- localStorage.removeItem("farmDiary");
- document.getElementById("diaryText").value="";
- document.getElementById("diaryOutput").innerHTML="";
-}
-
-showDiary();
-
-function saveReminder(){
-
- const text=document.getElementById("reminder").value.trim();
-
- if(!text){
-  alert("Reminder लिखें");
-  return;
- }
-
- let reminders=JSON.parse(localStorage.getItem("reminders")||"[]");
-
- reminders.push(text);
-
- localStorage.setItem("reminders",JSON.stringify(reminders));
-
- document.getElementById("reminder").value="";
-
- showReminders();
-}
-
-function deleteReminder(index){
-
- let reminders=JSON.parse(localStorage.getItem("reminders")||"[]");
-
- reminders.splice(index,1);
-
- localStorage.setItem("reminders",JSON.stringify(reminders));
-
- showReminders();
-}
-
-function showReminders(){
-
- let reminders=JSON.parse(localStorage.getItem("reminders")||"[]");
-
- let html="";
-
- reminders.forEach((r,i)=>{
-  html+=`
-  <div class="card" style="margin-top:10px">
-  🔔 ${r}
-  <button class="btn2" onclick="deleteReminder(${i})">Delete</button>
-  </div>`;
- });
-
- document.getElementById("reminderList").innerHTML=html;
-}
-
-showReminders();
-
-function shareSite(){
-
- if(navigator.share){
-
-  navigator.share({
-   title:"FasalNazar 🌾",
-   text:"FasalNazar - Smart Farming Website",
-   url:location.href
-  });
-
- }else{
-
-  navigator.clipboard.writeText(location.href);
-  alert("Website link copied!");
- }
-}
-
-</script>
-
-</body>
-  </html>
+["मक्का","क्षेत्र/मौसम अनुसार","खरपतवार और नमी प्रबंधन","मौ
