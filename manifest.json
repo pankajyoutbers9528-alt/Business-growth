@@ -1,0 +1,10 @@
+{
+  "name": "FasalNazar",
+  "short_name": "FasalNazar",
+  "description": "Free Farming Assistant",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4faf5",
+  "theme_color": "#16823b",
+  "orientation": "portrait"
+}
