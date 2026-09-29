@@ -1,10 +1,11 @@
 {
   "name": "FasalNazar",
   "short_name": "FasalNazar",
-  "description": "Free Farming Assistant",
+  "description": "किसानों के लिए मुफ्त खेती सहायक",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f4faf5",
-  "theme_color": "#16823b",
-  "orientation": "portrait"
+  "theme_color": "#168a45",
+  "orientation": "portrait",
+  "icons": []
 }
