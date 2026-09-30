@@ -1,4 +1,3 @@
-{
   "name": "FasalNazar",
   "short_name": "FasalNazar",
   "description": "किसानों के लिए मुफ्त खेती सहायक",
@@ -6,6 +5,5 @@
   "display": "standalone",
   "background_color": "#f4faf5",
   "theme_color": "#168a45",
-  "orientation": "portrait",
-  "icons": []
+  "orientation": "portrait"
 }
